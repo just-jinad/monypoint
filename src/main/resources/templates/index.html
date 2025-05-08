@@ -1,0 +1,4734 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=6,user-scalable=yes"
+    />
+    <title>
+      Business Banking - Business Banking Solutions | Moniepoint MFB
+    </title>
+    <meta
+      name="description"
+      content="Moniepoint Business banking helps you grow your business. From working capital loans, POS machines and business expense management, we provide complete banking solutions."
+    />
+    <meta name="image" content="/business/hero.png" />
+    <meta
+      name="keywords"
+      content="moniepoint,moniepoint pos,financial inclusion,"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://moniepoint.com/ng/business" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://moniepoint.com" />
+    <meta
+      name="twitter:title"
+      content="Business Banking - Business Banking Solutions | Moniepoint MFB"
+    />
+    <meta
+      name="twitter:desc"
+      content="Moniepoint Business banking helps you grow your business. From working capital loans, POS machines and business expense management, we provide complete banking solutions."
+    />
+    <meta
+      name="twitter:description"
+      content="Moniepoint Business banking helps you grow your business. From working capital loans, POS machines and business expense management, we provide complete banking solutions."
+    />
+    <meta name="twitter:image" content="/business/hero.png" />
+    <meta
+      property="og:title"
+      content="Business Banking - Business Banking Solutions | Moniepoint MFB"
+    />
+    <meta
+      property="og:desc"
+      content="Moniepoint Business banking helps you grow your business. From working capital loans, POS machines and business expense management, we provide complete banking solutions."
+    />
+    <meta
+      property="og:description"
+      content="Moniepoint Business banking helps you grow your business. From working capital loans, POS machines and business expense management, we provide complete banking solutions."
+    />
+    <meta property="og:image" content="/business/hero.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="Moniepoint Inc." />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Moniepoint Nigeria",
+        "description": "We are a financial services company based in Nigeria, offering a range of business banking services including business accounts, business loans, pos terminal machines, expense cards, and more.",
+        "image": "https://moniepoint.com/static/MFB-667f089014bfae5d706fc620b07be2e0.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "12, Wole Ariyo Street.",
+          "addressLocality": "Lekki Phase 1",
+          "addressRegion": "Lagos",
+          "postalCode": "106104",
+          "addressCountry": "NG"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 6.443,
+          "longitude": 3.45908
+        },
+        "url": "https://moniepoint.com/ng/",
+        "telephone": "+01 888 9990",
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        },
+        "sameAs": [
+          "https://www.facebook.com/Moniepointng/",
+          "https://instagram.com/moniepointng",
+          "https://twitter.com/moniepointng",
+          "https://www.linkedin.com/showcase/moniepoint/"
+        ]
+      }
+    </script>
+    <link
+      rel="preload"
+      as="image"
+      href="/business/hero-sub.png"
+      fetchpriority="high"
+    />
+    <meta name="next-head-count" content="23" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="author" content="Love Akinlesi" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="x-dns-prefetch-control" content="off" />
+    <meta http-equiv="Window-Target" content="_value" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Moniepoint Inc." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Moniepoint Inc." />
+    <meta name="p:domain_verify" content="32c7ec8070082a4138c45e8a00c08e78" />
+    <link rel="manifest" href="/manifest.json" />
+    <link href="/icon.svg" rel="icon" type="image/svg" sizes="16x16" />
+    <link rel="apple-touch-icon" href="/icon.svg" />
+    <meta name="theme-color" content="#0357EE" />
+    <meta name="msapplication-TileColor" content="#0357EE" />
+    <link rel="mask-icon" href="/icon.svg" color="#0357EE" />
+    <link rel="preload" href="https://rsms.me/inter/inter.css" as="style" />
+    <link
+      as="font"
+      rel="preload"
+      type="font/woff2"
+      href="/fonts/AventaVariable.woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      as="font"
+      rel="preload"
+      type="font/woff2"
+      href="/fonts/AventaItalicVariable.woff2"
+      crossorigin="anonymous"
+    />
+    <script id="gtm" data-nscript="beforeInteractive">
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-5WMJ5LZ");
+    </script>
+    <script
+      defer
+      nomodule=""
+      src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"
+    ></script>
+    <script data-partytown-config="">
+      partytown = {
+        lib: "/_next/static/~partytown/",
+      };
+    </script>
+    <script data-partytown="">
+      !(function (w, p, f, c) {
+        c = w[p] = w[p] || {};
+        c[f] = c[f] || [];
+      })(window, "partytown", "forward"); /* Partytown 0.7.6 - MIT builder.io */
+      !(function (t, e, n, i, r, o, a, d, s, c, p, l) {
+        function u() {
+          l ||
+            ((l = 1),
+            "/" ==
+              (a = (o.lib || "/~partytown/") + (o.debug ? "debug/" : ""))[0] &&
+              ((s = e.querySelectorAll('script[type="text/partytown"]')),
+              i != t
+                ? i.dispatchEvent(new CustomEvent("pt1", { detail: t }))
+                : ((d = setTimeout(f, 1e4)),
+                  e.addEventListener("pt0", w),
+                  r
+                    ? h(1)
+                    : n.serviceWorker
+                    ? n.serviceWorker
+                        .register(a + (o.swPath || "partytown-sw.js"), {
+                          scope: a,
+                        })
+                        .then(function (t) {
+                          t.active
+                            ? h()
+                            : t.installing &&
+                              t.installing.addEventListener(
+                                "statechange",
+                                function (t) {
+                                  "activated" == t.target.state && h();
+                                }
+                              );
+                        }, console.error)
+                    : f())));
+        }
+        function h(t) {
+          (c = e.createElement(t ? "script" : "iframe")),
+            t ||
+              (c.setAttribute(
+                "style",
+                "display:block;width:0;height:0;border:0;visibility:hidden"
+              ),
+              c.setAttribute("aria-hidden", !0)),
+            (c.src =
+              a +
+              "partytown-" +
+              (t ? "atomics.js?v=0.7.6" : "sandbox-sw.html?" + Date.now())),
+            e.body.appendChild(c);
+        }
+        function f(n, r) {
+          for (
+            w(),
+              i == t &&
+                (o.forward || []).map(function (e) {
+                  delete t[e.split(".")[0]];
+                }),
+              n = 0;
+            n < s.length;
+            n++
+          )
+            ((r = e.createElement("script")).innerHTML = s[n].innerHTML),
+              e.head.appendChild(r);
+          c && c.parentNode.removeChild(c);
+        }
+        function w() {
+          clearTimeout(d);
+        }
+        (o = t.partytown || {}),
+          i == t &&
+            (o.forward || []).map(function (e) {
+              (p = t),
+                e.split(".").map(function (e, n, i) {
+                  p = p[i[n]] =
+                    n + 1 < i.length
+                      ? "push" == i[n + 1]
+                        ? []
+                        : p[i[n]] || {}
+                      : function () {
+                          (t._ptf = t._ptf || []).push(i, arguments);
+                        };
+                });
+            }),
+          "complete" == e.readyState
+            ? u()
+            : (t.addEventListener("DOMContentLoaded", u),
+              t.addEventListener("load", u));
+      })(window, document, navigator, top, window.crossOriginIsolated);
+    </script>
+    <script defer src="/_next/static/chunks/6695.884848a3d1aa3f87.js"></script>
+    <script defer src="/_next/static/chunks/4884.c4b9f007d2a08dae.js"></script>
+    <script defer src="/_next/static/chunks/5028.aa47ad1348af3868.js"></script>
+    <script defer src="/_next/static/chunks/3775.7863d44d7b90f36a.js"></script>
+    <script
+      src="/_next/static/chunks/webpack-e4c6f335d3def9e3.js"
+      defer
+    ></script>
+    <script
+      src="/_next/static/chunks/framework-0a897eab13466586.js"
+      defer
+    ></script>
+    <script src="/_next/static/chunks/main-845a13ca63f4cd46.js" defer></script>
+    <script
+      src="/_next/static/chunks/pages/_app-03c00fb1a43faf61.js"
+      defer
+    ></script>
+    <script
+      src="/_next/static/chunks/d3a2d874-a20c40411dbffdbf.js"
+      defer
+    ></script>
+    <script
+      src="/_next/static/chunks/b66dbba2-a6ff33bc018666e9.js"
+      defer
+    ></script>
+    <script src="/_next/static/chunks/7129-fcde4e51d121c718.js" defer></script>
+    <script src="/_next/static/chunks/7882-5df51fb0282d2a0c.js" defer></script>
+    <script src="/_next/static/chunks/514-cadc1722768454e0.js" defer></script>
+    <script src="/_next/static/chunks/79-72ccd79b7001207a.js" defer></script>
+    <script src="/_next/static/chunks/3217-c384d72847054c61.js" defer></script>
+    <script
+      src="/_next/static/chunks/pages/ng/business-37d17d1431e16164.js"
+      defer
+    ></script>
+    <script
+      src="/_next/static/1U1NXc0bTtvNWMKKqkFXb/_buildManifest.js"
+      defer
+    ></script>
+    <script
+      src="/_next/static/1U1NXc0bTtvNWMKKqkFXb/_ssgManifest.js"
+      defer
+    ></script>
+    <style>
+      a,
+      body,
+      dd,
+      div,
+      dl,
+      dt,
+      footer,
+      h1,
+      h2,
+      h3,
+      h4,
+      h6,
+      header,
+      html,
+      img,
+      li,
+      p,
+      section,
+      span,
+      strong,
+      ul {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      footer,
+      header,
+      section {
+        display: block;
+      }
+      body {
+        line-height: 1;
+      }
+      ul {
+        list-style: none;
+      }
+      *,
+      :after,
+      :before {
+        box-sizing: border-box;
+      }
+      [role="button"],
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      [role="button"],
+      a,
+      button {
+        color: inherit;
+        outline: none;
+      }
+      a {
+        text-decoration: none;
+      }
+      :root {
+        --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+        --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+        --ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+        --ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+        --ease-in-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+        --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+        --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+        --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+        --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+        --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+        --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+        --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+        --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+        --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        --white: #fff;
+        --primary-white: #fff;
+        --secondary-white: #f1f2f4;
+        --black: #000;
+        --primary-black: #030b1d;
+        --yellow: #f2d84b;
+        --primary-core-blue: #0357ee;
+        --primary-blue-2: #246df0;
+        --primary-dark-10: #0349c6;
+        --primary-dark-30: #022c77;
+        --primary-dark-50: #001732;
+        --primary-dark-blue: #031335;
+        --primary-light-blue: #b7cffa;
+        --primary-light-10: #3679f1;
+        --primary-light-40: #cfdffc;
+        --primary-light-50: #ecf2fe;
+        --dark-navy-dark-10: #081c48;
+        --dark-navy-dark-20: #030b1d;
+        --dark-navy-00: #092256;
+        --dark-navy-light-10: #3e588e;
+        --dark-navy-light-20: #8391af;
+        --dark-navy-light-30: #05112b;
+        --dark-navy-light-40: #c3c9d5;
+        --dark-navy-light-50: #f9fafb;
+        --secondary-dark-navy: #092256;
+        --secondary-light-blue: #c4e9fd;
+        --light-blue-00: #c4e9fd;
+        --light-blue-light-30: #edf8fe;
+        --light-blue-light-30: #e1f4fe;
+        --light-blue-light-40: #ebf8fe;
+        --light-blue-light-50: #f3fbff;
+        --light-grey-100: #dcdfe6;
+        --light-grey: #d9dce3;
+        --light-grey-10: #dcdfe638;
+        --text-secondary: #8490aa;
+        --text-secondary-2: #3b4454;
+        --light-yellow-00: #fff0c2;
+        --light-yellow-dark-40: #555041;
+        --border-radius: 32px;
+        --tile-header-min-height: 90px;
+        --tile-container-min-height: 600px;
+        --96px: max(9rem, 96px);
+        --90px: max(8.4rem, 90px);
+        --88px: max(8.2rem, 88px);
+        --80px: max(8rem, 80px);
+        --48px: max(4.8rem, 36px);
+        --46px: max(4.4rem, 32px);
+        --40px: max(4.2rem, 30px);
+        --32px: max(3.2rem, 28px);
+        --28px: max(2.8rem, 24px);
+        --20px: max(2rem, 20px);
+        --24px: max(2.4rem, 20px);
+        --18px: max(1.8rem, 18px);
+        --16px: max(1.6rem, 14px);
+        --14px: max(1.4rem, 12px);
+        --12px: max(1.2rem, 8px);
+        --10px: max(1rem, 8px);
+        --8px: max(0.8rem, 6px);
+        --4px: max(0.4rem, 4px);
+        --pbl: max(40px, 8rem);
+        --gutter: max(20px, 2.5rem);
+        --header-main: max(8.8rem, 64px);
+        --mb-sub: clamp(42px, 20rem, 60px);
+        --header-sub: max(5.4rem, 50px);
+        --inter: "Inter", sans-serif;
+        --aventa: "Aventa", sans-serif;
+        --aventa-bold: "Aventa-Bold", sans-serif;
+        --aventa-black: "Aventa-Black", sans-serif;
+        --aventa-extrabold: "Aventa-ExtraBold", sans-serif;
+        --aventa-semibold: "Aventa-SemiBold", sans-serif;
+        --aventa-medium: "Aventa-Medium", sans-serif;
+        --aventa-italic: "Aventa Italic", sans-serif;
+        --generalsans-semibold: "GeneralSans-Semibold", sans-serif;
+      }
+      @media (max-width: 375px) {
+        :root {
+          --gutter: 15px;
+        }
+      }
+      .hide {
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .hide {
+        transition: opacity 0.75s var(--ease-out-expo);
+      }
+      body,
+      html {
+        width: 100%;
+        min-height: 100%;
+        -ms-scroll-chaining: none;
+        overscroll-behavior: none;
+        scroll-behavior: auto;
+        font-family: Inter, sans-serif;
+      }
+      @supports (font-variation-settings: normal) {
+        body,
+        html {
+          font-family: Inter var, sans-serif;
+        }
+      }
+      html {
+        overflow-x: hidden;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        font-size: min(10px, 0.6944444444vw);
+        line-height: 1;
+      }
+      html::-webkit-scrollbar {
+        display: none;
+      }
+      body {
+        background-color: var(--white);
+        color: var(--black);
+      }
+      .Image_img__YuzBP {
+        aspect-ratio: var(--width) / var(--height);
+        -o-object-fit: cover;
+        object-fit: cover;
+        height: auto;
+      }
+      .marquee_marquee___m7PH {
+        display: flex;
+        overflow: hidden;
+        will-change: transform;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .marquee_marquee___m7PH {
+          --duration: 70s !important;
+        }
+      }
+      .marquee_marquee___m7PH .marquee_inner__lo_f7 {
+        display: flex;
+        white-space: nowrap;
+        animation: marquee_marquee___m7PH var(--duration) linear infinite;
+        animation-play-state: var(--animation-status);
+      }
+      @keyframes marquee_marquee___m7PH {
+        0% {
+          transform: translate3d(calc(var(--offset) * -1), 0, 0);
+        }
+        to {
+          transform: translate3d(calc(-100% - var(--offset)), 0, 0);
+        }
+      }
+      .button_button__sZpAi {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      .button_button__sZpAi {
+        font-size: max(14px, 1.6rem);
+        font-weight: 500;
+        line-height: 140%;
+        gap: var(--12px);
+        height: max(5.6rem, 40px);
+        width: -moz-fit-content;
+        width: fit-content;
+        padding: var(--12px) var(--24px);
+        border-radius: var(--12px);
+        transition: all 0.5s var(--ease-out-expo);
+      }
+      .button_button__sZpAi:hover {
+        transform: scale(0.95);
+        filter: contrast(0.9);
+      }
+      .button_button__sZpAi.button_primary__VTFVG {
+        color: var(--white);
+        background: var(--primary-core-blue);
+      }
+      .button_button__sZpAi.button_white__ubN_I {
+        color: var(--primary-core-blue);
+        background: var(--white);
+      }
+      .button_button__sZpAi.button_yellow__nnAGE {
+        color: var(--primary-dark-blue);
+        background: var(--light-yellow-00);
+      }
+      .button_button__sZpAi.button_secondary__IHtjT {
+        color: var(--secondary-dark-navy);
+        background: var(--light-blue-00);
+      }
+      .blog_blog-item-hd__XFraQ {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .blog_blog-item-hd__XFraQ p {
+        font-size: max(13px, 1.4rem);
+      }
+      .blog_blog-item-hd__XFraQ h6,
+      .blog_blog-item-p__LJ_pm {
+        font-size: max(14px, 1.6rem);
+      }
+      .blog_blog-item-h4__gFZrF {
+        font-size: max(16px, 2.4rem);
+      }
+      .blog_blog-item__HNYet img {
+        border-radius: var(--12px);
+        width: 100%;
+      }
+      .blog_blog-item-div__O9Vrf {
+        width: 100%;
+      }
+      .blog_blog-item-hd__XFraQ {
+        margin-block: max(1.6rem, 12px);
+      }
+      .blog_blog-item-hd__XFraQ h6 {
+        color: var(--primary-core-blue);
+        font-weight: 400;
+        line-height: 133.6%;
+        letter-spacing: -0.064rem;
+      }
+      .blog_blog-item-hd__XFraQ p {
+        color: #909cab;
+        font-weight: 500;
+        line-height: 133.6%;
+        letter-spacing: -0.056rem;
+      }
+      .blog_blog-item-h4__gFZrF {
+        color: var(--secondary-dark-navy);
+        font-family: var(--aventa-bold);
+        font-weight: 400;
+        line-height: 121.6%;
+        letter-spacing: -0.036rem;
+        margin-bottom: var(--24px);
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+      }
+      .blog_blog-item-p__LJ_pm {
+        color: #4d5865;
+        font-weight: 500;
+        line-height: 133.6%;
+        letter-spacing: -0.032rem;
+      }
+      .open-account_open__Bz3JY img {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+      .open-account_open-container__EkfgH {
+        width: 100vw;
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+        max-width: calc(1406px + var(--gutter) * 2);
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      .open-account_open-container__EkfgH a {
+        font-size: max(16px, 1.8rem);
+      }
+      .open-account_open__Bz3JY {
+        background: var(--primary-core-blue);
+        position: relative;
+      }
+      .open-account_open-container__EkfgH {
+        position: relative;
+        flex-direction: column;
+        padding-block: max(60px, 10rem);
+        width: max(73.7rem, 600px);
+      }
+      @media (max-width: 768px) {
+        .open-account_open-container__EkfgH {
+          width: 100%;
+        }
+      }
+      .open-account_open-container__EkfgH h2 {
+        font-family: var(--aventa-bold);
+        color: var(--primary-white);
+        text-align: center;
+        font-size: max(26px, 4rem);
+        font-weight: 400;
+        line-height: 112%;
+        margin-bottom: max(0.8rem, 8px);
+      }
+      .open-account_open-container__EkfgH a {
+        height: max(6.4rem, 48px);
+        margin-top: max(4rem, 30px);
+      }
+      .benefits_benefits-container__CRzPf {
+        width: 100vw;
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+        max-width: calc(1406px + var(--gutter) * 2);
+      }
+      .benefits_benefit__HP0KH p {
+        font-size: max(16px, 2rem);
+      }
+      .benefits_benefit__HP0KH h3,
+      .benefits_benefits-header__u877Y p {
+        font-size: max(16px, 2.4rem);
+      }
+      .benefits_benefits__k1Ewe {
+        padding-block: max(20rem, 40px);
+      }
+      .benefits_benefits-header__u877Y {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-gap: max(2.4rem, 14px);
+        gap: max(2.4rem, 14px);
+        margin-bottom: max(4rem, 20px);
+      }
+      @media (max-width: 992px) {
+        .benefits_benefits-header__u877Y {
+          grid-template-columns: 1fr;
+        }
+      }
+      .benefits_benefits-header__u877Y h2 {
+        color: var(--dark-navy-00);
+        font-family: var(--aventa-extrabold);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 112%;
+      }
+      .benefits_benefits-header__u877Y p {
+        color: var(--dark-navy-light-10);
+        font-weight: 500;
+        line-height: 131.523%;
+        letter-spacing: -0.06rem;
+        width: max(34.3rem, 250px);
+      }
+      .benefits_benefits-list__jE4yy {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(max(35rem, 300px), 1fr));
+        grid-gap: max(2.4rem, 14px);
+        gap: max(2.4rem, 14px);
+      }
+      @media (max-width: 600px) {
+        .benefits_benefits-list__jE4yy {
+          grid-template-columns: 1fr;
+        }
+      }
+      .benefits_benefit__HP0KH {
+        padding: max(4rem, 20px) max(4rem, 20px) max(7.7rem, 40px);
+        border-radius: var(--16px);
+        border: 1px solid var(--light-blue-light-30);
+        background: var(--white);
+      }
+      .benefits_benefit__HP0KH img {
+        margin-bottom: max(4rem, 20px);
+      }
+      .benefits_benefit__HP0KH h3 {
+        color: var(--primary-dark-blue);
+        font-family: var(--aventa-extrabold);
+        font-weight: 400;
+        line-height: 138%;
+        margin-bottom: max(1.6rem, 12px);
+      }
+      .benefits_benefit__HP0KH p {
+        color: var(--dark-navy-light-10);
+        font-weight: 500;
+        line-height: 131.523%;
+        letter-spacing: -0.05rem;
+      }
+      .download_download-container__c9sZ0 {
+        width: 100vw;
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+        max-width: calc(1406px + var(--gutter) * 2);
+      }
+      .download_download__YlYIy,
+      .download_download__YlYIy button {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      .download_download__YlYIy button p {
+        font-size: max(12px, 1.2rem);
+      }
+      .download_download__YlYIy button span {
+        font-size: max(14px, 1.6rem);
+      }
+      .download_download__YlYIy {
+        gap: max(2.4rem, 12px);
+      }
+      .download_download-container__c9sZ0 {
+        padding-block: max(8rem, 30px);
+      }
+      .download_download__YlYIy button {
+        text-align: left;
+        white-space: nowrap;
+        gap: var(--8px);
+        width: max(19.3rem, 160px);
+        padding: max(1.2rem, 8px) max(2.4rem, 14px) max(1.2rem, 8px)
+          max(1.6rem, 12px);
+        border-radius: max(1.2rem, 12px);
+        background: var(--dark-navy-00);
+      }
+      .download_download__YlYIy button img {
+        width: max(4rem, 32px);
+      }
+      .download_download__YlYIy button p {
+        color: var(--white);
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: -0.012rem;
+        margin-bottom: max(0.3rem, 2px);
+      }
+      .download_download__YlYIy button span {
+        color: var(--white);
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: -0.016rem;
+      }
+      .testimonies_testimonies-right-thumb__9Wj4_ div svg {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+      .testimonies_testimonies-container__ItlUH {
+        width: 100vw;
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+        max-width: calc(1406px + var(--gutter) * 2);
+      }
+      .testimonies_testimonies-right-thumb__9Wj4_ div {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      .testimonies_testimonies-nav__8qWdG,
+      .testimonies_testimonies-right-thumb__9Wj4_ {
+        display: flex;
+        align-items: center;
+      }
+      .testimonies_testimonies__wUdbJ {
+        background: var(--primary-white);
+        padding-block: max(10rem, 40px);
+      }
+      .testimonies_testimonies-container__ItlUH {
+        display: flex;
+        gap: max(10rem, 50px);
+      }
+      @media (max-width: 768px) {
+        .testimonies_testimonies-container__ItlUH {
+          flex-direction: column;
+        }
+      }
+      .testimonies_testimonies-nav__8qWdG button {
+        transition: all 0.5s var(--ease-out-expo);
+      }
+      .testimonies_testimonies-nav__8qWdG button:hover {
+        transform: scale(0.95);
+        filter: contrast(0.9);
+      }
+      .testimonies_testimonies-nav__8qWdG svg {
+        width: max(7.4rem, 40px);
+        height: auto;
+      }
+      .testimonies_testimonies-left__QWPS4 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: max(9.6rem, 40px);
+        width: max(39rem, 280px);
+        min-width: max(39rem, 280px);
+      }
+      @media (max-width: 768px) {
+        .testimonies_testimonies-left__QWPS4 {
+          width: 100%;
+        }
+      }
+      .testimonies_testimonies-left__QWPS4 header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 10px;
+      }
+      .testimonies_testimonies-left__QWPS4 header h2 {
+        color: var(--dark-navy-00);
+        font-family: var(--aventa-extrabold);
+        font-size: max(20px, 4rem);
+        font-weight: 400;
+        line-height: 112%;
+      }
+      .testimonies_testimonies-left-details__Es_9g > p {
+        color: var(--secondary-dark-navy);
+        font-size: max(14px, 1.8rem);
+        font-weight: 500;
+        line-height: 156%;
+        position: relative;
+      }
+      .testimonies_testimonies-left-details__Es_9g > p svg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translate(-30%, -50%);
+      }
+      @media (max-width: 768px) {
+        .testimonies_testimonies-left-details__Es_9g > p svg {
+          display: none;
+        }
+      }
+      .testimonies_testimonies-left-details-sub__kREAL {
+        padding-top: max(2.4rem, 24px);
+        margin-top: max(2.4rem, 24px);
+        border-top: 1px solid var(--dark-navy-light-40);
+      }
+      .testimonies_testimonies-left-details-sub__kREAL p {
+        color: var(--secondary-dark-navy);
+        font-size: max(12px, 1.6rem);
+        font-weight: 500;
+        line-height: 156%;
+      }
+      .testimonies_testimonies-left-details-sub__kREAL h2 {
+        color: var(--dark-navy-00);
+        font-family: var(--aventa-bold);
+        font-size: max(20px, 2rem);
+        font-weight: 400;
+        line-height: 140%;
+      }
+      .testimonies_testimonies-right__XjbMr {
+        width: 100%;
+      }
+      .testimonies_testimonies-right-img__Mfkr8 {
+        position: relative;
+      }
+      .testimonies_testimonies-right-img__Mfkr8 .testimonies_i__9idt2 {
+        aspect-ratio: 1.7777777778;
+        -o-object-fit: cover;
+        width: 100%;
+        height: auto;
+        border-radius: max(1.6rem, 12px);
+        object-fit: cover;
+      }
+      .testimonies_testimonies-right-img__Mfkr8 .testimonies_p__OqDOY {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: max(6.5rem, 50px);
+        height: max(6.5rem, 50px);
+        -o-object-fit: fill;
+        object-fit: fill;
+        transition: transform 0.5s var(--ease-out-expo);
+      }
+      .testimonies_testimonies-right-thumb__9Wj4_ {
+        justify-content: flex-end;
+        gap: max(10px, 2rem);
+        margin-bottom: max(4rem, 20px);
+      }
+      @media (max-width: 768px) {
+        .testimonies_testimonies-right-thumb__9Wj4_ {
+          justify-content: flex-start;
+        }
+      }
+      .testimonies_testimonies-right-thumb__9Wj4_ div {
+        position: relative;
+        width: max(8rem, 60px);
+        height: max(8rem, 60px);
+        padding: max(0.8rem, 5px);
+      }
+      .testimonies_testimonies-right-thumb__9Wj4_ div img {
+        border-radius: 100%;
+        width: 100%;
+      }
+      .get-started_start-main__o2AvU li .get-started_linem__jOCJv span,
+      .get-started_start-main__o2AvU
+        li
+        .get-started_lines__WmKJ3
+        .get-started_line__l6s_Q
+        span,
+      .get-started_start-top-img__bg3Ft img {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+      .get-started_start-top__HgnND {
+        width: 100vw;
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+        max-width: calc(1406px + var(--gutter) * 2);
+      }
+      .get-started_start-main__o2AvU li .get-started_lines__WmKJ3 p {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      .get-started_start-main__o2AvU li .get-started_lines__WmKJ3 {
+        display: flex;
+        align-items: center;
+      }
+      .get-started_start-main__o2AvU li .get-started_text__FnuZo p {
+        font-size: max(14px, 1.6rem);
+      }
+      .get-started_start-top-left__Wejdb p {
+        font-size: max(16px, 2.4rem);
+      }
+      .get-started_start___58DA {
+        overflow: clip !important;
+      }
+      .get-started_start-top__HgnND {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-gap: max(8rem, 30px);
+        gap: max(8rem, 30px);
+        height: min(100dvh - 60rem, 36rem);
+      }
+      @media (max-width: 992px) {
+        .get-started_start-top__HgnND {
+          display: flex;
+        }
+        .get-started_start-top-left__Wejdb {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+      .get-started_start-top-left__Wejdb h2 {
+        color: var(--dark-navy-00);
+        font-family: var(--aventa-bold);
+        font-size: max(28px, 4rem);
+        font-weight: 400;
+        line-height: 112%;
+        margin-bottom: max(1rem, 8px);
+      }
+      .get-started_start-top-left__Wejdb p {
+        color: var(--dark-navy-light-10);
+        font-weight: 500;
+        line-height: 147.023%;
+        letter-spacing: -0.06rem;
+      }
+      .get-started_start-top-img__bg3Ft {
+        aspect-ratio: 1.0383561644;
+        -o-object-fit: cover;
+        object-fit: cover;
+        width: auto;
+        height: min(100dvh - 60rem, 36rem);
+        border-radius: max(2.4rem, 16px);
+        position: relative;
+      }
+      @media (max-width: 992px) {
+        .get-started_start-top-img__bg3Ft {
+          display: none;
+        }
+      }
+      .get-started_start-top-img__bg3Ft img {
+        -o-object-fit: contain;
+        object-fit: contain;
+      }
+      .get-started_start-main__o2AvU {
+        padding-left: calc(var(--gutter) + var(--pl) + 25%);
+        display: flex;
+        gap: max(6.4rem, 30px);
+        margin-top: max(6.4rem, 30px);
+      }
+      @media (max-width: 992px) {
+        .get-started_start-main__o2AvU {
+          flex-direction: column;
+          padding-inline: var(--gutter);
+          gap: 0;
+        }
+      }
+      .get-started_start-main__o2AvU li {
+        width: max(320px, 40.2rem);
+        min-width: max(320px, 40.2rem);
+      }
+      @media (max-width: 992px) {
+        .get-started_start-main__o2AvU li {
+          padding-bottom: max(6.4rem, 30px);
+          position: relative;
+          display: flex;
+          align-items: flex-start;
+          gap: max(3rem, 20px);
+          width: 80%;
+        }
+      }
+      @media (max-width: 768px) {
+        .get-started_start-main__o2AvU li {
+          width: 100%;
+          min-width: unset;
+        }
+      }
+      .get-started_start-main__o2AvU li .get-started_linem__jOCJv {
+        position: absolute;
+        height: 100%;
+        width: max(2px, 0.3rem);
+        left: calc(max(6.4rem, 30px) / 2);
+        top: 0;
+        display: none;
+      }
+      @media (max-width: 992px) {
+        .get-started_start-main__o2AvU li .get-started_linem__jOCJv {
+          left: calc(max(6.4rem, 30px) / 1.8);
+          display: block;
+        }
+      }
+      .get-started_start-main__o2AvU
+        li
+        .get-started_linem__jOCJv
+        span:first-of-type {
+        background: var(--primary-white);
+      }
+      @media (max-width: 992px) {
+        .get-started_start-main__o2AvU
+          li
+          .get-started_linem__jOCJv
+          span:first-of-type {
+          background: var(--primary-core-blue);
+        }
+      }
+      .get-started_start-main__o2AvU
+        li
+        .get-started_linem__jOCJv
+        span:nth-of-type(2) {
+        background: var(--primary-core-blue);
+        height: 0;
+      }
+      .get-started_start-main__o2AvU li .get-started_text__FnuZo h3 {
+        color: var(--dark-navy-00);
+        font-family: var(--aventa-bold);
+        font-size: max(20px, 2.4rem);
+        font-weight: 400;
+        line-height: 140%;
+        letter-spacing: -0.024rem;
+      }
+      .get-started_start-main__o2AvU li .get-started_text__FnuZo p {
+        color: var(--dark-navy-light-10);
+        font-weight: 500;
+        line-height: 156%;
+      }
+      .get-started_start-main__o2AvU li .get-started_lines__WmKJ3 {
+        margin-bottom: max(3.2rem, 20px);
+        position: relative;
+      }
+      .get-started_start-main__o2AvU li .get-started_lines__WmKJ3 p {
+        color: #54668b;
+        font-size: max(14px, 2.4rem);
+        font-weight: 600;
+        line-height: 135.023%;
+        letter-spacing: -0.108rem;
+        border-radius: max(150px, 20rem);
+        border: max(2px, 0.4rem) solid transparent;
+        background: var(--primary-white);
+        width: max(40px, 7.4rem);
+        min-width: max(40px, 7.4rem);
+        height: max(40px, 7.4rem);
+        position: relative;
+        z-index: 2;
+      }
+      @media (max-width: 992px) {
+        .get-started_start-main__o2AvU li .get-started_lines__WmKJ3 p {
+          border-color: var(--primary-core-blue);
+          color: var(--primary-core-blue);
+        }
+      }
+      .get-started_start-main__o2AvU
+        li
+        .get-started_lines__WmKJ3
+        .get-started_line__l6s_Q {
+        width: 100%;
+        height: max(2px, 0.3rem);
+        position: absolute;
+        z-index: 1;
+        left: max(6.4rem, 30px);
+      }
+      .get-started_start-main__o2AvU
+        li
+        .get-started_lines__WmKJ3
+        .get-started_line__l6s_Q
+        span:first-of-type {
+        background: var(--primary-white);
+      }
+      .get-started_start-main__o2AvU
+        li
+        .get-started_lines__WmKJ3
+        .get-started_line__l6s_Q
+        span:nth-of-type(2) {
+        background: var(--primary-core-blue);
+        width: 0;
+      }
+      .header_header-container__HEBnm,
+      .header_policy-container__wYvGN {
+        width: 100vw;
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+        max-width: calc(1406px + var(--gutter) * 2);
+      }
+      .header_header-btns__Pwkjn > button,
+      .header_header-links___suCK a,
+      .header_header-right-btn__XXBP2 a,
+      .header_policy-container__wYvGN,
+      .header_subg__jXq6A ul a span,
+      .header_subg__jXq6A ul li span,
+      .header_subh__c_P3n ul li a span {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      .header_header-btns__Pwkjn,
+      .header_header-lang__VsPC7,
+      .header_header-left__QY0Ef,
+      .header_header-links___suCK,
+      .header_header-right-btn__XXBP2,
+      .header_header-right-l__fpe9W,
+      .header_header-right__hyl7c,
+      .header_policy-container-links__vJ8s3,
+      .header_subg__jXq6A ul a div h6,
+      .header_subg__jXq6A ul li div h6,
+      .header_subh__c_P3n ul li a {
+        display: flex;
+        align-items: center;
+      }
+      .header_header-container__HEBnm,
+      .header_policy-container-links__vJ8s3 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .header_policy-container-links__vJ8s3 a {
+        overflow: hidden;
+        position: relative;
+        vertical-align: top;
+      }
+      .header_policy-container-links__vJ8s3 a:after {
+        background: currentColor;
+        bottom: 0;
+        content: "";
+        height: 1px;
+        left: 0;
+        position: absolute;
+        transition: transform 0.7s var(--ease-out-expo);
+        width: 100%;
+      }
+      .header_policy-container-links__vJ8s3 a:hover:after {
+        transform: scaleX(1);
+        transform-origin: left center;
+      }
+      .header_policy-container-links__vJ8s3 a:after {
+        transform: scaleX(0);
+        transform-origin: right center;
+      }
+      .header_policy-container-links__vJ8s3 a {
+        display: inline-block;
+      }
+      .header_subg__jXq6A p {
+        font-size: max(12px, 1.2rem);
+        font-weight: 500;
+      }
+      .header_header-btns__Pwkjn > button,
+      .header_header-links___suCK a,
+      .header_header-right-btn__XXBP2 a,
+      .header_policy-container-links__vJ8s3 a,
+      .header_policy-container__wYvGN p,
+      .header_subg__jXq6A ul a div h6,
+      .header_subg__jXq6A ul li div h6,
+      .header_subh__c_P3n ul li a div h6 {
+        font-size: max(14px, 1.6rem);
+      }
+      .header_subg-l__w0scn h6 {
+        font-size: max(16px, 2rem);
+      }
+      .header_header__Bjpdc {
+        position: sticky;
+        z-index: 7;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: var(--white);
+      }
+      .header_header-container__HEBnm {
+        height: var(--header-main);
+      }
+      .header_header-left__QY0Ef {
+        gap: max(2rem, 10px);
+      }
+      .header_header-links___suCK {
+        gap: var(--8px);
+      }
+      .header_header-links___suCK a {
+        color: var(--dark-navy-light-10);
+        font-weight: 500;
+        line-height: 130%;
+        height: max(4rem, 30px);
+        padding: var(--8px) var(--12px);
+        transition: all 0.7s var(--ease-out-expo);
+      }
+      .header_header-links___suCK a:hover {
+        color: var(--dark-navy-00);
+        border-radius: max(20rem, 150px);
+        background: var(--light-blue-light-30);
+      }
+      .header_header-links___suCK a.header_nga__hY_Ia {
+        border-radius: max(150px, 20rem);
+        background: var(--light-blue-00);
+      }
+      .header_header-btns__Pwkjn {
+        gap: max(1.4rem, 12px);
+      }
+      .header_header-btns__Pwkjn > button {
+        gap: var(--8px);
+        position: relative;
+      }
+      .header_header-btns__Pwkjn > button {
+        color: var(--dark-navy-light-10);
+        font-weight: 500;
+        line-height: 130%;
+        height: max(4rem, 30px);
+        padding: var(--8px) var(--12px);
+        transition: all 0.7s var(--ease-out-expo);
+      }
+      .header_header-right__hyl7c {
+        gap: max(4.5rem, 20px);
+      }
+      @media (max-width: 480px) {
+        .header_header-right__hyl7c {
+          display: none;
+        }
+      }
+      .header_header-right-l__fpe9W {
+        gap: var(--24px);
+      }
+      .header_header-right-btn__XXBP2 {
+        gap: var(--16px);
+      }
+      .header_header-right-btn__XXBP2 a {
+        gap: max(0.4rem, 4px);
+        font-weight: 500;
+        border-radius: max(20rem, 150px);
+        background: var(--light-blue-00);
+        height: max(4rem, 30px);
+        padding: var(--8px) var(--12px);
+      }
+      .header_header-lang__VsPC7 {
+        gap: max(4px, 0.75rem);
+      }
+      .header_header-lang__VsPC7 img {
+        border-radius: 100%;
+      }
+      .header_subh__c_P3n {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: default;
+        min-width: max(30rem, 240px);
+        text-align: left;
+        width: -moz-fit-content;
+        width: fit-content;
+        padding: max(3.2rem, 16px);
+        border-radius: var(--12px);
+        background: var(--white);
+        box-shadow: 0 1px 24px 0 rgba(3, 87, 238, 0.1);
+      }
+      .header_subh__c_P3n ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: max(2.4rem, 16px);
+        white-space: nowrap;
+      }
+      .header_subh__c_P3n ul li a {
+        gap: max(2rem, 14px);
+      }
+      .header_subh__c_P3n ul li a span {
+        width: max(3.4rem, 26px);
+        min-width: max(3.4rem, 26px);
+        height: max(3.4rem, 26px);
+        background: var(--light-blue-00);
+        clip-path: url(#shape);
+        transition: background 0.5s var(--ease-out-expo);
+      }
+      .header_subh__c_P3n ul li a span svg {
+        aspect-ratio: 1;
+        -o-object-fit: cover;
+        object-fit: cover;
+        width: max(1.8rem, 16px);
+        height: max(1.8rem, 16px);
+      }
+      .header_subh__c_P3n ul li a span svg path {
+        transition: fill 0.5s var(--ease-out-expo);
+      }
+      .header_subh__c_P3n ul li a:hover svg path {
+        fill: var(--white);
+      }
+      .header_subh__c_P3n ul li a:hover span {
+        background: var(--primary-core-blue);
+      }
+      .header_subh__c_P3n ul li a:hover div h6 {
+        color: var(--primary-core-blue);
+      }
+      .header_subh__c_P3n ul li a div h6 {
+        color: var(--primary-dark-blue);
+        font-style: normal;
+        font-weight: 600;
+        line-height: 156%;
+        transition: color 0.5s var(--ease-out-expo);
+      }
+      .header_subg__jXq6A {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: max(30rem, 240px);
+        text-align: left;
+        width: -moz-fit-content;
+        width: fit-content;
+        padding: max(3.2rem, 16px);
+        border-radius: var(--12px);
+        background: var(--white);
+        box-shadow: 0 1px 24px 0 rgba(3, 87, 238, 0.1);
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        display: flex;
+        grid-gap: max(3rem, 20px);
+        gap: max(3rem, 20px);
+      }
+      .header_subg__jXq6A p {
+        opacity: 0.4;
+        color: var(--dark-navy-dark-20);
+        font-weight: 500;
+        line-height: 156%;
+        letter-spacing: -0.012rem;
+      }
+      .header_subg__jXq6A > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: max(1rem, 10px);
+        width: max(36rem, 260px);
+      }
+      .header_subg-l__w0scn {
+        width: 100%;
+        padding: max(1rem, 5px) max(1.5rem, 10px);
+      }
+      .header_subg-l__w0scn.header_acm__lw1HS {
+        border-radius: max(4px, 0.7rem);
+        background: rgba(196, 233, 253, 0.4);
+      }
+      .header_subg-l__w0scn h6 {
+        font-family: var(--aventa-bold);
+        color: var(--primary-dark-blue);
+        font-weight: 400;
+        line-height: 140%;
+      }
+      .header_subg__jXq6A ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: max(2.4rem, 16px);
+      }
+      .header_subg__jXq6A ul a,
+      .header_subg__jXq6A ul li {
+        display: flex;
+        gap: max(1.5rem, 10px);
+        width: max(36rem, 260px);
+      }
+      .header_subg__jXq6A ul a span,
+      .header_subg__jXq6A ul li span {
+        width: max(3.4rem, 26px);
+        min-width: max(3.4rem, 26px);
+        height: max(3.4rem, 26px);
+        background: var(--light-blue-00);
+        clip-path: url(#shape);
+        transition: background 0.5s var(--ease-out-expo);
+      }
+      .header_subg__jXq6A ul a div h6,
+      .header_subg__jXq6A ul li div h6 {
+        color: var(--primary-dark-blue);
+        font-style: normal;
+        font-weight: 600;
+        line-height: 156%;
+        transition: color 0.5s var(--ease-out-expo);
+        gap: max(0.8rem, 5px);
+      }
+      .header_policy__uyBEN {
+        position: sticky;
+        z-index: 7;
+        top: 0;
+        background: var(--dark-navy-light-50);
+        background: var(--light-yellow-00);
+      }
+      @media (max-width: 480px) {
+        .header_policy__uyBEN {
+          position: fixed;
+          z-index: 7;
+          top: unset;
+          bottom: 0;
+        }
+      }
+      .header_policy-container__wYvGN {
+        padding-block: max(2rem, 20px);
+        gap: max(6.6rem, 40px);
+      }
+      @media (max-width: 480px) {
+        .header_policy-container__wYvGN {
+          flex-direction: column;
+          align-items: center;
+          gap: max(5rem, 20px);
+          padding-block: max(3.2rem, 32px);
+        }
+      }
+      .header_policy-container__wYvGN p {
+        line-height: 1.1;
+        color: var(--primary-black);
+        text-align: center;
+        font-weight: 500;
+      }
+      .header_policy-container-links__vJ8s3 {
+        display: flex;
+        gap: max(5rem, 20px);
+      }
+      .header_policy-container-links__vJ8s3 a {
+        line-height: 1.1;
+        color: var(--primary-core-blue);
+        font-weight: 600;
+      }
+      .Layout_child__8zgE6 {
+        min-height: 100vh;
+        transition: margin-top 0.3s var(--ease-in-quad);
+      }
+      @media (max-width: 992px) {
+        .Layout_child__8zgE6 {
+          margin-top: calc(var(--header-main));
+        }
+      }
+      .Layout_shape__tpNyC {
+        position: absolute;
+        z-index: -10;
+        opacity: 0;
+      }
+      .business_blog-container__ZI4V2,
+      .business_card-container__Wspki,
+      .business_tools-container__baw7c {
+        width: 100vw;
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+        max-width: calc(1406px + var(--gutter) * 2);
+      }
+      .business_card-users__8WNh3 div,
+      .business_tool-left-tag__A0JM6,
+      .business_tool-right__53B5B,
+      .business_tools-container__baw7c,
+      .business_tools-tags__k4dmG {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      .business_blog-nav-dots__a8YOx,
+      .business_hero-label__vkTo6 {
+        display: flex;
+        align-items: center;
+      }
+      .business_blog-nav__xOCTY,
+      .business_card-top__J7JLq,
+      .business_hero-container__ItRxD {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .business_hero-cbn__je73m {
+        font-size: max(12px, 1.2rem);
+      }
+      .business_card-top-left__tSZaV p {
+        font-size: max(14px, 1.6rem);
+      }
+      .business_tools-tags__k4dmG button {
+        font-size: max(16px, 1.8rem);
+      }
+      .business_hero-left__7jXr_ p {
+        font-size: max(16px, 2rem);
+      }
+      .business_blog-container__ZI4V2 > p {
+        font-size: max(16px, 2.4rem);
+      }
+      .business_blog-container__ZI4V2 > h2 {
+        font-size: max(20px, 4rem);
+      }
+      .business_card-top-right__dDtCt {
+        font-size: max(64px, 12.8rem);
+      }
+      .business_business__1ZZtT {
+        background: #f8fafd;
+      }
+      .business_hero__ngG3G {
+        position: relative;
+        padding-bottom: max(10rem, 80px);
+        background: var(--primary-dark-blue);
+        clip-path: ellipse(120% 70% at 50% 30%);
+      }
+      .business_hero-container__ItRxD {
+        gap: max(4rem, 20px);
+        padding-left: calc(var(--gutter) + var(--pl));
+      }
+      @media (max-width: 768px) {
+        .business_hero-container__ItRxD {
+          padding-top: var(--pbl);
+          padding-inline: calc(var(--gutter) + var(--pl));
+        }
+      }
+      .business_hero-left__7jXr_ {
+        width: max(400px, 63.9rem);
+      }
+      @media (max-width: 768px) {
+        .business_hero-left__7jXr_ {
+          width: 80%;
+          margin-inline: auto;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        }
+      }
+      @media (max-width: 480px) {
+        .business_hero-left__7jXr_ {
+          width: 100%;
+        }
+      }
+      .business_hero-left__7jXr_ h1 {
+        color: var(--primary-white);
+        font-family: var(--aventa-extrabold);
+        font-size: max(5.6rem, 20px);
+        font-weight: 400;
+        line-height: 125%;
+        margin-block: max(3.2rem, 20px);
+      }
+      .business_hero-left__7jXr_ h1 strong {
+        color: var(--secondary-light-blue);
+        display: inline;
+      }
+      .business_hero-left__7jXr_ p {
+        color: var(--dark-navy-light-40);
+        font-weight: 500;
+        line-height: 139.6%;
+        letter-spacing: -0.06rem;
+        padding-right: max(5rem, 10px);
+      }
+      .business_hero-left__7jXr_ footer {
+        margin-top: var(--48px);
+      }
+      @media (max-width: 480px) {
+        .business_hero-left__7jXr_ footer {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+      }
+      .business_hero-cbn__je73m {
+        margin-top: 3rem;
+        color: var(--dark-navy-light-40);
+        font-weight: 500;
+        line-height: 139.6%;
+        letter-spacing: -0.06rem;
+        padding-right: max(5rem, 10px);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        justify-items: center;
+      }
+      .business_hero-cbn__je73m img {
+        max-height: 3rem;
+      }
+      @media (max-width: 600px) {
+        .business_hero-cbn__je73m img {
+          max-height: 5rem;
+          margin: 0 1.5rem;
+        }
+      }
+      .business_hero-right__vUWkA {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        width: max(77rem, 400px);
+      }
+      @media (max-width: 768px) {
+        .business_hero-right__vUWkA {
+          display: none;
+        }
+      }
+      .business_hero-right__vUWkA img {
+        width: 100%;
+      }
+      .business_hero-label__vkTo6 {
+        gap: max(1rem, 8px);
+        width: -moz-fit-content;
+        width: fit-content;
+        color: var(--dark-navy-light-50);
+        font-size: max(1.6rem, 12px);
+        font-weight: 500;
+        white-space: nowrap;
+        line-height: 139.6%;
+        letter-spacing: -0.048rem;
+        padding: max(0.8rem, 4px) max(2.4rem, 12px) max(0.8rem, 4px)
+          max(1.2rem, 8px);
+        border-radius: var(--24px);
+        background: var(--dark-navy-light-10);
+        box-shadow: 3px 24px 53px 0 rgba(208, 221, 240, 0.1),
+          12px 96px 97px 0 rgba(208, 221, 240, 0.09),
+          26px 217px 131px 0 rgba(208, 221, 240, 0.05),
+          46px 385px 155px 0 rgba(208, 221, 240, 0.01),
+          72px 602px 170px 0 rgba(208, 221, 240, 0);
+      }
+      .business_hero-label__vkTo6 svg {
+        width: max(3.2rem, 20px);
+      }
+      .business_card__hNOTK {
+        margin-top: min(-10rem, -50px);
+        position: relative;
+        z-index: 1;
+        border-radius: var(--24px);
+        background: var(--white);
+        box-shadow: 3px 24px 53px 0 rgba(208, 221, 240, 0.1),
+          12px 96px 97px 0 rgba(208, 221, 240, 0.09),
+          26px 217px 131px 0 rgba(208, 221, 240, 0.05),
+          46px 385px 155px 0 rgba(208, 221, 240, 0.01),
+          72px 602px 170px 0 rgba(208, 221, 240, 0);
+        padding-block: max(5rem, 30px);
+      }
+      .business_card-top__J7JLq {
+        padding-right: var(--24px);
+        margin-bottom: var(--16px);
+      }
+      @media (max-width: 992px) {
+        .business_card-top__J7JLq {
+          margin-bottom: max(2.4rem, 24px);
+        }
+      }
+      .business_card-top-left__tSZaV {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-gap: var(--12px);
+        gap: var(--12px);
+        margin-left: max(10rem, 50px);
+        width: max(64rem, 600px);
+      }
+      @media (max-width: 992px) {
+        .business_card-top-left__tSZaV {
+          grid-template-columns: 1fr;
+          gap: max(24px, 2.4rem);
+          width: 100%;
+          margin-left: 0;
+          padding-inline: max(3rem, 20px);
+        }
+      }
+      .business_card-top-left__tSZaV h2 {
+        color: var(--dark-navy-00);
+        font-family: var(--aventa-extrabold);
+        font-size: max(3.2rem, 20px);
+        font-weight: 400;
+        line-height: 125%;
+      }
+      .business_card-top-left__tSZaV p {
+        color: var(--dark-navy-light-10);
+        font-weight: 500;
+        line-height: 148%;
+        letter-spacing: -0.048rem;
+      }
+      .business_card-top-left__tSZaV p strong {
+        color: var(--primary-core-blue);
+        font-weight: 700;
+      }
+      .business_card-top-right__dDtCt {
+        text-align: right;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: -0.576rem;
+        -webkit-text-stroke: 1px var(--primary-core-blue);
+        -webkit-text-fill-color: transparent;
+      }
+      @media (max-width: 992px) {
+        .business_card-top-right__dDtCt {
+          display: none;
+        }
+      }
+      .business_card-users__8WNh3 {
+        display: flex;
+      }
+      .business_card-users__8WNh3 div {
+        aspect-ratio: 1.1363636364;
+        -o-object-fit: cover;
+        object-fit: cover;
+        width: max(24rem, 100px);
+        min-width: max(24rem, 100px);
+        border: 0.5px solid rgba(2, 44, 119, 0.1);
+        border-radius: var(--8px);
+        margin-right: 2rem;
+      }
+      .business_card-users__8WNh3 div img {
+        width: 85%;
+      }
+      .business_tools__VGhop {
+        padding-top: max(10rem, 70px);
+      }
+      .business_tools-container__baw7c {
+        flex-direction: column;
+        position: relative;
+      }
+      .business_tools-header__A62RO {
+        padding-bottom: max(6rem, 30px);
+      }
+      .business_tools-header__A62RO h2 {
+        color: var(--dark-navy-00);
+        text-align: center;
+        font-family: var(--aventa-extrabold);
+        font-size: max(24px, 4rem);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 112%;
+        width: max(68.8rem, 500px);
+      }
+      @media (max-width: 768px) {
+        .business_tools-header__A62RO h2 {
+          width: 100%;
+        }
+      }
+      .business_tools-tags__k4dmG {
+        border-radius: var(--24px);
+        background: var(--white);
+        padding: var(--32px);
+        gap: var(--24px);
+        box-shadow: 3px 24px 53px 0 rgba(208, 221, 240, 0.1),
+          12px 96px 97px 0 rgba(208, 221, 240, 0.09),
+          26px 217px 131px 0 rgba(208, 221, 240, 0.05),
+          46px 385px 155px 0 rgba(208, 221, 240, 0.01),
+          72px 602px 170px 0 rgba(208, 221, 240, 0);
+        position: sticky;
+        z-index: 1;
+        top: calc(70px + var(--header-main));
+      }
+      @media (max-width: 992px) {
+        .business_tools-tags__k4dmG {
+          display: none;
+        }
+      }
+      .business_tools-tags__k4dmG button {
+        color: var(--dark-navy-light-20);
+        font-weight: 500;
+        letter-spacing: -0.045rem;
+        padding: var(--10px) var(--14px);
+        border-radius: max(2rem, 15px);
+        border: 1px solid var(--dark-navy-light-50);
+        transition: all 0.5s var(--ease-out-expo);
+      }
+      .business_tools-tags__k4dmG button.business_active__urdNW {
+        color: var(--dark-navy-00);
+        background: var(--light-blue-00);
+      }
+      .business_tools-list__aK4Zn {
+        width: 100%;
+        margin-top: var(--16px);
+        padding-bottom: max(15rem, 50px);
+      }
+      .business_tool__JpTnW {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        margin-bottom: max(3rem, 20px);
+        padding-top: max(8rem, 30px);
+        padding-left: max(5rem, 20px);
+      }
+      @media (max-width: 992px) {
+        .business_tool__JpTnW {
+          display: flex;
+          flex-direction: column-reverse;
+          align-items: center;
+          padding-left: 0;
+          padding-block: 0;
+          margin-bottom: max(8rem, 60px);
+          gap: max(5rem, 30px);
+        }
+      }
+      .business_tool-left__cM0rO {
+        width: max(350px, 42.3rem);
+      }
+      @media (max-width: 992px) {
+        .business_tool-left__cM0rO {
+          width: 100%;
+        }
+      }
+      .business_tool-left-tag__A0JM6 {
+        width: -moz-fit-content;
+        width: fit-content;
+        font-size: max(1.8rem, 12px);
+        color: var(--primary-dark-30);
+        font-weight: 500;
+        letter-spacing: -0.045rem;
+        padding: var(--10px) var(--14px);
+        margin-bottom: var(--16px);
+        border-radius: max(2rem, 15px);
+        border: 1px solid var(--dark-navy-light-50);
+        transition: all 0.5s var(--ease-out-expo);
+        background: var(--primary-light-50);
+      }
+      .business_tool-left__cM0rO h2 {
+        color: var(--dark-navy-00);
+        font-family: var(--aventa-extrabold);
+        font-size: max(24px, 4rem);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 112%;
+      }
+      .business_tool-left__cM0rO p {
+        color: var(--dark-navy-light-10);
+        font-size: max(14px, 1.8rem);
+        font-weight: 500;
+        line-height: 156%;
+        margin-block: max(1.5rem, 10px);
+      }
+      .business_tool-left__cM0rO footer {
+        display: flex;
+        gap: max(2rem, 12px);
+      }
+      .business_tool-right__53B5B img {
+        width: 100%;
+        height: auto;
+      }
+      @media (max-width: 992px) {
+        .business_tool-right__53B5B img {
+          max-width: 600px;
+          width: 100%;
+        }
+      }
+      .business_blog__25_ci {
+        padding-block: max(15rem, 80px);
+      }
+      .business_blog-container__ZI4V2 {
+        padding-inline: 10rem;
+      }
+      @media (max-width: 768px) {
+        .business_blog-container__ZI4V2 {
+          padding-inline: var(--gutter);
+        }
+      }
+      .business_blog-container__ZI4V2 > h2 {
+        color: var(--dark-navy-00);
+        font-family: var(--aventa-bold);
+        font-weight: 400;
+        line-height: 112%;
+        letter-spacing: -0.14rem;
+        margin-bottom: var(--16px);
+      }
+      .business_blog-container__ZI4V2 > p {
+        color: var(--dark-navy-light-10);
+        font-weight: 500;
+        line-height: 131.523%;
+        letter-spacing: -0.06rem;
+        width: max(51.6rem, 430px);
+        margin-bottom: max(5.6rem, 30px);
+      }
+      @media (max-width: 480px) {
+        .business_blog-container__ZI4V2 > p {
+          width: 100%;
+        }
+      }
+      .business_blog-list__K9_Tm {
+        display: flex;
+      }
+      .business_blog-list__K9_Tm > a {
+        margin-right: max(2.8rem, 20px);
+        width: max(250px, 33% - max(2.8rem, 20px) / 2);
+        min-width: max(250px, 33% - max(2.8rem, 20px) / 2);
+      }
+      .business_blog-list-viewport__O_QDe {
+        overflow: hidden;
+        margin-block: max(5.6rem, 40px);
+        margin-right: calc(0px - max(6rem, 15px));
+      }
+      .business_blog-nav-btn___3SMU {
+        display: flex;
+        align-items: center;
+        gap: max(1rem, 5px);
+      }
+      .business_blog-nav-btn___3SMU button svg {
+        width: max(7.4rem, 40px);
+      }
+      .business_blog-nav-dots__a8YOx {
+        gap: max(1.2rem, 8px);
+      }
+      @media (max-width: 768px) {
+        .business_blog-nav-dots__a8YOx {
+          display: none;
+        }
+      }
+      .popupbanner_popup__T4JYb {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+      .popupbanner_popup-main__LnhTi p {
+        font-size: max(14px, 1.6rem);
+      }
+      .popupbanner_popup__T4JYb {
+        position: fixed;
+        z-index: 9;
+        background: rgba(3, 11, 29, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: var(--gutter);
+      }
+      @media (max-width: 600px) {
+        .popupbanner_popup__T4JYb {
+          padding: max(2rem, 10px);
+        }
+      }
+      .popupbanner_popup-main__LnhTi {
+        position: relative;
+        width: max(568px, 35.5rem);
+        height: -moz-fit-content;
+        height: fit-content;
+        border-radius: max(1.2rem, 12px);
+        background: var(--primary-white);
+        box-shadow: 0 1px 24px 0 rgba(3, 87, 238, 0.1);
+        padding: max(2.4rem, 16px);
+      }
+      @media (max-width: 600px) {
+        .popupbanner_popup-main__LnhTi {
+          width: 100%;
+          padding: 16px;
+        }
+      }
+      .popupbanner_popup-main__LnhTi h2 {
+        font-family: var(--aventa-extrabold);
+        color: var(--primary-black);
+        font-size: max(24px, 4.55rem);
+        font-weight: 400;
+        line-height: 130%;
+        letter-spacing: -0.042rem;
+        padding-block: max(1.2rem, 10px);
+      }
+      .popupbanner_popup-main__LnhTi p {
+        color: var(--primary-black);
+        font-weight: 500;
+        line-height: 156%;
+        opacity: 0.7;
+      }
+      .popupbanner_popup-main__LnhTi footer {
+        margin-top: max(3.2rem, 24px);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: max(2.4rem, 10px);
+        gap: max(2.4rem, 10px);
+      }
+      @media (max-width: 600px) {
+        .popupbanner_popup-main__LnhTi footer {
+          grid-template-columns: 1fr;
+        }
+      }
+      .popupbanner_popup-main__LnhTi footer button {
+        width: 100%;
+        height: max(43px, 5rem);
+      }
+      .country_country__Qxopj {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+      .country_country-item__izsgn ul li {
+        display: flex;
+        align-items: center;
+      }
+      .country_country__Qxopj {
+        position: fixed;
+        z-index: 9;
+        background: rgba(3, 11, 29, 0.3);
+        display: flex;
+        justify-content: center;
+        padding-block: max(13vh, 30px);
+      }
+      @media (max-width: 600px) {
+        .country_country__Qxopj {
+          justify-content: flex-end;
+          align-items: flex-end;
+          padding: max(2rem, 10px);
+        }
+      }
+      .country_country-main__IGcHq {
+        position: relative;
+        width: max(360px, 41.8rem);
+        height: -moz-fit-content;
+        height: fit-content;
+        border-radius: max(1.2rem, 12px);
+        background: var(--primary-white);
+        box-shadow: 0 1px 24px 0 rgba(3, 87, 238, 0.1);
+        padding: max(2rem, 15px);
+      }
+      @media (max-width: 600px) {
+        .country_country-main__IGcHq {
+          width: 100%;
+          padding-top: 25px;
+          padding-bottom: 20px;
+        }
+      }
+      .country_country-main__IGcHq > svg {
+        position: absolute;
+        top: max(10px, 1rem);
+        right: max(10px, 1rem);
+      }
+      .country_country-item__izsgn h6 {
+        font-size: max(1.6rem, 16px);
+        color: var(--primary-dark-blue);
+        font-weight: 600;
+        line-height: 156%;
+      }
+      .country_country-item__izsgn ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: max(1rem, 10px);
+        margin-top: max(2.4rem, 24px);
+      }
+      .country_country-item__izsgn ul li {
+        gap: max(0.8rem, 8px);
+        padding: max(1.2rem, 12px);
+        color: #575c68;
+        font-weight: 500;
+        line-height: 156%;
+        font-size: max(1.6rem, 16px);
+        transition: all 0.5s var(--ease-out-cubic);
+        border-radius: max(0.8rem, 8px);
+        width: 100%;
+      }
+      .country_country-item__izsgn ul li:hover {
+        background: #e6f6fe;
+        color: var(--dark-navy-00);
+      }
+      .country_country-item__izsgn ul li.country_a__foliP {
+        background: #e6f6fe;
+        color: var(--primary-core-blue);
+      }
+      .cookie_cookie__qdsBA {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+      .cookie_cookie-main__pAhu_ a {
+        overflow: hidden;
+        position: relative;
+        vertical-align: top;
+      }
+      .cookie_cookie-main__pAhu_ a:after {
+        background: currentColor;
+        bottom: 0;
+        content: "";
+        height: 1px;
+        left: 0;
+        position: absolute;
+        transition: transform 0.7s var(--ease-out-expo);
+        width: 100%;
+      }
+      .cookie_cookie-main__pAhu_ a:hover:after {
+        transform: scaleX(1);
+        transform-origin: left center;
+      }
+      .cookie_cookie-main__pAhu_ a:after {
+        transform: scaleX(0);
+        transform-origin: right center;
+      }
+      .cookie_cookie-main__pAhu_ a {
+        display: inline-block;
+      }
+      .cookie_cookie-main__pAhu_ a,
+      .cookie_cookie-main__pAhu_ p {
+        font-size: max(14px, 1.6rem);
+      }
+      .cookie_cookie__qdsBA {
+        position: fixed;
+        z-index: 9;
+        background: rgba(3, 11, 29, 0.3);
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: var(--gutter);
+      }
+      @media (max-width: 600px) {
+        .cookie_cookie__qdsBA {
+          padding: max(2rem, 10px);
+        }
+      }
+      .cookie_cookie-main__pAhu_ {
+        position: relative;
+        width: max(420px, 54.2rem);
+        height: -moz-fit-content;
+        height: fit-content;
+        border-radius: max(1.2rem, 12px);
+        background: var(--primary-white);
+        box-shadow: 0 1px 24px 0 rgba(3, 87, 238, 0.1);
+        padding: max(2.4rem, 15px);
+      }
+      @media (max-width: 600px) {
+        .cookie_cookie-main__pAhu_ {
+          width: 100%;
+          padding-top: 25px;
+          padding-bottom: 20px;
+        }
+      }
+      .cookie_cookie-main__pAhu_ a {
+        color: var(--primary-core-blue);
+        font-weight: 500;
+        line-height: 156%;
+        opacity: 1;
+      }
+      .cookie_cookie-main__pAhu_ h2 {
+        font-family: var(--aventa-bold);
+        color: var(--primary-black);
+        font-size: max(16px, 2.8rem);
+        font-weight: 400;
+        line-height: 130%;
+        letter-spacing: -0.042rem;
+        padding-block: max(1.2rem, 10px);
+      }
+      .cookie_cookie-main__pAhu_ p {
+        color: rgb(var(--primary-black) / 0.7);
+        font-weight: 500;
+        line-height: 156%;
+      }
+      .cookie_cookie-main__pAhu_ footer {
+        margin-top: max(3.2rem, 24px);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: max(0.6rem, 6px);
+        gap: max(0.6rem, 6px);
+      }
+      @media (max-width: 600px) {
+        .cookie_cookie-main__pAhu_ footer {
+          grid-template-columns: 1fr;
+        }
+      }
+      .cookie_cookie-main__pAhu_ footer button {
+        width: 100%;
+        height: max(43px, 5rem);
+      }
+      .footer_footer-container__ixtt3 {
+        width: 100vw;
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+        max-width: calc(1256px + var(--gutter) * 2);
+      }
+      .footer_footer-bottom-t__tVCv9 div,
+      .footer_footer-global__keC8Q,
+      .footer_footer-global__keC8Q h2,
+      .footer_footer-top-left-b-div__2Uecv div,
+      .footer_footer-top-left-t-ft__YTPSJ,
+      .footer_footer-top-left-t-ft__YTPSJ a {
+        display: flex;
+        align-items: center;
+      }
+      .footer_footer-bottom-t__tVCv9,
+      .footer_footer-top-right-bt__k6Tjl {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .footer_footer-bottom-t__tVCv9 div a,
+      .footer_footer-top-right__jJkts dl dd a {
+        overflow: hidden;
+        position: relative;
+        vertical-align: top;
+      }
+      .footer_footer-bottom-t__tVCv9 div a:after,
+      .footer_footer-top-right__jJkts dl dd a:after {
+        background: currentColor;
+        bottom: 0;
+        content: "";
+        height: 1px;
+        left: 0;
+        position: absolute;
+        transition: transform 0.7s var(--ease-out-expo);
+        width: 100%;
+      }
+      .footer_footer-bottom-t__tVCv9 div a:hover:after,
+      .footer_footer-top-right__jJkts dl dd a:hover:after {
+        transform: scaleX(1);
+        transform-origin: left center;
+      }
+      .footer_footer-bottom-t__tVCv9 div a:after,
+      .footer_footer-top-right__jJkts dl dd a:after {
+        transform: scaleX(0);
+        transform-origin: right center;
+      }
+      .footer_footer-bottom-t__tVCv9 div a,
+      .footer_footer-top-right__jJkts dl dd a {
+        display: inline-block;
+      }
+      .footer_footer-top-left-t-ft__YTPSJ a p {
+        font-size: max(12px, 1.2rem);
+      }
+      .footer_footer-bottom-t__tVCv9 div a,
+      .footer_footer-bottom__8X8VA p,
+      .footer_footer-top-left-t-div__tQV9O p {
+        font-size: max(13px, 1.4rem);
+        font-weight: 500;
+      }
+      .footer_footer-top-left-b-div__2Uecv h6,
+      .footer_footer-top-left-b__Jmh6D a,
+      .footer_footer-top-left-b__Jmh6D p,
+      .footer_footer-top-left-t-ft__YTPSJ a span,
+      .footer_footer-top-right-bt__k6Tjl h2,
+      .footer_footer-top-right__jJkts dl dd,
+      .footer_footer-top-right__jJkts dl dt {
+        font-size: max(14px, 1.6rem);
+      }
+      .footer_footer__ldJNE {
+        background: var(--dark-navy-dark-20);
+        --padding-f: max(7rem, 40px);
+        padding-block: var(--padding-f);
+      }
+      .footer_footer-top__DznB_ {
+        padding-bottom: var(--padding-f);
+        display: grid;
+        grid-template-columns: 1fr 1.7fr;
+        grid-gap: max(6rem, 30px);
+        gap: max(6rem, 30px);
+        margin-top: var(--16px);
+      }
+      @media (max-width: 992px) {
+        .footer_footer-top__DznB_ {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+      .footer_footer-top-left-t-div__tQV9O p {
+        color: hsla(0, 0%, 100%, 0.7);
+        font-weight: 500;
+        line-height: 157.1%;
+        letter-spacing: -0.007rem;
+        width: max(300px, 34.6rem);
+      }
+      @media (max-width: 992px) {
+        .footer_footer-top-left-t-div__tQV9O p {
+          width: 100%;
+        }
+      }
+      .footer_footer-top-left-t-ft__YTPSJ {
+        margin-top: var(--48px);
+        gap: max(2rem, 12px);
+      }
+      @media (max-width: 480px) {
+        .footer_footer-top-left-t-ft__YTPSJ {
+          width: 100%;
+        }
+      }
+      .footer_footer-top-left-t-ft__YTPSJ a {
+        text-align: left;
+        white-space: nowrap;
+        gap: var(--8px);
+        width: 100%;
+        padding: max(1.2rem, 8px) max(2.4rem, 14px) max(1.2rem, 8px)
+          max(1.6rem, 12px);
+        border-radius: max(1.2rem, 12px);
+        background: #020711;
+        max-width: max(19.3rem, 160px);
+      }
+      .footer_footer-top-left-t-ft__YTPSJ a img {
+        width: max(4rem, 32px);
+      }
+      .footer_footer-top-left-t-ft__YTPSJ a p {
+        color: var(--white);
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: -0.012rem;
+        margin-bottom: max(0.3rem, 2px);
+      }
+      .footer_footer-top-left-t-ft__YTPSJ a span {
+        color: var(--white);
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: -0.016rem;
+      }
+      .footer_footer-top-left-b__Jmh6D a,
+      .footer_footer-top-left-b__Jmh6D p {
+        color: hsla(0, 0%, 100%, 0.7);
+        font-weight: 500;
+        line-height: 146.6%;
+        letter-spacing: -0.008rem;
+      }
+      @media (max-width: 768px) {
+        .footer_footer-top-left-b__Jmh6D p br {
+          display: none;
+        }
+      }
+      .footer_footer-top-left-b-div__2Uecv h6 {
+        color: var(--white);
+        font-weight: 500;
+        line-height: 185.1%;
+        letter-spacing: -0.008rem;
+        margin-bottom: var(--12px);
+      }
+      .footer_footer-top-left-b-div__2Uecv div {
+        gap: max(0.8rem, 8px);
+      }
+      .footer_footer-top-left-b-div__2Uecv div a {
+        width: max(3.2rem, 28px);
+        height: max(3.2rem, 28px);
+      }
+      .footer_footer-top-left-b-div__2Uecv div a:hover {
+        animation: footer_shake__0RMgK 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+      }
+      @keyframes footer_shake__0RMgK {
+        0% {
+          transform: rotate(0deg) scale(1);
+        }
+        20% {
+          transform: rotate(-10deg) scale(1);
+        }
+        40% {
+          transform: rotate(10deg) scale(1.2);
+        }
+        60% {
+          transform: rotate(-10deg) scale(1.2);
+        }
+        80% {
+          transform: rotate(10deg) scale(1);
+        }
+        to {
+          transform: rotate(0deg) scale(1);
+        }
+      }
+      .footer_footer-top-right__jJkts {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: max(5rem, 20px);
+        gap: max(5rem, 20px);
+      }
+      .footer_footer-top-right--main__DOlSJ {
+        grid-template-columns: repeat(4, 1fr);
+        gap: max(3rem, 20px);
+      }
+      @media (max-width: 600px) {
+        .footer_footer-top-right__jJkts {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .footer_footer-top-right__jJkts dl.footer_mobile__3bXSd {
+        display: block;
+      }
+      @media (min-width: 600px) {
+        .footer_footer-top-right__jJkts dl.footer_mobile__3bXSd {
+          display: none;
+        }
+      }
+      .footer_footer-top-right__jJkts dl dt {
+        color: var(--white);
+        font-weight: 500;
+        line-height: 185.1%;
+        letter-spacing: -0.008rem;
+        margin-bottom: var(--12px);
+      }
+      .footer_footer-top-right__jJkts dl dd {
+        color: hsla(0, 0%, 100%, 0.7);
+        font-weight: 500;
+        letter-spacing: -0.008rem;
+        margin-bottom: var(--12px);
+      }
+      .footer_footer-top-right__jJkts dl dd a {
+        line-height: 1.4;
+      }
+      .footer_footer-top-right-bt__k6Tjl {
+        align-items: flex-end;
+      }
+      .footer_footer-top-right-bt__k6Tjl h2 {
+        color: hsla(0, 0%, 100%, 0.7);
+        font-weight: 500;
+        line-height: 185.1%;
+        letter-spacing: -0.008rem;
+      }
+      .footer_footer-bottom__8X8VA {
+        border-top: 1px solid rgba(189, 215, 238, 0.15);
+      }
+      .footer_footer-bottom__8X8VA p {
+        color: hsla(0, 0%, 100%, 0.4);
+        font-weight: 500;
+        line-height: 195.1%;
+      }
+      .footer_footer-bottom__8X8VA > p {
+        font-size: max(1.4rem, 10px);
+      }
+      .footer_footer-bottom-t__tVCv9 {
+        margin-bottom: max(6rem, 40px);
+        padding-top: var(--12px);
+      }
+      @media (max-width: 480px) {
+        .footer_footer-bottom-t__tVCv9 {
+          flex-direction: column-reverse;
+          align-items: flex-start;
+          gap: max(5rem, 20px);
+        }
+      }
+      .footer_footer-bottom-t__tVCv9 div {
+        gap: max(10rem, 50px);
+      }
+      @media (max-width: 480px) {
+        .footer_footer-bottom-t__tVCv9 div {
+          justify-content: space-between;
+          width: 100%;
+        }
+      }
+      .footer_footer-bottom-t__tVCv9 div a {
+        line-height: 1.1;
+        color: hsla(0, 0%, 100%, 0.4);
+        font-weight: 500;
+      }
+      .footer_footer-global__keC8Q {
+        gap: var(--12px);
+      }
+      .footer_footer-global__keC8Q h2 {
+        gap: max(0.6rem, 4px);
+      }
+      .footer_footer-global__keC8Q svg path {
+        fill: var(--white);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="/_next/static/css/1f2db1a8a2505b54.css"
+      data-n-g=""
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="/_next/static/css/1f2db1a8a2505b54.css"
+    /></noscript>
+    <link
+      rel="stylesheet"
+      href="/_next/static/css/15afebe83ca7ff77.css"
+      data-n-p=""
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="/_next/static/css/15afebe83ca7ff77.css"
+    /></noscript>
+    <link
+      rel="stylesheet"
+      href="/_next/static/css/7468832cb0728cbc.css"
+      data-n-p=""
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="/_next/static/css/7468832cb0728cbc.css"
+    /></noscript>
+    <link
+      rel="stylesheet"
+      href="/_next/static/css/ed8e024c08a16a90.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="/_next/static/css/ed8e024c08a16a90.css"
+    /></noscript>
+    <link
+      rel="stylesheet"
+      href="/_next/static/css/1f74f0648d85914e.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="/_next/static/css/1f74f0648d85914e.css"
+    /></noscript>
+    <link
+      rel="stylesheet"
+      href="/_next/static/css/3fd55eeef188fa1d.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="/_next/static/css/3fd55eeef188fa1d.css"
+    /></noscript>
+    <link
+      rel="stylesheet"
+      href="/_next/static/css/fd5851090952a03f.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="/_next/static/css/fd5851090952a03f.css" />
+    </noscript>
+    <noscript data-n-css=""></noscript>
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5WMJ5LZ"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <div id="portal"></div>
+    <div id="__next">
+      <main data-main="true">
+        <svg class="Layout_shape__tpNyC">
+          <clippath id="shape" clippathunits="objectBoundingBox">
+            <path
+              d="M0.502,1 H0.498 C0.266,0.999,0.111,0.951,0.079,0.921 C0.045,0.891,0,0.733,0,0.5 C0,0.268,0.045,0.109,0.079,0.079 C0.111,0.049,0.267,0.001,0.498,0 H0.502 C0.734,0.001,0.889,0.049,0.921,0.079 C0.955,0.109,1,0.268,1,0.5 C1,0.732,0.955,0.891,0.921,0.921 C0.889,0.952,0.734,1,0.502,1"
+            ></path>
+          </clippath>
+        </svg>
+        <div class="hide popupbanner_popup__T4JYb">
+          <div class="popupbanner_popup-main__LnhTi">
+            <footer class=""></footer>
+          </div>
+        </div>
+        <div class="hide country_country__Qxopj">
+          <div class="country_country-main__IGcHq">
+            <svg
+              role="button"
+              width="34"
+              height="34"
+              viewbox="0 0 34 34"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                x="0.5"
+                y="0.5"
+                width="33"
+                height="33"
+                rx="16.5"
+                fill="white"
+              ></rect>
+              <mask
+                id="mask0_2300_39395"
+                maskunits="userSpaceOnUse"
+                x="7"
+                y="7"
+                width="20"
+                height="20"
+              >
+                <rect x="7" y="7" width="20" height="20" fill="#D9D9D9"></rect>
+              </mask>
+              <g mask="url(#mask0_2300_39395)">
+                <path
+                  d="M17 18.5435L13.1051 22.4384C12.8974 22.6462 12.6401 22.75 12.3334 22.75C12.0266 22.75 11.7693 22.6462 11.5616 22.4384C11.3539 22.2307 11.25 21.9735 11.25 21.6667C11.25 21.3599 11.3539 21.1027 11.5616 20.8949L15.4565 17L11.5616 13.1051C11.3539 12.8974 11.25 12.6401 11.25 12.3334C11.25 12.0266 11.3539 11.7693 11.5616 11.5616C11.7693 11.3539 12.0266 11.25 12.3334 11.25C12.6401 11.25 12.8974 11.3539 13.1051 11.5616L17 15.4565L20.8949 11.5616C21.1027 11.3539 21.3599 11.25 21.6667 11.25C21.9735 11.25 22.2307 11.3539 22.4384 11.5616C22.6462 11.7693 22.75 12.0266 22.75 12.3334C22.75 12.6401 22.6462 12.8974 22.4384 13.1051L18.5435 17L22.4384 20.8949C22.6462 21.1027 22.75 21.3599 22.75 21.6667C22.75 21.9735 22.6462 22.2307 22.4384 22.4384C22.2307 22.6462 21.9735 22.75 21.6667 22.75C21.3599 22.75 21.1027 22.6462 20.8949 22.4384L17 18.5435Z"
+                  fill="#031335"
+                ></path>
+              </g>
+              <rect
+                x="0.5"
+                y="0.5"
+                width="33"
+                height="33"
+                rx="16.5"
+                stroke="#C3C9D5"
+              ></rect>
+            </svg>
+            <div class="country_country-item__izsgn">
+              <h6>Select Region/Country</h6>
+              <ul>
+                <li role="button" class="country_a__foliP">
+                  <img src="/flags/gb.svg" alt="" /><span>Global</span>
+                </li>
+                <li role="button" class="">
+                  <img src="/flags/nig.svg" alt="" /><span>Nigeria</span>
+                </li>
+                <li role="button" class="">
+                  <img src="/flags/ken.svg" alt="" /><span>Kenya</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="hide cookie_cookie__qdsBA">
+          <div class="cookie_cookie-main__pAhu_">
+            <h2>Cookie Statement</h2>
+            <p>
+              Please note that we take your privacy seriously and only process
+              your personal information following Nigeria Data Protection Act,
+              2023 and any applicable regulations. Your continued use of this
+              platform indicates that you consent to the processing of your data
+              by Moniepoint MFB.<br />
+              <br />
+              Our site also uses cookies to enhance your experience on this
+              platform. You can modify your preference using the option below.
+              Please read our <a href="/ng/cookie-policy">Cookie Policy</a>
+              <!-- -->for more information.
+            </p>
+            <footer>
+              <button class="button_button__sZpAi button_primary__VTFVG">
+                Accept Cookies</button
+              ><button class="button_button__sZpAi button_secondary__IHtjT">
+                Disable Cookies</button
+              ><button class="button_button__sZpAi button_white__ubN_I">
+                Cookie Preference
+              </button>
+            </footer>
+          </div>
+        </div>
+        <header id="ng-header" class="header_header__Bjpdc">
+          <div class="header_policy__uyBEN">
+            <div class="header_policy-container__wYvGN">
+              <p>
+                This website uses cookies to enhance your experience. Learn more
+                here:
+              </p>
+              <div class="header_policy-container-links__vJ8s3">
+                <a href="/ng/privacy-policy">Privacy Policy</a
+                ><a href="/ng/cookie-policy">Cookie Policy</a>
+              </div>
+            </div>
+          </div>
+          <div class="header_header-container__HEBnm ref-container">
+            <div class="header_header-left__QY0Ef">
+              <a href="/ng/business"
+                ><img
+                  draggable="false"
+                  alt="moniepoint"
+                  loading="lazy"
+                  width="137"
+                  height="34"
+                  decoding="async"
+                  data-nimg="1"
+                  class="Image_img__YuzBP"
+                  style="color: transparent; --width: 137; --height: 34"
+                  src="/logo-mfb.png"
+              /></a>
+              <div class="header_header-links___suCK">
+                <a class="header_nga__hY_Ia" href="/ng/business">Business</a
+                ><a class="" href="/personal">Personal</a>
+              </div>
+            </div>
+            <div class="header_header-right__hyl7c">
+              <div class="header_header-right-l__fpe9W">
+                <div class="header_header-btns__Pwkjn">
+                  <button>
+                    Products<svg
+                      size="17"
+                      color="#063059"
+                      width="16"
+                      height="17"
+                      viewbox="0 0 16 17"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M13.5306 7.03073L8.5306 12.0307C8.46092 12.1007 8.37813 12.1561 8.28696 12.194C8.1958 12.2318 8.09806 12.2513 7.99935 12.2513C7.90064 12.2513 7.8029 12.2318 7.71173 12.194C7.62057 12.1561 7.53778 12.1007 7.4681 12.0307L2.4681 7.03073C2.3272 6.88984 2.24805 6.69874 2.24805 6.49948C2.24805 6.30023 2.3272 6.10913 2.4681 5.96823C2.60899 5.82734 2.80009 5.74818 2.99935 5.74818C3.19861 5.74818 3.3897 5.82734 3.5306 5.96823L7.99997 10.4376L12.4693 5.96761C12.6102 5.82671 12.8013 5.74756 13.0006 5.74756C13.1999 5.74756 13.391 5.82671 13.5318 5.96761C13.6727 6.10851 13.7519 6.2996 13.7519 6.49886C13.7519 6.69812 13.6727 6.88921 13.5318 7.03011L13.5306 7.03073Z"
+                        fill="#063059"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="header_subg__jXq6A hide">
+                    <div>
+                      <div class="header_acm__lw1HS header_subg-l__w0scn">
+                        <h6><button>Banking</button></h6>
+                        <p>
+                          <button>
+                            Business and personal banking accounts
+                          </button>
+                        </p>
+                      </div>
+                      <div class="header_subg-l__w0scn">
+                        <h6><button>Credit</button></h6>
+                        <p><button>Business and individual loans</button></p>
+                      </div>
+                      <div class="header_subg-l__w0scn">
+                        <h6><button>Payments</button></h6>
+                        <p><button>Accept payments from anywhere</button></p>
+                      </div>
+                      <div class="header_subg-l__w0scn">
+                        <h6><button>Business Management</button></h6>
+                        <p>
+                          <button>
+                            Easy business money managements & reports
+                          </button>
+                        </p>
+                      </div>
+                    </div>
+                    <ul>
+                      <li>
+                        <button>
+                          <a class="" href="/ng/business/business-account"
+                            ><span
+                              ><svg
+                                width="16"
+                                height="16"
+                                viewbox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <mask
+                                  id="mask0_3359_15500"
+                                  maskunits="userSpaceOnUse"
+                                  x="0"
+                                  y="0"
+                                  width="16"
+                                  height="16"
+                                >
+                                  <rect
+                                    width="16"
+                                    height="16"
+                                    fill="#D9D9D9"
+                                  ></rect>
+                                </mask>
+                                <g mask="url(#mask0_3359_15500)">
+                                  <path
+                                    d="M1.3335 12.6667V3.33333C1.3335 2.96667 1.46405 2.65278 1.72516 2.39167C1.98627 2.13056 2.30016 2 2.66683 2H6.66683C7.0335 2 7.34739 2.13056 7.6085 2.39167C7.86961 2.65278 8.00016 2.96667 8.00016 3.33333V4.66667H13.3335C13.7002 4.66667 14.0141 4.79722 14.2752 5.05833C14.5363 5.31944 14.6668 5.63333 14.6668 6V12.6667C14.6668 13.0333 14.5363 13.3472 14.2752 13.6083C14.0141 13.8694 13.7002 14 13.3335 14H2.66683C2.30016 14 1.98627 13.8694 1.72516 13.6083C1.46405 13.3472 1.3335 13.0333 1.3335 12.6667ZM2.66683 12.6667H4.00016V11.3333H2.66683V12.6667ZM2.66683 10H4.00016V8.66667H2.66683V10ZM2.66683 7.33333H4.00016V6H2.66683V7.33333ZM2.66683 4.66667H4.00016V3.33333H2.66683V4.66667ZM5.3335 12.6667H6.66683V11.3333H5.3335V12.6667ZM5.3335 10H6.66683V8.66667H5.3335V10ZM5.3335 7.33333H6.66683V6H5.3335V7.33333ZM5.3335 4.66667H6.66683V3.33333H5.3335V4.66667ZM8.00016 12.6667H13.3335V6H8.00016V7.33333H9.3335V8.66667H8.00016V10H9.3335V11.3333H8.00016V12.6667Z"
+                                    fill="#092256"
+                                  ></path>
+                                  <path
+                                    d="M10.667 7.33337V8.66671H12.0003V7.33337H10.667Z"
+                                    fill="#0357EE"
+                                  ></path>
+                                  <path
+                                    d="M10.667 10V11.3334H12.0003V10H10.667Z"
+                                    fill="#0357EE"
+                                  ></path>
+                                </g></svg
+                            ></span>
+                            <div>
+                              <h6><button>Business Account</button></h6>
+                              <p>
+                                <button>
+                                  Get a free bank account to power your business
+                                </button>
+                              </p>
+                            </div></a
+                          >
+                        </button>
+                      </li>
+                      <li>
+                        <button>
+                          <a class="" href="/ng/moniepoint-ussd"
+                            ><span
+                              ><svg
+                                width="16"
+                                height="16"
+                                viewbox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <mask
+                                  id="mask0_3359_15500"
+                                  maskunits="userSpaceOnUse"
+                                  x="0"
+                                  y="0"
+                                  width="16"
+                                  height="16"
+                                >
+                                  <rect
+                                    width="16"
+                                    height="16"
+                                    fill="#D9D9D9"
+                                  ></rect>
+                                </mask>
+                                <g mask="url(#mask0_3359_15500)">
+                                  <path
+                                    d="M13.4242 10.0129H10.5575L11.0442 7.35428H13.4242C13.601 7.35428 13.7705 7.28426 13.8956 7.15961C14.0206 7.03496 14.0908 6.8659 14.0908 6.68963C14.0908 6.51335 14.0206 6.34429 13.8956 6.21964C13.7705 6.095 13.601 6.02497 13.4242 6.02497H11.2842L11.7442 3.49263C11.7623 3.40377 11.7621 3.31214 11.7434 3.22338C11.7247 3.13462 11.688 3.05061 11.6356 2.97652C11.5831 2.90243 11.516 2.83982 11.4384 2.79256C11.3607 2.74529 11.2742 2.71437 11.1842 2.70169C11.0946 2.68042 11.0016 2.67787 10.911 2.69421C10.8204 2.71055 10.7342 2.74542 10.6578 2.79662C10.5814 2.84782 10.5164 2.91425 10.467 2.99171C10.4176 3.06917 10.3849 3.156 10.3708 3.24671L9.87082 6.02497H7.28415L7.74415 3.49263C7.76233 3.40377 7.76207 3.31214 7.7434 3.22338C7.72473 3.13462 7.68804 3.05061 7.63558 2.97652C7.58312 2.90243 7.51601 2.83982 7.43837 2.79256C7.36074 2.74529 7.27423 2.71437 7.18415 2.70169C7.09459 2.68042 7.00159 2.67787 6.91099 2.69421C6.8204 2.71055 6.73418 2.74542 6.65777 2.79662C6.58136 2.84782 6.51642 2.91425 6.46703 2.99171C6.41764 3.06917 6.38489 3.156 6.37082 3.24671L5.87082 6.02497H2.75749C2.58068 6.02497 2.41111 6.095 2.28608 6.21964C2.16106 6.34429 2.09082 6.51335 2.09082 6.68963C2.09082 6.8659 2.16106 7.03496 2.28608 7.15961C2.41111 7.28426 2.58068 7.35428 2.75749 7.35428H5.62415L5.13749 10.0129H2.75749C2.58068 10.0129 2.41111 10.0829 2.28608 10.2076C2.16106 10.3322 2.09082 10.5013 2.09082 10.6776C2.09082 10.8538 2.16106 11.0229 2.28608 11.1475C2.41111 11.2722 2.58068 11.3422 2.75749 11.3422H4.89749L4.43749 13.8746C4.41931 13.9634 4.41957 14.0551 4.43824 14.1438C4.45691 14.2326 4.49361 14.3166 4.54606 14.3907C4.59852 14.4648 4.66563 14.5274 4.74327 14.5746C4.8209 14.6219 4.90742 14.6528 4.99749 14.6655C5.08705 14.6868 5.18005 14.6893 5.27065 14.673C5.36124 14.6566 5.44746 14.6218 5.52387 14.5706C5.60028 14.5194 5.66522 14.4529 5.71461 14.3755C5.764 14.298 5.79675 14.2112 5.81082 14.1205L6.31082 11.3422H8.89749L8.43749 13.8746C8.41931 13.9634 8.41957 14.0551 8.43824 14.1438C8.45691 14.2326 8.49361 14.3166 8.54606 14.3907C8.59852 14.4648 8.66563 14.5274 8.74327 14.5746C8.8209 14.6219 8.90742 14.6528 8.99749 14.6655C9.08705 14.6868 9.18005 14.6893 9.27065 14.673C9.36124 14.6566 9.44746 14.6218 9.52387 14.5706C9.60028 14.5194 9.66522 14.4529 9.71461 14.3755C9.764 14.298 9.79675 14.2112 9.81082 14.1205L10.3108 11.3422H13.4242C13.601 11.3422 13.7705 11.2722 13.8956 11.1475C14.0206 11.0229 14.0908 10.8538 14.0908 10.6776C14.0908 10.5013 14.0206 10.3322 13.8956 10.2076C13.7705 10.0829 13.601 10.0129 13.4242 10.0129ZM6.55749 10.0129L7.04415 7.35428H9.62415L9.13749 10.0129H6.55749Z"
+                                    fill="#092256"
+                                  ></path>
+                                </g></svg
+                            ></span>
+                            <div>
+                              <h6><button>USSD</button></h6>
+                              <p>
+                                <button>
+                                  Dial *5573# for easy offline banking
+                                </button>
+                              </p>
+                            </div></a
+                          >
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                  <button>
+                    Company<svg
+                      size="17"
+                      color="#063059"
+                      width="16"
+                      height="17"
+                      viewbox="0 0 16 17"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M13.5306 7.03073L8.5306 12.0307C8.46092 12.1007 8.37813 12.1561 8.28696 12.194C8.1958 12.2318 8.09806 12.2513 7.99935 12.2513C7.90064 12.2513 7.8029 12.2318 7.71173 12.194C7.62057 12.1561 7.53778 12.1007 7.4681 12.0307L2.4681 7.03073C2.3272 6.88984 2.24805 6.69874 2.24805 6.49948C2.24805 6.30023 2.3272 6.10913 2.4681 5.96823C2.60899 5.82734 2.80009 5.74818 2.99935 5.74818C3.19861 5.74818 3.3897 5.82734 3.5306 5.96823L7.99997 10.4376L12.4693 5.96761C12.6102 5.82671 12.8013 5.74756 13.0006 5.74756C13.1999 5.74756 13.391 5.82671 13.5318 5.96761C13.6727 6.10851 13.7519 6.2996 13.7519 6.49886C13.7519 6.69812 13.6727 6.88921 13.5318 7.03011L13.5306 7.03073Z"
+                        fill="#063059"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="header_subh__c_P3n hide">
+                    <ul>
+                      <li>
+                        <button>
+                          <a class="" href="/culture"
+                            ><span
+                              ><svg
+                                width="17"
+                                height="16"
+                                viewbox="0 0 17 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <mask
+                                  id="mask0_354_4"
+                                  maskunits="userSpaceOnUse"
+                                  x="0"
+                                  y="0"
+                                  width="17"
+                                  height="16"
+                                >
+                                  <path
+                                    d="M16.1816 0H0.181641V16H16.1816V0Z"
+                                    fill="#D9D9D9"
+                                  ></path>
+                                </mask>
+                                <g mask="url(#mask0_354_4)">
+                                  <path
+                                    d="M4.84861 12.0006V9.33399L1.53191 4.36728C1.37631 4.14508 1.36521 3.91728 1.49861 3.68398C1.63191 3.45058 1.83191 3.33398 2.09861 3.33398H8.93191C9.19861 3.33398 9.39861 3.45058 9.53191 3.68398C9.66521 3.91728 9.65411 4.14508 9.49861 4.36728L6.18191 9.33399V12.0006H6.84861C7.03741 12.0006 7.19582 12.0645 7.32362 12.1923C7.45132 12.3201 7.51521 12.4784 7.51521 12.6673C7.51521 12.8562 7.45132 13.0145 7.32362 13.1423C7.19582 13.2701 7.03741 13.334 6.84861 13.334H4.18191C3.99301 13.334 3.83471 13.2701 3.70691 13.1423C3.57911 13.0145 3.51521 12.8562 3.51521 12.6673C3.51521 12.4784 3.57911 12.3201 3.70691 12.1923C3.83471 12.0645 3.99301 12.0006 4.18191 12.0006H4.84861ZM4.11521 6.00058H6.91521L7.84861 4.66728H3.18191L4.11521 6.00058Z"
+                                    fill="#092256"
+                                  ></path>
+                                  <path
+                                    d="M10.8477 13.334C10.2922 13.334 9.81996 13.1395 9.43106 12.7506C9.04216 12.3618 8.84766 11.8895 8.84766 11.334C8.84766 10.7784 9.04216 10.3062 9.43106 9.91728C9.81996 9.52838 10.2922 9.33399 10.8477 9.33399C10.97 9.33399 11.0866 9.34228 11.1977 9.35898C11.3088 9.37558 11.4144 9.41178 11.5144 9.46728V4.00058C11.5144 3.81178 11.5783 3.65338 11.7061 3.52558C11.8338 3.39788 11.9922 3.33398 12.1811 3.33398H13.8477C14.1255 3.33398 14.3616 3.43118 14.5561 3.62558C14.7505 3.82008 14.8477 4.05618 14.8477 4.33398C14.8477 4.61178 14.7505 4.84788 14.5561 5.04228C14.3616 5.23678 14.1255 5.33398 13.8477 5.33398H12.8477V11.334C12.8477 11.8895 12.6533 12.3618 12.2644 12.7506C11.8755 13.1395 11.4033 13.334 10.8477 13.334Z"
+                                    fill="#0357EE"
+                                  ></path>
+                                </g></svg
+                            ></span>
+                            <div>
+                              <h6><button>Culture</button></h6>
+                            </div></a
+                          >
+                        </button>
+                      </li>
+                      <li>
+                        <button>
+                          <a class="" href="/careers"
+                            ><span
+                              ><svg
+                                width="16"
+                                height="16"
+                                viewbox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <mask
+                                  id="mask0_3359_15627"
+                                  maskunits="userSpaceOnUse"
+                                  x="0"
+                                  y="0"
+                                  width="16"
+                                  height="16"
+                                >
+                                  <rect
+                                    width="16"
+                                    height="16"
+                                    fill="#D9D9D9"
+                                  ></rect>
+                                </mask>
+                                <g mask="url(#mask0_3359_15627)">
+                                  <path
+                                    d="M2.66683 14C2.30016 14 1.98627 13.8695 1.72516 13.6084C1.46405 13.3473 1.3335 13.0334 1.3335 12.6667V5.33337C1.3335 4.96671 1.46405 4.65282 1.72516 4.39171C1.98627 4.1306 2.30016 4.00004 2.66683 4.00004H5.3335V2.66671C5.3335 2.30004 5.46405 1.98615 5.72516 1.72504C5.98627 1.46393 6.30016 1.33337 6.66683 1.33337H9.3335C9.70016 1.33337 10.0141 1.46393 10.2752 1.72504C10.5363 1.98615 10.6668 2.30004 10.6668 2.66671V4.00004H13.3335C13.7002 4.00004 14.0141 4.1306 14.2752 4.39171C14.5363 4.65282 14.6668 4.96671 14.6668 5.33337V12.6667C14.6668 13.0334 14.5363 13.3473 14.2752 13.6084C14.0141 13.8695 13.7002 14 13.3335 14H2.66683ZM2.66683 12.6667H13.3335V5.33337H2.66683V12.6667ZM6.66683 4.00004H9.3335V2.66671H6.66683V4.00004Z"
+                                    fill="#092256"
+                                  ></path>
+                                  <path
+                                    d="M6.86693 10.2667L8.13359 9.00003L6.86693 7.73337C6.7447 7.61114 6.68359 7.45559 6.68359 7.2667C6.68359 7.07781 6.7447 6.92225 6.86693 6.80003C6.98915 6.67781 7.1447 6.6167 7.33359 6.6167C7.52248 6.6167 7.67804 6.67781 7.80026 6.80003L9.53359 8.53337C9.66693 8.6667 9.73359 8.82225 9.73359 9.00003C9.73359 9.17781 9.66693 9.33337 9.53359 9.4667L7.80026 11.2C7.67804 11.3223 7.52248 11.3834 7.33359 11.3834C7.1447 11.3834 6.98915 11.3223 6.86693 11.2C6.7447 11.0778 6.68359 10.9223 6.68359 10.7334C6.68359 10.5445 6.7447 10.3889 6.86693 10.2667Z"
+                                    fill="#0357EE"
+                                  ></path>
+                                </g></svg
+                            ></span>
+                            <div>
+                              <h6><button>Careers</button></h6>
+                            </div></a
+                          >
+                        </button>
+                      </li>
+                      <li>
+                        <button>
+                          <a class="" href="/press"
+                            ><span
+                              ><svg
+                                width="16"
+                                height="16"
+                                viewbox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <mask
+                                  id="mask0_3359_15662"
+                                  maskunits="userSpaceOnUse"
+                                  x="0"
+                                  y="0"
+                                  width="16"
+                                  height="16"
+                                >
+                                  <rect
+                                    width="16"
+                                    height="16"
+                                    fill="#D9D9D9"
+                                  ></rect>
+                                </mask>
+                                <g mask="url(#mask0_3359_15662)">
+                                  <path
+                                    d="M2.66683 14C2.30016 14 1.98627 13.8694 1.72516 13.6083C1.46405 13.3472 1.3335 13.0333 1.3335 12.6667V5.33333C1.3335 5.14444 1.39738 4.98611 1.52516 4.85833C1.65294 4.73056 1.81127 4.66667 2.00016 4.66667C2.18905 4.66667 2.34738 4.73056 2.47516 4.85833C2.60294 4.98611 2.66683 5.14444 2.66683 5.33333V12.6667H12.0002C12.1891 12.6667 12.3474 12.7306 12.4752 12.8583C12.6029 12.9861 12.6668 13.1444 12.6668 13.3333C12.6668 13.5222 12.6029 13.6806 12.4752 13.8083C12.3474 13.9361 12.1891 14 12.0002 14H2.66683ZM5.3335 11.3333C4.96683 11.3333 4.65294 11.2028 4.39183 10.9417C4.13072 10.6806 4.00016 10.3667 4.00016 10V2.66667C4.00016 2.47778 4.06405 2.31944 4.19183 2.19167C4.31961 2.06389 4.47794 2 4.66683 2H14.6668C14.8557 2 15.0141 2.06389 15.1418 2.19167C15.2696 2.31944 15.3335 2.47778 15.3335 2.66667V10C15.3335 10.3667 15.2029 10.6806 14.9418 10.9417C14.6807 11.2028 14.3668 11.3333 14.0002 11.3333H5.3335ZM5.3335 10H14.0002V3.33333H5.3335V10Z"
+                                    fill="#092256"
+                                  ></path>
+                                  <path
+                                    d="M8.66699 7.99996H7.33366C7.14477 7.99996 6.98644 7.93607 6.85866 7.80829C6.73088 7.68052 6.66699 7.52218 6.66699 7.33329V5.33329C6.66699 5.1444 6.73088 4.98607 6.85866 4.85829C6.98644 4.73051 7.14477 4.66663 7.33366 4.66663H8.66699C8.85588 4.66663 9.01421 4.73051 9.14199 4.85829C9.26977 4.98607 9.33366 5.1444 9.33366 5.33329V7.33329C9.33366 7.52218 9.26977 7.68052 9.14199 7.80829C9.01421 7.93607 8.85588 7.99996 8.66699 7.99996Z"
+                                    fill="#0357EE"
+                                  ></path>
+                                  <path
+                                    d="M12.0003 7.99996H10.667C10.4781 7.99996 10.3198 7.93607 10.192 7.80829C10.0642 7.68052 10.0003 7.52218 10.0003 7.33329C10.0003 7.1444 10.0642 6.98607 10.192 6.85829C10.3198 6.73052 10.4781 6.66663 10.667 6.66663H12.0003C12.1892 6.66663 12.3475 6.73052 12.4753 6.85829C12.6031 6.98607 12.667 7.1444 12.667 7.33329C12.667 7.52218 12.6031 7.68052 12.4753 7.80829C12.3475 7.93607 12.1892 7.99996 12.0003 7.99996Z"
+                                    fill="#0357EE"
+                                  ></path>
+                                  <path
+                                    d="M12.0003 5.99996H10.667C10.4781 5.99996 10.3198 5.93607 10.192 5.80829C10.0642 5.68051 10.0003 5.52218 10.0003 5.33329C10.0003 5.1444 10.0642 4.98607 10.192 4.85829C10.3198 4.73051 10.4781 4.66663 10.667 4.66663H12.0003C12.1892 4.66663 12.3475 4.73051 12.4753 4.85829C12.6031 4.98607 12.667 5.1444 12.667 5.33329C12.667 5.52218 12.6031 5.68051 12.4753 5.80829C12.3475 5.93607 12.1892 5.99996 12.0003 5.99996Z"
+                                    fill="#0357EE"
+                                  ></path>
+                                </g></svg
+                            ></span>
+                            <div>
+                              <h6><button>Press</button></h6>
+                            </div></a
+                          >
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="header_header-links___suCK">
+                  <a class="" href="/ng/about">About</a
+                  ><a class="" href="/ng/contact">Contact</a
+                  ><a class="" href="/blog">Blog</a>
+                </div>
+              </div>
+              <div class="header_header-right-btn__XXBP2">
+                <a
+                  href="https://atm.moniepoint.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Sign in<svg
+                    width="16"
+                    height="17"
+                    viewbox="0 0 16 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <mask
+                      id="mask0_2592_643"
+                      maskunits="userSpaceOnUse"
+                      x="0"
+                      y="0"
+                      width="16"
+                      height="17"
+                    >
+                      <rect
+                        y="0.5"
+                        width="16"
+                        height="16"
+                        fill="#D9D9D9"
+                      ></rect>
+                    </mask>
+                    <g mask="url(#mask0_2592_643)">
+                      <path
+                        d="M10.2655 9.38349H3.23001C2.9846 9.38349 2.77602 9.29761 2.60428 9.12587C2.43255 8.95412 2.34668 8.74555 2.34668 8.50014C2.34668 8.25472 2.43255 8.04615 2.60428 7.8744C2.77602 7.70266 2.9846 7.61679 3.23001 7.61679H10.2655L7.36625 4.71754C7.18895 4.54024 7.10151 4.3313 7.10393 4.09072C7.10634 3.85013 7.1962 3.64119 7.3735 3.4639C7.5508 3.29771 7.75974 3.21341 8.00031 3.21099C8.24089 3.20857 8.44983 3.29602 8.62713 3.47332L13.0271 7.87332C13.1126 7.95883 13.1771 8.05617 13.2206 8.16535C13.2641 8.27453 13.2858 8.38612 13.2858 8.50014C13.2858 8.61415 13.2641 8.72574 13.2206 8.83492C13.1771 8.9441 13.1126 9.04144 13.0271 9.12695L8.61771 13.5364C8.44525 13.7088 8.23909 13.7951 7.99923 13.7951C7.75937 13.7951 7.5508 13.7088 7.3735 13.5364C7.1962 13.3591 7.10755 13.1489 7.10755 12.9059C7.10755 12.6629 7.1962 12.4528 7.3735 12.2755L10.2655 9.38349Z"
+                        fill="#092256"
+                      ></path>
+                    </g></svg
+                ></a>
+                <div role="button" class="header_header-lang__VsPC7">
+                  <img
+                    width="24"
+                    height="24"
+                    src="/flags/gb.svg"
+                    alt="Global"
+                  /><svg
+                    size="17"
+                    color="#063059"
+                    width="16"
+                    height="17"
+                    viewbox="0 0 16 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.5306 7.03073L8.5306 12.0307C8.46092 12.1007 8.37813 12.1561 8.28696 12.194C8.1958 12.2318 8.09806 12.2513 7.99935 12.2513C7.90064 12.2513 7.8029 12.2318 7.71173 12.194C7.62057 12.1561 7.53778 12.1007 7.4681 12.0307L2.4681 7.03073C2.3272 6.88984 2.24805 6.69874 2.24805 6.49948C2.24805 6.30023 2.3272 6.10913 2.4681 5.96823C2.60899 5.82734 2.80009 5.74818 2.99935 5.74818C3.19861 5.74818 3.3897 5.82734 3.5306 5.96823L7.99997 10.4376L12.4693 5.96761C12.6102 5.82671 12.8013 5.74756 13.0006 5.74756C13.1999 5.74756 13.391 5.82671 13.5318 5.96761C13.6727 6.10851 13.7519 6.2996 13.7519 6.49886C13.7519 6.69812 13.6727 6.88921 13.5318 7.03011L13.5306 7.03073Z"
+                      fill="#063059"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="Layout_child__8zgE6">
+          <div class="business_business__1ZZtT">
+            <div>
+              <div class="business_hero__ngG3G">
+                <div class="business_hero-container__ItRxD">
+                  <div class="business_hero-left__7jXr_">
+                    <div class="business_hero-label__vkTo6">
+                      <svg
+                        width="32"
+                        height="33"
+                        viewbox="0 0 32 33"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <mask
+                          id="mask0_3843_25355"
+                          maskunits="userSpaceOnUse"
+                          x="4"
+                          y="4"
+                          width="24"
+                          height="25"
+                        >
+                          <rect
+                            x="4"
+                            y="4.5"
+                            width="24"
+                            height="24"
+                            fill="#D9D9D9"
+                          ></rect>
+                        </mask>
+                        <g mask="url(#mask0_3843_25355)">
+                          <path
+                            d="M19.35 24.5L17.4 26.425C17.0167 26.8083 16.55 27 16 27C15.45 27 14.9833 26.8083 14.6 26.425L12.65 24.5H10C9.45 24.5 8.97917 24.3042 8.5875 23.9125C8.19583 23.5208 8 23.05 8 22.5V19.85L6.075 17.9C5.69167 17.5167 5.5 17.05 5.5 16.5C5.5 15.95 5.69167 15.4833 6.075 15.1L8 13.15V10.5C8 9.95 8.19583 9.47917 8.5875 9.0875C8.97917 8.69583 9.45 8.5 10 8.5H12.65L14.6 6.575C14.9833 6.19167 15.45 6 16 6C16.55 6 17.0167 6.19167 17.4 6.575L19.35 8.5H22C22.55 8.5 23.0208 8.69583 23.4125 9.0875C23.8042 9.47917 24 9.95 24 10.5V13.15L25.925 15.1C26.3083 15.4833 26.5 15.95 26.5 16.5C26.5 17.05 26.3083 17.5167 25.925 17.9L24 19.85V22.5C24 23.05 23.8042 23.5208 23.4125 23.9125C23.0208 24.3042 22.55 24.5 22 24.5H19.35ZM16 25L18.5 22.5H22V19L24.5 16.5L22 14V10.5H18.5L16 8L13.5 10.5H10V14L7.5 16.5L10 19V22.5H13.5L16 25ZM16 18.975L17.9 20.125C18.0833 20.2417 18.2667 20.2375 18.45 20.1125C18.6333 19.9875 18.7 19.8167 18.65 19.6L18.15 17.425L19.85 15.95C20.0167 15.8 20.0667 15.6208 20 15.4125C19.9333 15.2042 19.7833 15.0917 19.55 15.075L17.325 14.9L16.45 12.85C16.3667 12.65 16.2167 12.55 16 12.55C15.7833 12.55 15.6333 12.65 15.55 12.85L14.675 14.9L12.45 15.075C12.2167 15.0917 12.0667 15.2042 12 15.4125C11.9333 15.6208 11.9833 15.8 12.15 15.95L13.85 17.425L13.35 19.6C13.3 19.8167 13.3667 19.9875 13.55 20.1125C13.7333 20.2375 13.9167 20.2417 14.1 20.125L16 18.975Z"
+                            fill="#C4E9FD"
+                          ></path>
+                        </g></svg
+                      >Africa's fastest growing financial Institution 2023/2024
+                    </div>
+                    <h1>
+                      Simple solutions to <strong>power your business</strong>
+                    </h1>
+                    <p>
+                      Collect payments, access loans and manage operations with
+                      a business banking solution that meets all your needs.
+                    </p>
+                    <footer>
+                      <a
+                        href="https://moniepoint.sng.link/Dcbc3/df2f?_smtype=3"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="button_button__sZpAi button_primary__VTFVG"
+                      >
+                        Open an Account<svg
+                          width="20"
+                          height="20"
+                          viewbox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <mask
+                            id="mask0_2367_20458"
+                            maskunits="userSpaceOnUse"
+                            x="0"
+                            y="0"
+                            width="20"
+                            height="20"
+                          >
+                            <rect width="20" height="20" fill="#D9D9D9"></rect>
+                          </mask>
+                          <g mask="url(#mask0_2367_20458)">
+                            <path
+                              d="M12.8315 11.1063H4.03715C3.73039 11.1063 3.46966 10.999 3.25498 10.7843C3.04032 10.5696 2.93298 10.3089 2.93298 10.0021C2.93298 9.69536 3.04032 9.43464 3.25498 9.21996C3.46966 9.00528 3.73039 8.89794 4.03715 8.89794H12.8315L9.20744 5.27387C8.98582 5.05225 8.87652 4.79107 8.87955 4.49035C8.88256 4.18962 8.99488 3.92844 9.21651 3.70683C9.43813 3.4991 9.6993 3.39371 10 3.39069C10.3007 3.38767 10.5619 3.49698 10.7835 3.7186L16.2835 9.2186C16.3904 9.32549 16.4711 9.44717 16.5254 9.58364C16.5797 9.72012 16.6069 9.85961 16.6069 10.0021C16.6069 10.1446 16.5797 10.2841 16.5254 10.4206C16.4711 10.5571 16.3904 10.6788 16.2835 10.7856L10.7718 16.2974C10.5562 16.513 10.2985 16.6208 9.99867 16.6208C9.69885 16.6208 9.43813 16.513 9.21651 16.2974C8.99488 16.0758 8.88407 15.8131 8.88407 15.5094C8.88407 15.2056 8.99488 14.9429 9.21651 14.7213L12.8315 11.1063Z"
+                              fill="white"
+                            ></path>
+                          </g></svg
+                      ></a>
+                    </footer>
+                    <div class="business_hero-cbn__je73m">
+                      We are licensed by<img
+                        src="https://lh3.googleusercontent.com/d/1VIlBQqAq-1mOcJ1T6Djis1VqcZWgAJdM=w1000?authuser=0"
+                        alt="cbn logo"
+                      />and insured by<!-- -->
+                      <img
+                        src="https://lh3.googleusercontent.com/d/1FtA17SsYTq3ZFIl2Y_q2U6ZzLIfeaVvn=w1000?authuser=0"
+                        alt="ndic logo"
+                      />
+                    </div>
+                  </div>
+                  <div class="business_hero-right__vUWkA">
+                    <img
+                      draggable="false"
+                      alt=""
+                      fetchpriority="high"
+                      loading="eager"
+                      width="769"
+                      height="711"
+                      decoding="async"
+                      data-nimg="1"
+                      class="Image_img__YuzBP"
+                      style="color: transparent; --width: 769; --height: 711"
+                      src="https://moniepoint.com/business/hero-sub.png"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="business_card-container__Wspki">
+                <div class="business_card__hNOTK">
+                  <div class="business_card-top__J7JLq">
+                    <div class="business_card-top-left__tSZaV">
+                      <h2>Businesses that Count On Us</h2>
+                      <p>
+                        Join <strong>5 million</strong> business owners on the
+                        Moniepoint platform
+                      </p>
+                    </div>
+                    <h2 class="business_card-top-right__dDtCt">5m+</h2>
+                  </div>
+                  <div
+                    class="marquee_marquee___m7PH"
+                    style="
+                      --duration: 64s;
+                      --offset: 0%;
+                      --animation-status: paused;
+                    "
+                  >
+                    <div class="marquee_inner__lo_f7">
+                      <div class="business_card-users__8WNh3">
+                        <div><img src="/ng/biz-1.png" alt="" /></div>
+                        <div><img src="/ng/biz-2.png" alt="" /></div>
+                        <div><img src="/ng/biz-3.png" alt="" /></div>
+                        <div><img src="/ng/biz-4.png" alt="" /></div>
+                        <div><img src="/ng/biz-5.png" alt="" /></div>
+                        <div><img src="/ng/biz-6.png" alt="" /></div>
+                        <div><img src="/ng/biz-7.png" alt="" /></div>
+                        <div><img src="/ng/biz-8.png" alt="" /></div>
+                      </div>
+                    </div>
+                    <div class="marquee_inner__lo_f7">
+                      <div class="business_card-users__8WNh3">
+                        <div><img src="/ng/biz-1.png" alt="" /></div>
+                        <div><img src="/ng/biz-2.png" alt="" /></div>
+                        <div><img src="/ng/biz-3.png" alt="" /></div>
+                        <div><img src="/ng/biz-4.png" alt="" /></div>
+                        <div><img src="/ng/biz-5.png" alt="" /></div>
+                        <div><img src="/ng/biz-6.png" alt="" /></div>
+                        <div><img src="/ng/biz-7.png" alt="" /></div>
+                        <div><img src="/ng/biz-8.png" alt="" /></div>
+                      </div>
+                    </div>
+                    <div class="marquee_inner__lo_f7">
+                      <div class="business_card-users__8WNh3">
+                        <div><img src="/ng/biz-1.png" alt="" /></div>
+                        <div><img src="/ng/biz-2.png" alt="" /></div>
+                        <div><img src="/ng/biz-3.png" alt="" /></div>
+                        <div><img src="/ng/biz-4.png" alt="" /></div>
+                        <div><img src="/ng/biz-5.png" alt="" /></div>
+                        <div><img src="/ng/biz-6.png" alt="" /></div>
+                        <div><img src="/ng/biz-7.png" alt="" /></div>
+                        <div><img src="/ng/biz-8.png" alt="" /></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="business_tools__VGhop">
+              <section class="business_tools-container__baw7c">
+                <header class="business_tools-header__A62RO">
+                  <h2>All the tools you need to run your business with ease</h2>
+                </header>
+                <div class="business_tools-tags__k4dmG">
+                  <button class="business_active__urdNW">
+                    Business Account</button
+                  ><button class="">Point of Sale Terminal</button
+                  ><button class="">Expense Card</button
+                  ><button class="">Working Capital Loans</button>
+                </div>
+                <div class="business_tools-list__aK4Zn">
+                  <div id="business-account" class="business_tool__JpTnW">
+                    <div class="business_tool-left__cM0rO">
+                      <div class="business_tool-left-tag__A0JM6">
+                        Business Account
+                      </div>
+                      <h2>A free bank account to power your business</h2>
+                      <p>
+                        Open a free bank account in your business name, in
+                        minutes. Access round the clock support, with no hidden
+                        fees and complete control over your account.
+                      </p>
+                      <footer>
+                        <a
+                          href="https://moniepoint.sng.link/Dcbc3/df2f?_smtype=3"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="button_button__sZpAi button_primary__VTFVG"
+                          >Open an account</a
+                        ><a
+                          class="button_button__sZpAi button_white__ubN_I"
+                          href="/ng/business/business-account"
+                          >Learn more</a
+                        >
+                      </footer>
+                    </div>
+                    <div class="business_tool-right__53B5B">
+                      <img
+                        draggable="false"
+                        alt=""
+                        loading="lazy"
+                        width="616"
+                        height="521"
+                        decoding="async"
+                        data-nimg="1"
+                        class="Image_img__YuzBP"
+                        style="color: transparent; --width: 616; --height: 521"
+                        src="/business/tool1.png"
+                      />
+                    </div>
+                  </div>
+                  <div id="point-of-sale-terminal" class="business_tool__JpTnW">
+                    <div class="business_tool-left__cM0rO">
+                      <div class="business_tool-left-tag__A0JM6">
+                        Point of Sale Terminal
+                      </div>
+                      <h2>POS machine wey no get wahala.</h2>
+                      <p>
+                        Accept card and transfer payments seamlessly, with a
+                        reliable point-of-sale terminal. Enjoy instant
+                        settlement, easy dispute resolution, and instant
+                        payments every time.
+                      </p>
+                      <footer>
+                        <a
+                          href="https://moniepoint.sng.link/Dcbc3/df2f?_smtype=3"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="button_button__sZpAi button_primary__VTFVG"
+                          >Open an account</a
+                        ><a
+                          class="button_button__sZpAi button_white__ubN_I"
+                          href="/ng/business/point-of-sale-terminal"
+                          >Learn more</a
+                        >
+                      </footer>
+                    </div>
+                    <div class="business_tool-right__53B5B">
+                      <img
+                        draggable="false"
+                        alt=""
+                        loading="lazy"
+                        width="616"
+                        height="521"
+                        decoding="async"
+                        data-nimg="1"
+                        class="Image_img__YuzBP"
+                        style="color: transparent; --width: 616; --height: 521"
+                        src="/business/tool2.png"
+                      />
+                    </div>
+                  </div>
+                  <div id="expense-card" class="business_tool__JpTnW">
+                    <div class="business_tool-left__cM0rO">
+                      <div class="business_tool-left-tag__A0JM6">
+                        Expense Card
+                      </div>
+                      <h2>A secure card for your business expenses</h2>
+                      <p>
+                        Order an expense card to spend and manage your business
+                        finance effectively, and get it in 48hrs. Track your
+                        business expenses and set limits for different needs.
+                      </p>
+                      <footer>
+                        <a
+                          href="https://moniepoint.sng.link/Dcbc3/df2f?_smtype=3"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="button_button__sZpAi button_primary__VTFVG"
+                          >Get a Card</a
+                        ><a
+                          class="button_button__sZpAi button_white__ubN_I"
+                          href="/ng/business/expense-card"
+                          >Learn more</a
+                        >
+                      </footer>
+                    </div>
+                    <div class="business_tool-right__53B5B">
+                      <img
+                        draggable="false"
+                        alt=""
+                        loading="lazy"
+                        width="616"
+                        height="521"
+                        decoding="async"
+                        data-nimg="1"
+                        class="Image_img__YuzBP"
+                        style="color: transparent; --width: 616; --height: 521"
+                        src="/business/tool3.png"
+                      />
+                    </div>
+                  </div>
+                  <div id="working-capital-loans" class="business_tool__JpTnW">
+                    <div class="business_tool-left__cM0rO">
+                      <div class="business_tool-left-tag__A0JM6">
+                        Working Capital Loans
+                      </div>
+                      <h2>Flexible loans that help your business grow</h2>
+                      <p>
+                        Access working capital loans to help your business grow.
+                        Easy request process with business-friendly interest
+                        rates and repayment tenures.
+                      </p>
+                      <footer>
+                        <a
+                          href="https://moniepoint.sng.link/Dcbc3/df2f?_smtype=3"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="button_button__sZpAi button_primary__VTFVG"
+                          >Open an account</a
+                        ><a
+                          class="button_button__sZpAi button_white__ubN_I"
+                          href="/ng/business/working-capital-loans"
+                          >Learn more</a
+                        >
+                      </footer>
+                    </div>
+                    <div class="business_tool-right__53B5B">
+                      <img
+                        draggable="false"
+                        alt=""
+                        loading="lazy"
+                        width="616"
+                        height="521"
+                        decoding="async"
+                        data-nimg="1"
+                        class="Image_img__YuzBP"
+                        style="color: transparent; --width: 616; --height: 521"
+                        src="/business/tool4.png"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div>
+              <div>
+                <div class="testimonies_testimonies__wUdbJ">
+                  <div class="testimonies_testimonies-container__ItlUH">
+                    <div class="testimonies_testimonies-left__QWPS4">
+                      <header>
+                        <h2>Don’t just take our word for it.</h2>
+                      </header>
+                      <div
+                        data-animation="testimony-details"
+                        class="testimonies_testimonies-left-details__Es_9g"
+                      >
+                        <p>
+                          <svg
+                            width="144"
+                            height="144"
+                            viewbox="0 0 144 144"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g opacity="0.08">
+                              <mask
+                                id="mask0_2367_20207"
+                                maskunits="userSpaceOnUse"
+                                x="0"
+                                y="0"
+                                width="144"
+                                height="144"
+                              >
+                                <rect
+                                  width="143.5"
+                                  height="143.5"
+                                  fill="#D9D9D9"
+                                ></rect>
+                              </mask>
+                              <g mask="url(#mask0_2367_20207)">
+                                <path
+                                  d="M40.4589 99.9518L50.0256 83.5091C49.6935 83.5754 49.3281 83.6253 48.9295 83.6586C48.5308 83.6917 48.1653 83.7083 47.8332 83.7083C41.2561 83.7083 35.6257 81.3665 30.9421 76.6828C26.2584 71.9991 23.9165 66.3688 23.9165 59.7917C23.9165 53.2146 26.2584 47.5842 30.9421 42.9005C35.6257 38.2168 41.2561 35.875 47.8332 35.875C54.4103 35.875 60.0407 38.2168 64.7243 42.9005C69.408 47.5842 71.7499 53.2146 71.7499 59.7917C71.7499 61.9508 71.4758 64.0248 70.9277 66.0134C70.3796 68.0021 69.5575 69.9143 68.4613 71.75L49.2782 105.134C48.8463 105.964 48.2318 106.587 47.4345 107.002C46.6373 107.417 45.774 107.625 44.8445 107.625C42.901 107.625 41.4434 106.778 40.4717 105.084C39.4998 103.39 39.4956 101.679 40.4589 99.9518ZM94.2715 99.9518L103.838 83.5091C103.506 83.5754 103.141 83.6253 102.742 83.6586C102.343 83.6917 101.978 83.7083 101.646 83.7083C95.0686 83.7083 89.4382 81.3665 84.7546 76.6828C80.0709 71.9991 77.729 66.3688 77.729 59.7917C77.729 53.2146 80.0709 47.5842 84.7546 42.9005C89.4382 38.2168 95.0686 35.875 101.646 35.875C108.223 35.875 113.853 38.2168 118.537 42.9005C123.221 47.5842 125.562 53.2146 125.562 59.7917C125.562 61.9508 125.288 64.0248 124.74 66.0134C124.192 68.0021 123.37 69.9143 122.274 71.75L103.091 105.134C102.659 105.964 102.044 106.587 101.247 107.002C100.45 107.417 99.5865 107.625 98.657 107.625C96.7135 107.625 95.2559 106.778 94.2842 105.084C93.3123 103.39 93.3081 101.679 94.2715 99.9518ZM47.8097 70.7536C50.8481 70.7536 53.4387 69.6901 55.5813 67.5631C57.7238 65.4362 58.7951 62.8535 58.7951 59.8151C58.7951 56.7767 57.7316 54.1862 55.6046 52.0436C53.4777 49.901 50.8951 48.8298 47.8567 48.8298C44.8183 48.8298 42.2277 49.8933 40.0851 52.0202C37.9426 54.1471 36.8713 56.7298 36.8713 59.7682C36.8713 62.8066 37.9348 65.3971 40.0618 67.5398C42.1887 69.6823 44.7713 70.7536 47.8097 70.7536ZM101.622 70.7536C104.661 70.7536 107.251 69.6901 109.394 67.5631C111.536 65.4362 112.608 62.8535 112.608 59.8151C112.608 56.7767 111.544 54.1862 109.417 52.0436C107.29 49.901 104.708 48.8298 101.669 48.8298C98.6308 48.8298 96.0402 49.8933 93.8976 52.0202C91.7551 54.1471 90.6838 56.7298 90.6838 59.7682C90.6838 62.8066 91.7473 65.3971 93.8743 67.5398C96.0012 69.6823 98.5838 70.7536 101.622 70.7536Z"
+                                  fill="#0357EE"
+                                ></path>
+                              </g>
+                            </g></svg
+                          >I was robbed and found my shop open one fateful
+                          morning. I needed some money to cover up for the loss,
+                          and my business relationship manager mentioned the
+                          Moniepoint Loan to me. I needed it, and they gave me.
+                          Moniepoint has been a big help to my business. Without
+                          them, business will not be able to function.
+                        </p>
+                        <div
+                          class="testimonies_testimonies-left-details-sub__kREAL"
+                        >
+                          <h2>Mr Joseph</h2>
+                          <p>Business Owner</p>
+                        </div>
+                      </div>
+                      <div class="testimonies_testimonies-nav__8qWdG">
+                        <button>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="74"
+                            height="74"
+                            viewbox="0 0 74 74"
+                            fill="none"
+                          >
+                            <rect
+                              width="74"
+                              height="74"
+                              rx="37"
+                              fill="#F8FAFD"
+                            ></rect>
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M35.1892 44.6035L28.4983 37.9117C27.9758 37.3891 27.9758 36.5419 28.4983 36.0193L35.1217 29.3959C35.6443 28.8733 36.4916 28.8733 37.0141 29.3959C37.5367 29.9185 37.5367 30.7657 37.0141 31.2883L32.6751 35.6274L44.1639 35.6274C44.903 35.6274 45.5021 36.2265 45.5021 36.9655C45.5021 37.7045 44.903 38.3036 44.1639 38.3036L32.6751 38.3036L37.0816 42.7111C37.6042 43.2336 37.6042 44.0809 37.0816 44.6035C36.559 45.126 35.7118 45.126 35.1892 44.6035Z"
+                              fill="#3E588E"
+                            ></path>
+                          </svg></button
+                        ><button>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="74"
+                            height="74"
+                            viewbox="0 0 74 74"
+                            fill="none"
+                          >
+                            <rect
+                              width="74"
+                              height="74"
+                              rx="37"
+                              fill="#F8FAFD"
+                            ></rect>
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M38.4192 29.3958L45.1101 36.0876C45.6326 36.6101 45.6326 37.4574 45.1101 37.98L38.4867 44.6034C37.9641 45.1259 37.1168 45.1259 36.5943 44.6034C36.0717 44.0808 36.0717 43.2335 36.5943 42.711L40.9333 38.3719H29.4445C28.7054 38.3719 28.1063 37.7728 28.1063 37.0338C28.1063 36.2947 28.7054 35.6956 29.4445 35.6956H40.9333L36.5268 31.2882C36.0042 30.7656 36.0042 29.9184 36.5268 29.3958C37.0494 28.8732 37.8966 28.8732 38.4192 29.3958Z"
+                              fill="#3E588E"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="testimonies_testimonies-right__XjbMr">
+                      <div class="testimonies_testimonies-right-thumb__9Wj4_">
+                        <div>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="82"
+                            height="82"
+                            viewbox="0 0 82 82"
+                            fill="none"
+                          >
+                            <circle
+                              data-animation="testimony-circle"
+                              cx="41"
+                              cy="41"
+                              r="40"
+                              stroke="#0357EE"
+                              stroke-width="2"
+                              stroke-dasharray="251.2"
+                            ></circle></svg
+                          ><img
+                            draggable="false"
+                            alt=""
+                            loading="lazy"
+                            width="64"
+                            height="64"
+                            decoding="async"
+                            data-nimg="1"
+                            class="Image_img__YuzBP testimonies_p__OqDOY"
+                            style="
+                              color: transparent;
+                              --width: 64;
+                              --height: 64;
+                            "
+                            src="https://img.youtube.com/vi/VPMcbBKTu-o/hqdefault.jpg"
+                          />
+                        </div>
+                        <div>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="82"
+                            height="82"
+                            viewbox="0 0 82 82"
+                            fill="none"
+                          >
+                            <circle
+                              data-animation="testimony-circle"
+                              cx="41"
+                              cy="41"
+                              r="40"
+                              stroke="#0357EE"
+                              stroke-width="2"
+                              stroke-dasharray="251.2"
+                            ></circle></svg
+                          ><img
+                            draggable="false"
+                            alt=""
+                            loading="lazy"
+                            width="64"
+                            height="64"
+                            decoding="async"
+                            data-nimg="1"
+                            class="Image_img__YuzBP testimonies_p__OqDOY"
+                            style="
+                              color: transparent;
+                              --width: 64;
+                              --height: 64;
+                            "
+                            src="https://img.youtube.com/vi/UkpSnqfB7VA/hqdefault.jpg"
+                          />
+                        </div>
+                        <div>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="82"
+                            height="82"
+                            viewbox="0 0 82 82"
+                            fill="none"
+                          >
+                            <circle
+                              data-animation="testimony-circle"
+                              cx="41"
+                              cy="41"
+                              r="40"
+                              stroke="#0357EE"
+                              stroke-width="2"
+                              stroke-dasharray="251.2"
+                            ></circle></svg
+                          ><img
+                            draggable="false"
+                            alt=""
+                            loading="lazy"
+                            width="64"
+                            height="64"
+                            decoding="async"
+                            data-nimg="1"
+                            class="Image_img__YuzBP testimonies_p__OqDOY"
+                            style="
+                              color: transparent;
+                              --width: 64;
+                              --height: 64;
+                            "
+                            src="https://img.youtube.com/vi/dAQt_Jf12_Q/hqdefault.jpg"
+                          />
+                        </div>
+                        <div>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="82"
+                            height="82"
+                            viewbox="0 0 82 82"
+                            fill="none"
+                          >
+                            <circle
+                              data-animation="testimony-circle"
+                              cx="41"
+                              cy="41"
+                              r="40"
+                              stroke="#0357EE"
+                              stroke-width="2"
+                              stroke-dasharray="251.2"
+                            ></circle></svg
+                          ><img
+                            draggable="false"
+                            alt=""
+                            loading="lazy"
+                            width="64"
+                            height="64"
+                            decoding="async"
+                            data-nimg="1"
+                            class="Image_img__YuzBP testimonies_p__OqDOY"
+                            style="
+                              color: transparent;
+                              --width: 64;
+                              --height: 64;
+                            "
+                            src="https://img.youtube.com/vi/SdVnlo5Opco/hqdefault.jpg"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="testimonies_testimonies-right-img__Mfkr8"
+                        data-animation="testimony-media"
+                      >
+                        <img
+                          role="button"
+                          draggable="false"
+                          alt=""
+                          loading="lazy"
+                          width="65"
+                          height="65"
+                          decoding="async"
+                          data-nimg="1"
+                          class="Image_img__YuzBP testimonies_p__OqDOY"
+                          style="color: transparent; --width: 65; --height: 65"
+                          src="/culture/play.svg"
+                        /><img
+                          draggable="false"
+                          alt=""
+                          loading="lazy"
+                          width="723"
+                          height="469"
+                          decoding="async"
+                          data-nimg="1"
+                          class="Image_img__YuzBP testimonies_i__9idt2"
+                          style="
+                            color: transparent;
+                            --width: 723;
+                            --height: 469;
+                          "
+                          src="https://i.ytimg.com/vi/VPMcbBKTu-o/sd1.jpg"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <section class="benefits_benefits__k1Ewe">
+              <div class="benefits_benefits-container__CRzPf">
+                <header class="benefits_benefits-header__u877Y">
+                  <h2>What's more?</h2>
+                  <p>
+                    Explore more ways to take your business to the next level.
+                  </p>
+                </header>
+                <div class="benefits_benefits-list__jE4yy">
+                  <div class="benefits_benefit__HP0KH">
+                    <img src="/benefits/manage.svg" alt="" />
+                    <h3>Manage Multiple Businesses</h3>
+                    <p>Easily handle multiple businesses in one place</p>
+                  </div>
+                  <div class="benefits_benefit__HP0KH">
+                    <img src="/benefits/performance.svg" alt="" />
+                    <h3>Business Performance</h3>
+                    <p>Keep your finger on the pulse of your business</p>
+                  </div>
+                  <div class="benefits_benefit__HP0KH">
+                    <img src="/benefits/help.svg" alt="" />
+                    <h3>Easy Help</h3>
+                    <p>Quick and accessible support whenever you need it</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <div class="get-started_start___58DA">
+              <div class="get-started_start-top__HgnND">
+                <div class="get-started_start-top-left__Wejdb">
+                  <h2>How to Get Started</h2>
+                  <p>
+                    Your journey with Moniepoint starts here! Just follow these
+                    easy steps
+                  </p>
+                </div>
+                <div class="get-started_start-top-img__bg3Ft">
+                  <img
+                    data-animation="start-image"
+                    draggable="false"
+                    alt="Fill in your details and verify your phone number"
+                    loading="lazy"
+                    width="379"
+                    height="365"
+                    decoding="async"
+                    data-nimg="1"
+                    class="Image_img__YuzBP"
+                    style="color: transparent; --width: 379; --height: 365"
+                    src="/start/ng-1.png"
+                  /><img
+                    data-animation="start-image"
+                    draggable="false"
+                    alt="Get verified with your BVN and KYC details"
+                    loading="lazy"
+                    width="379"
+                    height="365"
+                    decoding="async"
+                    data-nimg="1"
+                    class="Image_img__YuzBP"
+                    style="color: transparent; --width: 379; --height: 365"
+                    src="/start/ng-2.png"
+                  /><img
+                    data-animation="start-image"
+                    draggable="false"
+                    alt="Fund your account to start making transfers."
+                    loading="lazy"
+                    width="379"
+                    height="365"
+                    decoding="async"
+                    data-nimg="1"
+                    class="Image_img__YuzBP"
+                    style="color: transparent; --width: 379; --height: 365"
+                    src="/start/ng-3.png"
+                  /><img
+                    data-animation="start-image"
+                    draggable="false"
+                    alt="Access your account dashboard and apply for an expense card."
+                    loading="lazy"
+                    width="379"
+                    height="365"
+                    decoding="async"
+                    data-nimg="1"
+                    class="Image_img__YuzBP"
+                    style="color: transparent; --width: 379; --height: 365"
+                    src="/start/ng-4.png"
+                  />
+                </div>
+              </div>
+              <ul
+                data-animation="start-main"
+                class="get-started_start-main__o2AvU"
+              >
+                <li data-animation="start-li">
+                  <div
+                    class="get-started_linem__jOCJv get-started_line__l6s_Q"
+                  ></div>
+                  <div class="get-started_lines__WmKJ3">
+                    <p data-animation="start-li-p">1</p>
+                    <div class="get-started_line__l6s_Q"></div>
+                  </div>
+                  <div class="get-started_text__FnuZo">
+                    <h3>Fill in your details and verify your phone number</h3>
+                    <p>
+                      Provide your email and phone number and verify your phone
+                      number with an OTP.
+                    </p>
+                  </div>
+                </li>
+                <li data-animation="start-li">
+                  <div
+                    class="get-started_linem__jOCJv get-started_line__l6s_Q"
+                  ></div>
+                  <div class="get-started_lines__WmKJ3">
+                    <p data-animation="start-li-p">2</p>
+                    <div class="get-started_line__l6s_Q"></div>
+                  </div>
+                  <div class="get-started_text__FnuZo">
+                    <h3>Get verified with your BVN and KYC details</h3>
+                    <p>
+                      Select username & password. Provide your BVN and KYC
+                      details and start face & ID verification. You can then
+                      provide your business name and set up a PIN for managing
+                      your account.
+                    </p>
+                  </div>
+                </li>
+                <li data-animation="start-li">
+                  <div
+                    class="get-started_linem__jOCJv get-started_line__l6s_Q"
+                  ></div>
+                  <div class="get-started_lines__WmKJ3">
+                    <p data-animation="start-li-p">3</p>
+                    <div class="get-started_line__l6s_Q"></div>
+                  </div>
+                  <div class="get-started_text__FnuZo">
+                    <h3>Fund your account to start making transfers.</h3>
+                    <p>Top up to start making transfers.</p>
+                  </div>
+                </li>
+                <li data-animation="start-li">
+                  <div class="get-started_lines__WmKJ3">
+                    <p data-animation="start-li-p">4</p>
+                  </div>
+                  <div class="get-started_text__FnuZo">
+                    <h3>
+                      Access your account dashboard and apply for an expense
+                      card.
+                    </h3>
+                    <p>
+                      Login to your business dashboard and click on the Card
+                      menu to get an expense card.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+              <div class="download_download-container__c9sZ0">
+                <div class="download_download__YlYIy">
+                  <button>
+                    <img width="40" height="40" src="/apple.svg" alt="" />
+                  </button>
+                  <div>
+                    <p><button>Get it on</button></p>
+                    <button><span>App Store</span></button>
+                  </div>
+                  <button>
+                    <img width="40" height="40" src="/playstore.svg" alt="" />
+                  </button>
+                  <div>
+                    <p><button>Get it on</button></p>
+                    <button><span>Google Play</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="business_blog__25_ci">
+              <section class="business_blog-container__ZI4V2">
+                <h2>Blogs & Articles</h2>
+                <p>
+                  Discover the roadmap to financial success! Stay updated with
+                  the latest tips and trends on our blog
+                </p>
+                <div class="business_blog-list-viewport__O_QDe">
+                  <div class="business_blog-list__K9_Tm">
+                    <a
+                      class="blog_blog-item__HNYet"
+                      href="/blog/reasons-always-broke-and-how-to-fix-them"
+                      ><img
+                        draggable="false"
+                        alt="10 Reasons You're Always Broke and How to Fix Them"
+                        loading="lazy"
+                        width="404"
+                        height="316"
+                        decoding="async"
+                        data-nimg="1"
+                        class="Image_img__YuzBP"
+                        style="color: transparent; --width: 404; --height: 316"
+                        src="https://media.graphassets.com/output=format:webp/asq1DUz2ToGj37bZyTaf"
+                      />
+                      <div class="blog_blog-item-div__O9Vrf">
+                        <div class="blog_blog-item-hd__XFraQ">
+                          <h6>Business Tips</h6>
+                          <p>May 06, 2025</p>
+                        </div>
+                        <h4 class="blog_blog-item-h4__gFZrF">
+                          10 Reasons You're Always Broke and How to Fix Them
+                        </h4>
+                        <p class="blog_blog-item-p__LJ_pm">
+                          by
+                          <!-- -->Moniepoint MFB
+                        </p>
+                      </div></a
+                    ><a
+                      class="blog_blog-item__HNYet"
+                      href="/blog/opening-a-personal-bank-account"
+                      ><img
+                        draggable="false"
+                        alt="Opening A Personal Bank Account: What You Need To Know"
+                        loading="lazy"
+                        width="404"
+                        height="316"
+                        decoding="async"
+                        data-nimg="1"
+                        class="Image_img__YuzBP"
+                        style="color: transparent; --width: 404; --height: 316"
+                        src="https://media.graphassets.com/output=format:webp/9s3sosnSNSyNcgXhBmeG"
+                      />
+                      <div class="blog_blog-item-div__O9Vrf">
+                        <div class="blog_blog-item-hd__XFraQ">
+                          <h6>Business Tips</h6>
+                          <p>April 06, 2025</p>
+                        </div>
+                        <h4 class="blog_blog-item-h4__gFZrF">
+                          Opening A Personal Bank Account: What You Need To Know
+                        </h4>
+                        <p class="blog_blog-item-p__LJ_pm">
+                          by
+                          <!-- -->Moniepoint MFB
+                        </p>
+                      </div></a
+                    ><a
+                      class="blog_blog-item__HNYet"
+                      href="/blog/how-to-build-an-emergency-fund"
+                      ><img
+                        draggable="false"
+                        alt="How to Build an Emergency Fund: A Step-by-Step Guide"
+                        loading="lazy"
+                        width="404"
+                        height="316"
+                        decoding="async"
+                        data-nimg="1"
+                        class="Image_img__YuzBP"
+                        style="color: transparent; --width: 404; --height: 316"
+                        src="https://media.graphassets.com/output=format:webp/PhbVx8y2SemUV5vCZg5Q"
+                      />
+                      <div class="blog_blog-item-div__O9Vrf">
+                        <div class="blog_blog-item-hd__XFraQ">
+                          <h6>Business Tips</h6>
+                          <p>April 01, 2025</p>
+                        </div>
+                        <h4 class="blog_blog-item-h4__gFZrF">
+                          How to Build an Emergency Fund: A Step-by-Step Guide
+                        </h4>
+                        <p class="blog_blog-item-p__LJ_pm">
+                          by
+                          <!-- -->Moniepoint MFB
+                        </p>
+                      </div></a
+                    ><a
+                      class="blog_blog-item__HNYet"
+                      href="/blog/how-to-accept-payments"
+                      ><img
+                        draggable="false"
+                        alt="How To Accept Payments: The Ultimate Guide For Businesses in 2025"
+                        loading="lazy"
+                        width="404"
+                        height="316"
+                        decoding="async"
+                        data-nimg="1"
+                        class="Image_img__YuzBP"
+                        style="color: transparent; --width: 404; --height: 316"
+                        src="https://media.graphassets.com/output=format:webp/Hwsq9UGRsy10l4oxviwn"
+                      />
+                      <div class="blog_blog-item-div__O9Vrf">
+                        <div class="blog_blog-item-hd__XFraQ">
+                          <h6>Business Tips</h6>
+                          <p>March 17, 2025</p>
+                        </div>
+                        <h4 class="blog_blog-item-h4__gFZrF">
+                          How To Accept Payments: The Ultimate Guide For
+                          Businesses in 2025
+                        </h4>
+                        <p class="blog_blog-item-p__LJ_pm">
+                          by
+                          <!-- -->Moniepoint MFB
+                        </p>
+                      </div></a
+                    ><a
+                      class="blog_blog-item__HNYet"
+                      href="/blog/common-money-mistakes"
+                      ><img
+                        draggable="false"
+                        alt="6 Most Common Money Mistakes You Should Avoid in 2025"
+                        loading="lazy"
+                        width="404"
+                        height="316"
+                        decoding="async"
+                        data-nimg="1"
+                        class="Image_img__YuzBP"
+                        style="color: transparent; --width: 404; --height: 316"
+                        src="https://media.graphassets.com/output=format:webp/5um1Lpr0RdSbbKkd5hVL"
+                      />
+                      <div class="blog_blog-item-div__O9Vrf">
+                        <div class="blog_blog-item-hd__XFraQ">
+                          <h6>Business Tips</h6>
+                          <p>March 14, 2025</p>
+                        </div>
+                        <h4 class="blog_blog-item-h4__gFZrF">
+                          6 Most Common Money Mistakes You Should Avoid in 2025
+                        </h4>
+                        <p class="blog_blog-item-p__LJ_pm">
+                          by
+                          <!-- -->Moniepoint MFB
+                        </p>
+                      </div></a
+                    ><a
+                      class="blog_blog-item__HNYet"
+                      href="/blog/how-start-pos-business-nigeria"
+                      ><img
+                        draggable="false"
+                        alt="How to Start a POS Business in Nigeria: A Complete Guide"
+                        loading="lazy"
+                        width="404"
+                        height="316"
+                        decoding="async"
+                        data-nimg="1"
+                        class="Image_img__YuzBP"
+                        style="color: transparent; --width: 404; --height: 316"
+                        src="https://media.graphassets.com/output=format:webp/WAit9OqGSCCl5pxf2F2a"
+                      />
+                      <div class="blog_blog-item-div__O9Vrf">
+                        <div class="blog_blog-item-hd__XFraQ">
+                          <h6>Business Tips</h6>
+                          <p>March 03, 2025</p>
+                        </div>
+                        <h4 class="blog_blog-item-h4__gFZrF">
+                          How to Start a POS Business in Nigeria: A Complete
+                          Guide
+                        </h4>
+                        <p class="blog_blog-item-p__LJ_pm">
+                          by
+                          <!-- -->Moniepoint MFB
+                        </p>
+                      </div></a
+                    ><a
+                      class="blog_blog-item__HNYet"
+                      href="/blog/how-we-made-monnify-the-faster-and-better-payment-gateway-in-nigeria"
+                      ><img
+                        draggable="false"
+                        alt="How we made Monnify the faster and better payment gateway in Nigeria"
+                        loading="lazy"
+                        width="404"
+                        height="316"
+                        decoding="async"
+                        data-nimg="1"
+                        class="Image_img__YuzBP"
+                        style="color: transparent; --width: 404; --height: 316"
+                        src="https://media.graphassets.com/output=format:webp/ovC26DsPQYm8psUsPEIa"
+                      />
+                      <div class="blog_blog-item-div__O9Vrf">
+                        <div class="blog_blog-item-hd__XFraQ">
+                          <h6>Tech & Processes</h6>
+                          <p>February 25, 2025</p>
+                        </div>
+                        <h4 class="blog_blog-item-h4__gFZrF">
+                          How we made Monnify the faster and better payment
+                          gateway in Nigeria
+                        </h4>
+                        <p class="blog_blog-item-p__LJ_pm">
+                          by
+                          <!-- -->Daniel Ojinaka and Mayrose Agbalugo
+                        </p>
+                      </div></a
+                    ><a
+                      class="blog_blog-item__HNYet"
+                      href="/blog/19-small-business-idea-in-nigeria"
+                      ><img
+                        draggable="false"
+                        alt="19 Small Business Ideas You Can Easily Start in Nigeria in 2025"
+                        loading="lazy"
+                        width="404"
+                        height="316"
+                        decoding="async"
+                        data-nimg="1"
+                        class="Image_img__YuzBP"
+                        style="color: transparent; --width: 404; --height: 316"
+                        src="https://media.graphassets.com/output=format:webp/wEc5pA3QOqwIcpIBKfvu"
+                      />
+                      <div class="blog_blog-item-div__O9Vrf">
+                        <div class="blog_blog-item-hd__XFraQ">
+                          <h6>Business Tips</h6>
+                          <p>February 12, 2025</p>
+                        </div>
+                        <h4 class="blog_blog-item-h4__gFZrF">
+                          19 Small Business Ideas You Can Easily Start in
+                          Nigeria in 2025
+                        </h4>
+                        <p class="blog_blog-item-p__LJ_pm">
+                          by
+                          <!-- -->Chidinma Nwonye
+                        </p>
+                      </div></a
+                    ><a
+                      class="blog_blog-item__HNYet"
+                      href="/blog/how-do-i-resolve-transfer-issues"
+                      ><img
+                        draggable="false"
+                        alt="How Do I Resolve Transfer Issues?"
+                        loading="lazy"
+                        width="404"
+                        height="316"
+                        decoding="async"
+                        data-nimg="1"
+                        class="Image_img__YuzBP"
+                        style="color: transparent; --width: 404; --height: 316"
+                        src="https://media.graphassets.com/output=format:webp/5gBWovMRT2GfKCZN5k1D"
+                      />
+                      <div class="blog_blog-item-div__O9Vrf">
+                        <div class="blog_blog-item-hd__XFraQ">
+                          <h6>Education Series</h6>
+                          <p>January 30, 2025</p>
+                        </div>
+                        <h4 class="blog_blog-item-h4__gFZrF">
+                          How Do I Resolve Transfer Issues?
+                        </h4>
+                        <p class="blog_blog-item-p__LJ_pm">
+                          by
+                          <!-- -->Favour Olusola
+                        </p>
+                      </div></a
+                    >
+                  </div>
+                </div>
+                <div class="business_blog-nav__xOCTY">
+                  <div class="business_blog-nav-dots__a8YOx"></div>
+                  <div class="business_blog-nav-btn___3SMU">
+                    <button>
+                      <svg
+                        width="74"
+                        height="74"
+                        viewbox="0 0 74 74"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="74"
+                          height="74"
+                          rx="37"
+                          fill="white"
+                        ></rect>
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M35.1892 44.6042L28.4983 37.9124C27.9758 37.3899 27.9758 36.5426 28.4983 36.02L35.1217 29.3966C35.6443 28.8741 36.4916 28.8741 37.0141 29.3966C37.5367 29.9192 37.5367 30.7665 37.0141 31.289L32.6751 35.6281L44.1639 35.6281C44.903 35.6281 45.5021 36.2272 45.5021 36.9662C45.5021 37.7053 44.903 38.3044 44.1639 38.3044L32.6751 38.3044L37.0816 42.7118C37.6042 43.2344 37.6042 44.0816 37.0816 44.6042C36.559 45.1268 35.7118 45.1268 35.1892 44.6042Z"
+                          fill="#3E588E"
+                        ></path>
+                      </svg></button
+                    ><button>
+                      <svg
+                        width="74"
+                        height="74"
+                        viewbox="0 0 74 74"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="74"
+                          height="74"
+                          rx="37"
+                          fill="white"
+                        ></rect>
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M38.4192 29.3958L45.1101 36.0876C45.6326 36.6101 45.6326 37.4574 45.1101 37.98L38.4867 44.6034C37.9641 45.1259 37.1168 45.1259 36.5943 44.6034C36.0717 44.0808 36.0717 43.2335 36.5943 42.711L40.9333 38.3719H29.4445C28.7054 38.3719 28.1063 37.7728 28.1063 37.0338C28.1063 36.2947 28.7054 35.6956 29.4445 35.6956H40.9333L36.5268 31.2882C36.0042 30.7656 36.0042 29.9184 36.5268 29.3958C37.0494 28.8732 37.8966 28.8732 38.4192 29.3958Z"
+                          fill="#3E588E"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="open-account_open__Bz3JY">
+              <img
+                draggable="false"
+                alt=""
+                loading="lazy"
+                width="1302"
+                height="321"
+                decoding="async"
+                data-nimg="1"
+                class="Image_img__YuzBP"
+                style="color: transparent; --width: 1302; --height: 321"
+                src="/ctaL.svg"
+              />
+              <div class="open-account_open-container__EkfgH">
+                <h2>Enjoy a business solution designed to help you grow.</h2>
+                <a
+                  href="https://moniepoint.sng.link/Dcbc3/df2f?_smtype=3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="button_button__sZpAi button_yellow__nnAGE"
+                  >Open an account<svg
+                    width="25"
+                    height="25"
+                    viewbox="0 0 25 25"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <mask
+                      id="mask0_2674_27836"
+                      maskunits="userSpaceOnUse"
+                      x="0"
+                      y="0"
+                      width="25"
+                      height="25"
+                    >
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="24"
+                        height="24"
+                        fill="#D9D9D9"
+                      ></rect>
+                    </mask>
+                    <g mask="url(#mask0_2674_27836)">
+                      <path
+                        d="M15.8978 13.8252H5.34453C4.97641 13.8252 4.66355 13.6964 4.40593 13.4388C4.14833 13.1812 4.01953 12.8683 4.01953 12.5002C4.01953 12.1321 4.14833 11.8192 4.40593 11.5616C4.66355 11.304 4.97641 11.1752 5.34453 11.1752H15.8978L11.5489 6.8263C11.2829 6.56035 11.1518 6.24695 11.1554 5.88608C11.159 5.5252 11.2938 5.21179 11.5598 4.94585C11.8257 4.69657 12.1391 4.57011 12.5 4.56648C12.8608 4.56286 13.1743 4.69403 13.4402 4.95998L20.0402 11.56C20.1685 11.6882 20.2652 11.8343 20.3304 11.998C20.3956 12.1618 20.4283 12.3292 20.4283 12.5002C20.4283 12.6712 20.3956 12.8386 20.3304 13.0024C20.2652 13.1661 20.1685 13.3122 20.0402 13.4404L13.4261 20.0546C13.1674 20.3133 12.8581 20.4426 12.4984 20.4426C12.1386 20.4426 11.8257 20.3133 11.5598 20.0546C11.2938 19.7886 11.1608 19.4734 11.1608 19.1089C11.1608 18.7444 11.2938 18.4292 11.5598 18.1632L15.8978 13.8252Z"
+                        fill="#031335"
+                      ></path>
+                    </g></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer_footer__ldJNE">
+          <div class="footer_footer-container__ixtt3">
+            <a href="/ng/business"
+              ><img
+                draggable="false"
+                alt="moniepoint"
+                loading="lazy"
+                width="143"
+                height="34"
+                decoding="async"
+                data-nimg="1"
+                class="Image_img__YuzBP"
+                style="color: transparent; --width: 143; --height: 34"
+                src="/logo-mfb-white.png"
+            /></a>
+            <div class="footer_footer-top__DznB_">
+              <div>
+                <div>
+                  <div class="footer_footer-top-left-t-div__tQV9O">
+                    <p>
+                      Moniepoint Microfinance Bank Limited is authorised and
+                      regulated by the Central Bank of Nigeria to offer banking
+                      services. Deposits are insured by the Nigerian Deposit
+                      Insurance Corporation (NDIC).
+                    </p>
+                  </div>
+                  <div class="footer_footer-top-left-t-ft__YTPSJ">
+                    <a
+                      href="https://moniepoint.sng.link/Dcbc3/df2f?_smtype=3"
+                      target="_blank"
+                      rel="noreferrer"
+                      ><img width="40" height="40" src="/apple.svg" alt="" />
+                      <div>
+                        <p>Get it on</p>
+                        <span>App Store</span>
+                      </div></a
+                    ><a
+                      href="https://moniepoint.sng.link/Dcbc3/df2f?_smtype=3"
+                      target="_blank"
+                      rel="noreferrer"
+                      ><img
+                        width="40"
+                        height="40"
+                        src="/playstore.svg"
+                        alt=""
+                      />
+                      <div>
+                        <p>Get it on</p>
+                        <span>Google Play</span>
+                      </div></a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="footer_footer-top-right--main__DOlSJ footer_footer-top-right__jJkts"
+              >
+                <dl>
+                  <dt>For Business</dt>
+                  <dd>
+                    <a href="/ng/business/business-account">Business Account</a>
+                  </dd>
+                  <dd>
+                    <a href="/ng/business/point-of-sale-terminal"
+                      >Point of Sale Terminal</a
+                    >
+                  </dd>
+                  <dd>
+                    <a href="/ng/business/working-capital-loans">Loan</a>
+                  </dd>
+                  <dd>
+                    <a href="/ng/business/expense-card">Expense Card</a>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>For Personal</dt>
+                  <dd>
+                    <a href="/personal/instant-debit-card"
+                      >Instant Debit Card</a
+                    >
+                  </dd>
+                  <dd>
+                    <a href="/personal/personal-account">Personal Account</a>
+                  </dd>
+                  <dd>
+                    <a href="/personal/payment">Payment</a>
+                  </dd>
+                  <dd>
+                    <a href="/digital-banking">Personal Banking</a>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>Company</dt>
+                  <dd>
+                    <a href="/ng/about">About Us</a>
+                  </dd>
+                  <dd>
+                    <a href="/culture">Culture</a>
+                  </dd>
+                  <dd>
+                    <a href="/careers">Join Our Team</a>
+                  </dd>
+                  <dd>
+                    <a href="/press">Press & Media</a>
+                  </dd>
+                  <dd>
+                    <a href="/ng/contact">Contact Us</a>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>Resources</dt>
+                  <dd>
+                    <a href="/blog">Moniepoint Blog</a>
+                  </dd>
+                  <dd>
+                    <a
+                      href="https://support.moniepoint.com/hc/en-us"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Help Centre</a
+                    >
+                  </dd>
+                  <dd>
+                    <a
+                      href="https://learning.moniepoint.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Learning Centre</a
+                    >
+                  </dd>
+                  <dd>
+                    <a href="/ng/whistleblower-policy">Whistleblower Policy</a>
+                  </dd>
+                  <dd>
+                    <a href="/ng/ims-policy">IMS Policy</a>
+                  </dd>
+                  <dd>
+                    <a href="/report-a-vulnerability">Report a Vulnerability</a>
+                  </dd>
+                  <dd>
+                    <a
+                      href="https://informalreport.moniepoint.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Informal Economy Report</a
+                    >
+                  </dd>
+                  <dd>
+                    <a
+                      href="https://trust.moniepoint.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Security Trust Center</a
+                    >
+                  </dd>
+                </dl>
+                <dl class="footer_mobile__3bXSd"></dl>
+              </div>
+            </div>
+            <div class="footer_footer-top__DznB_">
+              <div>
+                <div class="footer_footer-top-left-b__Jmh6D">
+                  <p>
+                    Plot 7A, Block 4,<br />
+                    Admirality Road,<br />
+                    Lekki Phase 1, Lagos State.
+                  </p>
+                  <br />
+                  <a
+                    href="/cdn-cgi/l/email-protection#224b4c444d624f4d4c4b47524d4b4c560c414d4f"
+                  >
+                    <span
+                      class="__cf_email__"
+                      data-cfemail="cebdbbbebea1bcba8ea3a1a0a7abbea1a7a0bae0ada1a3"
+                      >[email&nbsp;protected]</span
+                    ></a
+                  ><br />
+
+                  <a href="tel:2342018889990">+234 201 888 9990</a>
+                </div>
+              </div>
+              <div class="footer_footer-top-right-bt__k6Tjl">
+                <div class="footer_footer-top-left-b-div__2Uecv">
+                  <h6>Connect with us</h6>
+                  <div>
+                    <a
+                      href="https://www.linkedin.com/showcase/moniepoint-inc/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      ><img src="/socials/linkedin.svg" alt="" /></a
+                    ><a
+                      href="https://twitter.com/moniepoint"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      ><img src="/socials/twitter.svg" alt="" /></a
+                    ><a
+                      href="https://instagram.com/moniepoint"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      ><img src="/socials/instagram.svg" alt="" /></a
+                    ><a
+                      href="https://www.youtube.com/@Moniepointinc"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      ><img src="/socials/youtube.svg" alt=""
+                    /></a>
+                  </div>
+                </div>
+                <div class="footer_footer-global__keC8Q" role="button">
+                  <h2>
+                    <svg
+                      width="24"
+                      height="25"
+                      viewbox="0 0 24 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 0.5C9.62663 0.5 7.30655 1.20379 5.33316 2.52236C3.35977 3.84094 1.8217 5.71508 0.913451 7.9078C0.00519943 10.1005 -0.232441 12.5133 0.230582 14.8411C0.693605 17.1689 1.83649 19.307 3.51472 20.9853C5.19295 22.6635 7.33115 23.8064 9.65892 24.2694C11.9867 24.7324 14.3995 24.4948 16.5922 23.5865C18.7849 22.6783 20.6591 21.1402 21.9776 19.1668C23.2962 17.1934 24 14.8734 24 12.5C23.9965 9.31848 22.7311 6.26829 20.4814 4.01862C18.2317 1.76894 15.1815 0.503529 12 0.5ZM21.2367 11.1667H17.7289C17.5571 8.60506 16.8165 6.11393 15.5611 3.87444C17.0573 4.4949 18.3668 5.49303 19.3616 6.77124C20.3565 8.04944 21.0025 9.56396 21.2367 11.1667ZM8.94556 13.8333H15.0567C14.8067 16.7989 13.7233 19.5511 12.0022 21.5944C10.2733 19.5511 9.19556 16.7989 8.94556 13.8333ZM8.94556 11.1667C9.19556 8.20111 10.2733 5.44889 12 3.40556C13.7267 5.44889 14.8044 8.20111 15.0544 11.1667H8.94556ZM8.44445 3.87444C7.1871 6.11348 6.44465 8.60462 6.27112 11.1667H2.76334C2.99798 9.56336 3.64488 8.04844 4.64073 6.77019C5.63657 5.49193 6.94724 4.49413 8.44445 3.87444ZM2.76334 13.8333H6.27112C6.44465 16.3954 7.1871 18.8865 8.44445 21.1256C6.94724 20.5059 5.63657 19.5081 4.64073 18.2298C3.64488 16.9516 2.99798 15.4366 2.76334 13.8333ZM15.5611 21.1256C16.8165 18.8861 17.5571 16.3949 17.7289 13.8333H21.2367C21.0025 15.436 20.3565 16.9506 19.3616 18.2288C18.3668 19.507 17.0573 20.5051 15.5611 21.1256Z"
+                        fill="#0357EE"
+                      ></path></svg
+                    >Global
+                  </h2>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewbox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.5306 6.53061L8.5306 11.5306C8.46092 11.6005 8.37813 11.656 8.28696 11.6939C8.1958 11.7317 8.09806 11.7512 7.99935 11.7512C7.90064 11.7512 7.8029 11.7317 7.71173 11.6939C7.62057 11.656 7.53778 11.6005 7.4681 11.5306L2.4681 6.53061C2.3272 6.38972 2.24805 6.19862 2.24805 5.99936C2.24805 5.80011 2.3272 5.60901 2.4681 5.46811C2.60899 5.32722 2.80009 5.24806 2.99935 5.24806C3.19861 5.24806 3.3897 5.32722 3.5306 5.46811L7.99997 9.93749L12.4693 5.46749C12.6102 5.32659 12.8013 5.24744 13.0006 5.24744C13.1999 5.24744 13.391 5.32659 13.5318 5.46749C13.6727 5.60838 13.7519 5.79948 13.7519 5.99874C13.7519 6.198 13.6727 6.38909 13.5318 6.52999L13.5306 6.53061Z"
+                      fill="#ECF2FE"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="footer_footer-bottom__8X8VA">
+              <div class="footer_footer-bottom-t__tVCv9">
+                <p>
+                  Copyright ©
+                  <!-- -->2025<!-- -->, Moniepoint
+                </p>
+                <div>
+                  <a href="/ng/privacy-policy">Privacy Policy</a
+                  ><a href="/ng/cookie-policy">Cookie Policy</a>
+                </div>
+              </div>
+              <p>
+                ©
+                <!-- -->2025<!-- -->. Moniepoint is a bank with its services
+                provided by Moniepoint MFB Limited and duly licensed by the
+                Central Bank of Nigeria. Unauthorised reproduction or
+                redistribution of copyrighted materials on this website and
+                Moniepoint's digital media pages is strictly prohibited. By
+                clicking on some of the links above, you will leave Moniepoint's
+                website and be directed to a third-party website. The privacy
+                practices of those third parties may differ from those of
+                Moniepoint. We recommend you review the privacy statements of
+                those third-party websites, as Moniepoint is not responsible for
+                those third parties' privacy or security practices. Additional
+                disclosures can be found in the resources section of our
+                website.
+              </p>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script id="__NEXT_DATA__" type="application/json">
+      {
+        "props": {
+          "pageProps": {
+            "articles": [
+              {
+                "__typename": "Post",
+                "id": "cmac9c0w4045807ldy1oebx8i",
+                "author": {
+                  "__typename": "Author",
+                  "name": "Moniepoint MFB",
+                  "slug": "moniepoint-nigeria"
+                },
+                "slug": "reasons-always-broke-and-how-to-fix-them",
+                "title": "10 Reasons You're Always Broke and How to Fix Them",
+                "coverImage": {
+                  "__typename": "Asset",
+                  "url": "https://media.graphassets.com/output=format:webp/asq1DUz2ToGj37bZyTaf"
+                },
+                "date": "2025-05-06",
+                "category": {
+                  "__typename": "Category",
+                  "categoryName": "Business Tips"
+                }
+              },
+              {
+                "__typename": "Post",
+                "id": "cm7stiej414f807ld10dnc5qh",
+                "author": {
+                  "__typename": "Author",
+                  "name": "Moniepoint MFB",
+                  "slug": "moniepoint-nigeria"
+                },
+                "slug": "opening-a-personal-bank-account",
+                "title": "Opening A Personal Bank Account: What You Need To Know",
+                "coverImage": {
+                  "__typename": "Asset",
+                  "url": "https://media.graphassets.com/output=format:webp/9s3sosnSNSyNcgXhBmeG"
+                },
+                "date": "2025-04-06",
+                "category": {
+                  "__typename": "Category",
+                  "categoryName": "Business Tips"
+                }
+              },
+              {
+                "__typename": "Post",
+                "id": "cm7stcru014v407mkquh5p0vt",
+                "author": {
+                  "__typename": "Author",
+                  "name": "Moniepoint MFB",
+                  "slug": "moniepoint-nigeria"
+                },
+                "slug": "how-to-build-an-emergency-fund",
+                "title": "How to Build an Emergency Fund: A Step-by-Step Guide",
+                "coverImage": {
+                  "__typename": "Asset",
+                  "url": "https://media.graphassets.com/output=format:webp/PhbVx8y2SemUV5vCZg5Q"
+                },
+                "date": "2025-04-01",
+                "category": {
+                  "__typename": "Category",
+                  "categoryName": "Business Tips"
+                }
+              },
+              {
+                "__typename": "Post",
+                "id": "cm7st3az00y8s07ld4y7f4bbn",
+                "author": {
+                  "__typename": "Author",
+                  "name": "Moniepoint MFB",
+                  "slug": "moniepoint-nigeria"
+                },
+                "slug": "how-to-accept-payments",
+                "title": "How To Accept Payments: The Ultimate Guide For Businesses in 2025",
+                "coverImage": {
+                  "__typename": "Asset",
+                  "url": "https://media.graphassets.com/output=format:webp/Hwsq9UGRsy10l4oxviwn"
+                },
+                "date": "2025-03-17",
+                "category": {
+                  "__typename": "Category",
+                  "categoryName": "Business Tips"
+                }
+              },
+              {
+                "__typename": "Post",
+                "id": "cm7st7ewj101507ld0aly6ljs",
+                "author": {
+                  "__typename": "Author",
+                  "name": "Moniepoint MFB",
+                  "slug": "moniepoint-nigeria"
+                },
+                "slug": "common-money-mistakes",
+                "title": "6 Most Common Money Mistakes You Should Avoid in 2025",
+                "coverImage": {
+                  "__typename": "Asset",
+                  "url": "https://media.graphassets.com/output=format:webp/5um1Lpr0RdSbbKkd5hVL"
+                },
+                "date": "2025-03-14",
+                "category": {
+                  "__typename": "Category",
+                  "categoryName": "Business Tips"
+                }
+              },
+              {
+                "__typename": "Post",
+                "id": "cm7ssidk10s9507l97mdvz59t",
+                "author": {
+                  "__typename": "Author",
+                  "name": "Moniepoint MFB",
+                  "slug": "moniepoint-nigeria"
+                },
+                "slug": "how-start-pos-business-nigeria",
+                "title": "How to Start a POS Business in Nigeria: A Complete Guide",
+                "coverImage": {
+                  "__typename": "Asset",
+                  "url": "https://media.graphassets.com/output=format:webp/WAit9OqGSCCl5pxf2F2a"
+                },
+                "date": "2025-03-03",
+                "category": {
+                  "__typename": "Category",
+                  "categoryName": "Business Tips"
+                }
+              },
+              {
+                "__typename": "Post",
+                "id": "cm7kt059q281j06ldnyupvr4e",
+                "author": {
+                  "__typename": "Author",
+                  "name": "Daniel Ojinaka and Mayrose Agbalugo",
+                  "slug": "daniel-ojinaka-and-mayrose-agbalugo"
+                },
+                "slug": "how-we-made-monnify-the-faster-and-better-payment-gateway-in-nigeria",
+                "title": "How we made Monnify the faster and better payment gateway in Nigeria",
+                "coverImage": {
+                  "__typename": "Asset",
+                  "url": "https://media.graphassets.com/output=format:webp/ovC26DsPQYm8psUsPEIa"
+                },
+                "date": "2025-02-25",
+                "category": {
+                  "__typename": "Category",
+                  "categoryName": "Tech \u0026 Processes"
+                }
+              },
+              {
+                "__typename": "Post",
+                "id": "cltmvyzio28qb07mmiork92vm",
+                "author": {
+                  "__typename": "Author",
+                  "name": "Chidinma Nwonye",
+                  "slug": "chidinma-nwonye"
+                },
+                "slug": "19-small-business-idea-in-nigeria",
+                "title": "19 Small Business Ideas You Can Easily Start in Nigeria in 2025",
+                "coverImage": {
+                  "__typename": "Asset",
+                  "url": "https://media.graphassets.com/output=format:webp/wEc5pA3QOqwIcpIBKfvu"
+                },
+                "date": "2025-02-12",
+                "category": {
+                  "__typename": "Category",
+                  "categoryName": "Business Tips"
+                }
+              },
+              {
+                "__typename": "Post",
+                "id": "cm6jkifs71xyy08mkanfjck50",
+                "author": {
+                  "__typename": "Author",
+                  "name": "Favour Olusola",
+                  "slug": "favour-olusola"
+                },
+                "slug": "how-do-i-resolve-transfer-issues",
+                "title": "How Do I Resolve Transfer Issues?",
+                "coverImage": {
+                  "__typename": "Asset",
+                  "url": "https://media.graphassets.com/output=format:webp/5gBWovMRT2GfKCZN5k1D"
+                },
+                "date": "2025-01-30",
+                "category": {
+                  "__typename": "Category",
+                  "categoryName": "Education Series"
+                }
+              }
+            ],
+            "testimonials": [
+              {
+                "__typename": "Testimonial",
+                "videoId": "VPMcbBKTu-o",
+                "videoUrl": "https://youtu.be/VPMcbBKTu-o",
+                "title": "Business Owner",
+                "name": "Mr Joseph",
+                "quote": "I was robbed and found my shop open one fateful morning. I needed some money to cover up for the loss, and my business relationship manager mentioned the Moniepoint Loan to me. I needed it, and they gave me. Moniepoint has been a big help to my business. Without them, business will not be able to function."
+              },
+              {
+                "__typename": "Testimonial",
+                "videoId": "UkpSnqfB7VA",
+                "videoUrl": "https://youtu.be/UkpSnqfB7VA",
+                "title": "Co-Founder, Uyai Beauty Hub",
+                "name": "Mrs Nsisong",
+                "quote": "Moniepoint is exceptional! Imagine someone walking into your store, and telling you they want to use Moniepoint. Moniepoint is, and has been the best. "
+              },
+              {
+                "__typename": "Testimonial",
+                "videoId": "dAQt_Jf12_Q",
+                "videoUrl": "https://youtu.be/dAQt_Jf12_Q",
+                "title": "Marketing Manager, The Good Beach",
+                "name": "Anita Ukpong",
+                "quote": "Using Moniepoint for the last few months has been pure bliss for us as a business. Our customers are able to come in and have seamless transactions done in seconds, and that is a very great strategy for us as a business to strengthen our relationship with our consumers."
+              },
+              {
+                "__typename": "Testimonial",
+                "videoId": "SdVnlo5Opco",
+                "videoUrl": "https://youtu.be/SdVnlo5Opco",
+                "title": "Founder, The House",
+                "name": "Tobi Hamilton",
+                "quote": "Moniepoint has empowered my staff to serve our customers better. It has also empowered our customers to get their transactions done quicker, and most importantly, aids seamless business."
+              }
+            ]
+          },
+          "__N_SSG": true
+        },
+        "page": "/ng/business",
+        "query": {},
+        "buildId": "1U1NXc0bTtvNWMKKqkFXb",
+        "isFallback": false,
+        "dynamicIds": [2160, 6695, 4884, 5028, 3775],
+        "gsp": true,
+        "scriptLoader": []
+      }
+    </script>
+  </body>
+</html>

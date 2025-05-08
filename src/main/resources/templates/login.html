@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login to Moniepoint</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #0a3278;
+        background-image: linear-gradient(to bottom right, #0a3278, #144196);
+      }
+      .tab-active {
+        color: #0f6cf9;
+        border-bottom: 2px solid #0f6cf9;
+      }
+      .tab-inactive {
+        color: #888;
+        border-bottom: 2px solid transparent;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 50;
+        justify-content: center;
+        align-items: center;
+      }
+      .modal.show {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col items-center justify-center">
+    <!-- Main Login Card -->
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-8 mx-4">
+      <!-- Logo -->
+      <div class="flex justify-center mb-6">
+        <div
+          class="bg-blue-600 text-white rounded-lg p-4 w-16 h-16 flex items-center justify-center"
+        >
+          <span class="font-bold text-3xl">M</span>
+        </div>
+      </div>
+
+      <!-- Login Title -->
+      <h1 class="text-center text-2xl font-bold text-gray-800 mb-8">
+        Login to Moniepoint
+      </h1>
+
+      <!-- Tabs -->
+      <div class="flex border-b mb-6">
+        <button
+          id="phone-tab"
+          class="flex-1 py-3 text-center tab-active"
+          onclick="switchTab('phone')"
+        >
+          Phone Number
+        </button>
+        <button
+          id="username-tab"
+          class="flex-1 py-3 text-center tab-inactive"
+          onclick="switchTab('username')"
+        >
+          Username
+        </button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form">
+        <!-- Phone Number Tab Content -->
+        <div id="phone-tab-content" class="block">
+          <div class="flex mb-6">
+            <div
+              class="bg-gray-50 border border-gray-300 rounded-l-md px-3 flex items-center"
+            >
+              <img
+                src="https://flagcdn.com/w20/ng.png"
+                alt="Nigerian Flag"
+                class="mr-2 h-4"
+              />
+              <span class="text-gray-700">+234</span>
+            </div>
+            <input
+              type="tel"
+              id="phone-input"
+              placeholder="Phone Number"
+              class="flex-1 py-3 px-4 bg-gray-50 border border-l-0 border-gray-300 rounded-r-md focus:outline-none"
+              value="9063219493"
+            />
+          </div>
+        </div>
+
+        <!-- Username Tab Content -->
+        <div id="username-tab-content" class="hidden">
+          <div class="mb-6">
+            <input
+              type="text"
+              id="username-input"
+              placeholder="Username"
+              class="w-full py-3 px-4 bg-gray-50 border border-gray-300 rounded-md focus:outline-none"
+            />
+          </div>
+        </div>
+
+        <!-- Next Button -->
+        <button
+          type="button"
+          id="login-button"
+          class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-md transition duration-200"
+          onclick="showErrorModal()"
+        >
+          Next
+        </button>
+      </form>
+    </div>
+
+    <!-- Sign Up Link -->
+    <div
+      class="mt-6 bg-blue-800 bg-opacity-40 w-full max-w-md rounded-md py-3 px-4 text-center"
+    >
+      <span class="text-gray-200">New to Moniepoint?</span>
+      <a href="#" class="text-white font-medium ml-1">Sign Up</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="mt-12 text-center text-white text-sm">
+      <p>
+        Licensed by the
+        <span class="font-medium">Central Bank of Nigeria</span> and insured by
+        the <span class="font-medium">NDIC</span>.
+      </p>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="error-modal" class="modal">
+      <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-sm mx-4">
+        <div class="flex justify-center mb-4">
+          <div class="bg-red-100 rounded-full p-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8 text-red-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+              />
+            </svg>
+          </div>
+        </div>
+        <h2 class="text-xl font-bold text-center mb-1">Operation failed</h2>
+        <p class="text-gray-600 text-center mb-6">Invalid login credentials.</p>
+        <button
+          class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-md transition duration-200"
+          onclick="closeErrorModal()"
+        >
+          Continue
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function switchTab(tab) {
+        // Update tab buttons
+        const phoneTab = document.getElementById("phone-tab");
+        const usernameTab = document.getElementById("username-tab");
+
+        // Update tab content
+        const phoneTabContent = document.getElementById("phone-tab-content");
+        const usernameTabContent = document.getElementById(
+          "username-tab-content"
+        );
+
+        if (tab === "phone") {
+          phoneTab.classList.add("tab-active");
+          phoneTab.classList.remove("tab-inactive");
+          usernameTab.classList.add("tab-inactive");
+          usernameTab.classList.remove("tab-active");
+
+          phoneTabContent.classList.remove("hidden");
+          phoneTabContent.classList.add("block");
+          usernameTabContent.classList.add("hidden");
+          usernameTabContent.classList.remove("block");
+        } else {
+          usernameTab.classList.add("tab-active");
+          usernameTab.classList.remove("tab-inactive");
+          phoneTab.classList.add("tab-inactive");
+          phoneTab.classList.remove("tab-active");
+
+          usernameTabContent.classList.remove("hidden");
+          usernameTabContent.classList.add("block");
+          phoneTabContent.classList.add("hidden");
+          phoneTabContent.classList.remove("block");
+        }
+      }
+
+      function showErrorModal() {
+        const modal = document.getElementById("error-modal");
+        modal.classList.add("show");
+      }
+
+      function closeErrorModal() {
+        const modal = document.getElementById("error-modal");
+        modal.classList.remove("show");
+      }
+    </script>
+  </body>
+</html>

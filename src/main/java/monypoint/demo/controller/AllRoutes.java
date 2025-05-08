@@ -17,6 +17,15 @@ public class AllRoutes {
     public String personal(){
         return "personal";
     }
-    
+
+    @GetMapping("/register")
+    public String register(){
+        return "register";
+    }
+
+    @GetMapping("/register2")
+    public String register2(){
+        return "register2";
+    }
     
 }

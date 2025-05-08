@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moniepoint Registration</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .slide-transition {
+      transition: transform 0.6s ease;
+    }
+    .hidden-slide {
+      transform: translateX(100%);
+      display: none;
+    }
+    .active-slide {
+      transform: translateX(0);
+      display: block;
+    }
+    .step-indicator {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+    .step-indicator.active {
+      background-color: #2463eb;
+    }
+    .step-indicator.completed {
+      background-color: #10b981;
+    }
+    .step-line {
+      height: 40px;
+      width: 2px;
+      background-color: #e5e7eb;
+      margin-left: 11px;
+    }
+    .step-line.completed {
+      background-color: #10b981;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Header -->
+  <header class="bg-white py-4 px-6 border-b border-gray-200 flex justify-between items-center">
+    <div class="flex items-center">
+      <div class="bg-blue-600 text-white rounded p-2 mr-2">
+        <span class="font-bold text-xl">M</span>
+      </div>
+      <span class="font-bold text-xl">Moniepoint</span>
+      <span class="text-xs text-gray-500 ml-1">MICROFINANCE BANK</span>
+    </div>
+    <div>
+      <span class="text-gray-700 mr-4">Already have an account?</span>
+      <a href="#" class="text-blue-600 font-medium">Login</a>
+    </div>
+  </header>
+
+  <div class="container mx-auto mt-12 px-4 flex">
+    <!-- Left Section -->
+    <div class="w-1/3 pr-8">
+      <h1 class="text-3xl font-bold mb-4">Setup a Profile</h1>
+      <p class="text-gray-600 mb-8">Follow the steps below to get started with us</p>
+      
+      <!-- Steps Progress -->
+      <div class="flex flex-col">
+        <!-- Step 1 -->
+        <div class="flex">
+          <div class="step-indicator completed flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div class="ml-4">
+            <p class="text-xs text-gray-500">STEP 1</p>
+            <p class="font-medium">Phone Number</p>
+          </div>
+        </div>
+        <div class="step-line completed"></div>
+        
+        <!-- Step 2 -->
+        <div class="flex">
+          <div class="step-indicator completed flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div class="ml-4">
+            <p class="text-xs text-gray-500">STEP 2</p>
+            <p class="font-medium">Verification</p>
+          </div>
+        </div>
+        <div class="step-line"></div>
+        
+        <!-- Step 3 -->
+        <div class="flex">
+          <div class="step-indicator active">3</div>
+          <div class="ml-4">
+            <p class="text-xs text-gray-500">STEP 3</p>
+            <p class="font-medium">Email Address</p>
+          </div>
+        </div>
+        <div class="step-line"></div>
+        
+        <!-- Step 4 -->
+        <div class="flex">
+          <div class="step-indicator">4</div>
+          <div class="ml-4">
+            <p class="text-xs text-gray-500">STEP 4</p>
+            <p class="font-medium">Setup Passcode</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer info -->
+      <div class="mt-16 text-sm text-gray-600">
+        <p>Moniepoint MFB is licensed by the <span class="font-medium">Central Bank of Nigeria</span>.</p>
+        <p>All deposits are insured by the <span class="font-medium">NDIC</span>.</p>
+      </div>
+    </div>
+    
+    <!-- Right Section: Form Steps -->
+    <div class="w-2/3">
+      <div class="bg-white p-8 rounded-lg shadow-sm">
+        <!-- Step 1: Phone Number -->
+        <div id="step-1" class="slide-transition hidden-slide">
+          <h2 class="text-xl font-semibold mb-2">Setup a Profile</h2>
+          <p class="text-gray-500 mb-4">Enter your phone number to get started</p>
+          <div class="flex items-center mb-4">
+            <span class="bg-gray-100 p-2 rounded-l border border-gray-300">+234</span>
+            <input id="phone" type="text" class="w-full p-2 border-t border-r border-b border-gray-300 rounded-r focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Phone Number">
+          </div>
+          <div class="flex items-center mb-4">
+            <input type="checkbox" id="terms" class="mr-2">
+            <label for="terms" class="text-sm text-gray-500">I agree to Moniepoint's <a href="#" class="text-blue-500">Terms and Conditions</a></label>
+          </div>
+          <button onclick="validateAndMoveNext(1)" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg w-full">Continue</button>
+        </div>
+
+        <!-- Step 2: Verification -->
+        <div id="step-2" class="slide-transition hidden-slide">
+          <h2 class="text-xl font-semibold mb-2">Verify Your Phone Number</h2>
+          <p class="text-gray-500 mb-4">We sent a 6-digit code via SMS. Enter it below.</p>
+          <div class="flex space-x-2 mb-4 justify-center">
+            <input type="text" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
+            <input type="text" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
+            <input type="text" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
+            <input type="text" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
+            <input type="text" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
+            <input type="text" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
+          </div>
+          <p class="text-center text-sm text-gray-500 mb-4">Didn't receive a code? <a href="#" class="text-blue-500">Resend</a></p>
+          <div class="flex mt-4">
+            <button onclick="goToStep(1)" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg mr-2">Back</button>
+            <button onclick="validateAndMoveNext(2)" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex-1">Verify</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Email Address -->
+        <div id="step-3" class="slide-transition active-slide">
+          <h2 class="text-xl font-semibold mb-2">What's Your Email Address</h2>
+          <p class="text-gray-500 mb-4">Enter your email address.</p>
+          <div class="mb-6">
+            <input id="email" type="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter email address">
+          </div>
+          <button onclick="validateAndMoveNext(3)" class="bg-gray-200 text-gray-500 px-4 py-3 rounded-lg w-full font-medium">Continue</button>
+        </div>
+
+        <!-- Step 4: Setup Passcode -->
+        <div id="step-4" class="slide-transition hidden-slide">
+          <h2 class="text-xl font-semibold mb-2">Setup Passcode</h2>
+          <p class="text-gray-500 mb-4">Create a secure 4-digit passcode for your account.</p>
+          <div class="flex space-x-4 mb-6 justify-center">
+            <input type="password" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
+            <input type="password" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
+            <input type="password" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
+            <input type="password" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
+          </div>
+          <div class="flex mt-4">
+            <button onclick="goToStep(3)" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg mr-2">Back</button>
+            <button onclick="completeRegistration()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex-1">Complete Registration</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize the OTP inputs for auto-focus functionality
+      const otpInputs = document.querySelectorAll('#step-2 input');
+      otpInputs.forEach((input, index) => {
+        input.addEventListener('input', function() {
+          if (this.value.length === 1 && index < otpInputs.length - 1) {
+            otpInputs[index + 1].focus();
+          }
+        });
+        
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Backspace' && this.value.length === 0 && index > 0) {
+            otpInputs[index - 1].focus();
+          }
+        });
+      });
+
+      // Initialize passcode inputs
+      const passcodeInputs = document.querySelectorAll('#step-4 input');
+      passcodeInputs.forEach((input, index) => {
+        input.addEventListener('input', function() {
+          if (this.value.length === 1 && index < passcodeInputs.length - 1) {
+            passcodeInputs[index + 1].focus();
+          }
+        });
+        
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Backspace' && this.value.length === 0 && index > 0) {
+            passcodeInputs[index - 1].focus();
+          }
+        });
+      });
+
+      // Enable email validation
+      const emailInput = document.getElementById('email');
+      emailInput.addEventListener('input', function() {
+        const continueButton = this.parentElement.nextElementSibling;
+        if (validateEmail(this.value)) {
+          continueButton.classList.remove('bg-gray-200', 'text-gray-500');
+          continueButton.classList.add('bg-blue-600', 'text-white', 'hover:bg-blue-700');
+        } else {
+          continueButton.classList.add('bg-gray-200', 'text-gray-500');
+          continueButton.classList.remove('bg-blue-600', 'text-white', 'hover:bg-blue-700');
+        }
+      });
+
+      // Start with step 1
+      goToStep(1);
+    });
+
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(String(email).toLowerCase());
+    }
+
+    function validateAndMoveNext(step) {
+      if (step === 1) {
+        const phoneInput = document.getElementById("phone").value;
+        const termsChecked = document.getElementById("terms").checked;
+
+        if (phoneInput.length === 11 && termsChecked) {
+          goToStep(2);
+        } else {
+          alert("Please enter a valid 11-digit phone number and accept the terms.");
+        }
+      } else if (step === 2) {
+        // Validate OTP
+        const otpInputs = document.querySelectorAll('#step-2 input');
+        let isComplete = true;
+        otpInputs.forEach(input => {
+          if (input.value.length !== 1) isComplete = false;
+        });
+
+        if (isComplete) {
+          goToStep(3);
+        } else {
+          alert("Please enter the complete 6-digit verification code.");
+        }
+      } else if (step === 3) {
+        // Validate Email
+        const emailInput = document.getElementById("email").value;
+        if (validateEmail(emailInput)) {
+          goToStep(4);
+        } else {
+          alert("Please enter a valid email address.");
+        }
+      }
+    }
+
+    function goToStep(step) {
+      // Hide all steps
+      const steps = document.querySelectorAll('[id^="step-"]');
+      steps.forEach(div => {
+        div.classList.add('hidden-slide');
+        div.classList.remove('active-slide');
+      });
+
+      // Show the selected step
+      const currentStep = document.getElementById(`step-${step}`);
+      currentStep.classList.remove('hidden-slide');
+      currentStep.classList.add('active-slide');
+
+      // Update the step indicators
+      updateStepIndicators(step);
+    }
+
+    function updateStepIndicators(currentStep) {
+      const indicators = document.querySelectorAll('.step-indicator');
+      const lines = document.querySelectorAll('.step-line');
+
+      indicators.forEach((indicator, index) => {
+        const stepNum = index + 1;
+        
+        // Reset all indicators
+        indicator.classList.remove('active', 'completed');
+        if (stepNum < currentStep) {
+          // Steps before current are completed
+          indicator.classList.add('completed');
+          indicator.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>';
+        } else if (stepNum === currentStep) {
+          // Current step is active
+          indicator.classList.add('active');
+          indicator.textContent = stepNum;
+        } else {
+          // Future steps
+          indicator.textContent = stepNum;
+        }
+      });
+
+      // Update lines
+      lines.forEach((line, index) => {
+        line.classList.remove('completed');
+        if (index < currentStep - 1) {
+          line.classList.add('completed');
+        }
+      });
+    }
+
+    function completeRegistration() {
+      // Validate Passcode
+      const passcodeInputs = document.querySelectorAll('#step-4 input');
+      let isComplete = true;
+      passcodeInputs.forEach(input => {
+        if (input.value.length !== 1) isComplete = false;
+      });
+
+      if (isComplete) {
+        alert("Registration completed successfully!");
+        // Here you would typically redirect to a success page or dashboard
+      } else {
+        alert("Please enter a complete 4-digit passcode.");
+      }
+    }
+  </script>
+</body>
+</html>

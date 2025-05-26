@@ -1,218 +1,187 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login to Moniepoint</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #0a3278;
-        background-image: linear-gradient(to bottom right, #0a3278, #144196);
-      }
-      .tab-active {
-        color: #0f6cf9;
-        border-bottom: 2px solid #0f6cf9;
-      }
-      .tab-inactive {
-        color: #888;
-        border-bottom: 2px solid transparent;
-      }
-      .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 50;
-        justify-content: center;
-        align-items: center;
-      }
-      .modal.show {
-        display: flex;
-      }
-    </style>
-  </head>
-  <body class="min-h-screen flex flex-col items-center justify-center">
-    <!-- Main Login Card -->
-    <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-8 mx-4">
-      <!-- Logo -->
-      <div class="flex justify-center mb-6">
-        <div
-          class="bg-blue-600 text-white rounded-lg p-4 w-16 h-16 flex items-center justify-center"
-        >
-          <span class="font-bold text-3xl">M</span>
-        </div>
-      </div>
-
-      <!-- Login Title -->
-      <h1 class="text-center text-2xl font-bold text-gray-800 mb-8">
-        Login to Monypoint
-      </h1>
-
-      <!-- Tabs -->
-      <div class="flex border-b mb-6">
-        <button
-          id="phone-tab"
-          class="flex-1 py-3 text-center tab-active"
-          onclick="switchTab('phone')"
-        >
-          Phone Number
-        </button>
-        <button
-          id="username-tab"
-          class="flex-1 py-3 text-center tab-inactive"
-          onclick="switchTab('username')"
-        >
-          Username
-        </button>
-      </div>
-
-      <!-- Login Form -->
-      <form id="login-form">
-        <!-- Phone Number Tab Content -->
-        <div id="phone-tab-content" class="block">
-          <div class="flex mb-6">
-            <div
-              class="bg-gray-50 border border-gray-300 rounded-l-md px-3 flex items-center"
-            >
-              <img
-                src="https://flagcdn.com/w20/ng.png"
-                alt="Nigerian Flag"
-                class="mr-2 h-4"
-              />
-              <span class="text-gray-700">+234</span>
-            </div>
-            <input
-              type="tel"
-              id="phone-input"
-              placeholder="Phone Number"
-              class="flex-1 py-3 px-4 bg-gray-50 border border-l-0 border-gray-300 rounded-r-md focus:outline-none"
-              value="9063219493"
-            />
-          </div>
-        </div>
-
-        <!-- Username Tab Content -->
-        <div id="username-tab-content" class="hidden">
-          <div class="mb-6">
-            <input
-              type="text"
-              id="username-input"
-              placeholder="Username"
-              class="w-full py-3 px-4 bg-gray-50 border border-gray-300 rounded-md focus:outline-none"
-            />
-          </div>
-        </div>
-
-        <!-- Next Button -->
-        <button
-          type="button"
-          id="login-button"
-          class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-md transition duration-200"
-          onclick="showErrorModal()"
-        >
-          Next
-        </button>
-      </form>
-    </div>
-
-    <!-- Sign Up Link -->
-    <div
-      class="mt-6 bg-blue-800 bg-opacity-40 w-full max-w-md rounded-md py-3 px-4 text-center"
-    >
-      <span class="text-gray-200">New to Monypoint?</span>
-      <a href="/register" class="text-white font-medium ml-1">Sign Up</a>
-    </div>
-
-    <!-- Footer -->
-    <div class="mt-12 text-center text-white text-sm">
-      <p>
-        Licensed by the
-        <span class="font-medium">Central Bank of Nigeria</span> and insured by
-        the <span class="font-medium">NDIC</span>.
-      </p>
-    </div>
-
-    <!-- Error Modal -->
-    <div id="error-modal" class="modal">
-      <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-sm mx-4">
-        <div class="flex justify-center mb-4">
-          <div class="bg-red-100 rounded-full p-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8 text-red-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-              />
-            </svg>
-          </div>
-        </div>
-        <h2 class="text-xl font-bold text-center mb-1">Operation failed</h2>
-        <p class="text-gray-600 text-center mb-6">Invalid login credentials.</p>
-        <button
-          class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-md transition duration-200"
-          onclick="closeErrorModal()"
-        >
-          Continue
-        </button>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login to Monypoint</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a3278;
+      background-image: linear-gradient(to bottom right, #0a3278, #144196);
+    }
+    #otp-display {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0f6cf9;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center">
+  <!-- Main Login Card -->
+  <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-8 mx-4">
+    <!-- Logo -->
+    <div class="flex justify-center mb-6">
+      <div class="bg-blue-600 text-white rounded-lg p-4 w-16 h-16 flex items-center justify-center">
+        <span class="font-bold text-3xl">M</span>
       </div>
     </div>
 
-    <script>
-      function switchTab(tab) {
-        // Update tab buttons
-        const phoneTab = document.getElementById("phone-tab");
-        const usernameTab = document.getElementById("username-tab");
+    <!-- Login Title -->
+    <h1 class="text-center text-2xl font-bold text-gray-800 mb-8">Login to Monypoint</h1>
 
-        // Update tab content
-        const phoneTabContent = document.getElementById("phone-tab-content");
-        const usernameTabContent = document.getElementById(
-          "username-tab-content"
-        );
+    <!-- Error Message -->
+    <div th:if="${param.error}" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 text-center">Invalid login credentials.</div>
+    <div th:if="${message}" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4 text-center" th:text="${message}"></div>
 
-        if (tab === "phone") {
-          phoneTab.classList.add("tab-active");
-          phoneTab.classList.remove("tab-inactive");
-          usernameTab.classList.add("tab-inactive");
-          usernameTab.classList.remove("tab-active");
+    <!-- Step 1: PHONE NUMBER login -->
+    <form th:if="${step == null or step == 1}" th:action="@{/login/phone}" method="post">
+      <div class="flex mb-6">
+        <div class="bg-gray-50 border border-gray-300 rounded-l-md px-3 flex items-center">
+          <img src="https://flagcdn.com/w20/ng.png" alt="Nigerian Flag" class="mr-2 h-4">
+          <span class="text-gray-700">+234</span>
+        </div>
+        <input type="text" id="phone-input" name="phoneNumber" placeholder="Phone Number" class="flex-1 py-3 px-4 bg-gray-50 border border-l-0 border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="14" pattern="[0-9]*" required>
+      </div>
+      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-md transition duration-200">Next</button>
+      <div class="mt-4 text-center">
+        <a href="#" th:href="@{/login?step=3}" class="text-blue-600 text-sm hover:underline">Login with Username instead</a>
+      </div>
+    </form>
 
-          phoneTabContent.classList.remove("hidden");
-          phoneTabContent.classList.add("block");
-          usernameTabContent.classList.add("hidden");
-          usernameTabContent.classList.remove("block");
-        } else {
-          usernameTab.classList.add("tab-active");
-          usernameTab.classList.remove("tab-inactive");
-          phoneTab.classList.add("tab-inactive");
-          phoneTab.classList.remove("tab-active");
+    <!-- Step 2: OTP Verification -->
+    <form th:if="${step == 2}" th:action="@{/login/phone/verify}" method="post">
+      <input type="hidden" name="phoneNumber" th:value="${phoneNumber}">
+      <p class="text-gray-600 mb-4 text-center">Enter the 6-digit code displayed below for 5 seconds.</p>
+      <div th:if="${otp != null}" id="otp-display" th:text="${otp}"></div>
+      <div class="flex space-x-2 mb-6 justify-center">
+        <input type="text" name="otp1" class="w-10 h-10 p-2 border border-gray-300 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1" pattern="[0-9]" required>
+        <input type="text" name="otp2" class="w-10 h-10 p-2 border border-gray-300 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1" pattern="[0-9]" required>
+        <input type="text" name="otp3" class="w-10 h-10 p-2 border border-gray-300 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1" pattern="[0-9]" required>
+        <input type="text" name="otp4" class="w-10 h-10 p-2 border border-gray-300 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1" pattern="[0-9]" required>
+        <input type="text" name="otp5" class="w-10 h-10 p-2 border border-gray-300 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1" pattern="[0-9]" required>
+        <input type="text" name="otp6" class="w-10 h-10 p-2 border border-gray-300 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1" pattern="[0-9]" required>
+      </div>
+      <p class="text-center text-sm text-gray-500 mb-4"><a href="#" id="regenerate-otp" class="text-blue-500">Regenerate OTP</a></p>
+      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-md transition duration-200">Verify</button>
+      <div class="mt-4 text-center">
+        <a href="#" th:href="@{/login?step=1}" class="text-blue-600 text-sm hover:underline">Back</a>
+      </div>
+    </form>
 
-          usernameTabContent.classList.remove("hidden");
-          usernameTabContent.classList.add("block");
-          phoneTabContent.classList.add("hidden");
-          phoneTabContent.classList.remove("block");
-        }
+    <!-- Step 3: USERNAME + PASSCODE login -->
+    <form th:if="${step == 3}" th:action="@{/login}" method="post" onsubmit="return combinePasscode()">
+      <div class="mb-6">
+        <input type="text" id="username-input" name="username" placeholder="Username" class="w-full py-3 px-4 bg-gray-50 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+      </div>
+      <div class="mb-6">
+        <div class="flex space-x-2 justify-center">
+          <input type="password" id="passcode1" name="passcode1" class="w-10 h-10 p-2 border border-gray-300 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1" pattern="[0-9]" required>
+          <input type="password" id="passcode2" name="passcode2" class="w-10 h-10 p-2 border border-gray-300 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1" pattern="[0-9]" required>
+          <input type="password" id="passcode3" name="passcode3" class="w-10 h-10 p-2 border border-gray-300 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1" pattern="[0-9]" required>
+          <input type="password" id="passcode4" name="passcode4" class="w-10 h-10 p-2 border border-gray-300 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1" pattern="[0-9]" required>
+          <input type="hidden" name="passcode" id="passcode">
+        </div>
+      </div>
+      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-md transition duration-200">Login</button>
+      <div class="mt-4 text-center">
+        <a href="#" th:href="@{/login?step=1}" class="text-blue-600 text-sm hover:underline">Login with Phone instead</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Sign Up Link -->
+  <div class="mt-6 bg-blue-800 bg-opacity-40 w-full max-w-md rounded-md py-3 px-4 text-center">
+    <span class="text-gray-200">New to Monypoint?</span>
+    <a href="/register" class="text-white font-medium ml-1">Sign Up</a>
+  </div>
+
+  <!-- Footer -->
+  <div class="mt-12 text-center text-white text-sm">
+    <p>Licensed by the <span class="font-medium">Central Bank of Nigeria</span> and insured by the <span class="font-medium">NDIC</span>.</p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Input number only for phone
+      const phoneInput = document.getElementById('phone-input');
+      if (phoneInput) {
+        phoneInput.addEventListener('input', function() {
+          this.value = this.value.replace(/[^0-9+]/g, '');
+          if (this.value.length > 10) {
+            this.value = this.value.slice(0, 14);
+          }
+        });
       }
 
-      function showErrorModal() {
-        const modal = document.getElementById("error-modal");
-        modal.classList.add("show");
+      // OTP auto-focus
+      const otpInputs = document.querySelectorAll('form[th\\:if*="step == 2"] input[name^="otp"]');
+      otpInputs.forEach((input, index) => {
+        input.addEventListener('input', function() {
+          this.value = this.value.replace(/[^0-9+]/g, '');
+          if (this.value.length === 1 && index < otpInputs.length - 1) {
+            otpInputs[index + 1].focus();
+          }
+        });
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Backspace' && this.value.length === 0 && index > 0) {
+            otpInputs[index - 1].focus();
+          }
+        });
+      });
+
+      // Passcode auto-focus and combine
+      const passcodeInputs = document.querySelectorAll('form[th\\:if*="step == 3"] input[name^="passcode"]:not([name="passcode"])');
+      passcodeInputs.forEach((input, index) => {
+        input.addEventListener('input', function() {
+          this.value = this.value.replace(/[^0-9]/g, '');
+          if (this.value.length === 1 && index < passcodeInputs.length - 1) {
+            passcodeInputs[index + 1].focus();
+          }
+        });
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Backspace' && this.value.length === 0 && index > 0) {
+            passcodeInputs[index - 1].focus();
+          }
+        });
+      });
+
+      // OTP display timer
+      const otpDisplay = document.getElementById('otp-display');
+      if (otpDisplay) {
+        setTimeout(() => {
+          otpDisplay.style.display = 'none';
+        }, 5000);
       }
 
-      function closeErrorModal() {
-        const modal = document.getElementById("error-modal");
-        modal.classList.remove("show");
+      // Regenerate OTP (AJAX)
+      const regenerateLink = document.getElementById('regenerate-otp');
+      if (regenerateLink && otpDisplay) {
+        regenerateLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          const phoneNumber = document.querySelector('input[name="phoneNumber"]').value;
+          fetch('/login/phone/regenerate-otp?phoneNumber=' + encodeURIComponent(phoneNumber))
+            .then(response => response.text())
+            .then(otp => {
+              otpDisplay.textContent = otp;
+              otpDisplay.style.display = 'block';
+              setTimeout(() => {
+                otpDisplay.style.display = 'none';
+              }, 5000);
+            });
+        });
       }
-    </script>
-  </body>
+    });
+
+    function combinePasscode() {
+      // Combine passcode fields into one hidden input
+      const pcs = Array.from(document.querySelectorAll('#passcode1, #passcode2, #passcode3, #passcode4')).map(i => i.value).join('');
+      document.getElementById('passcode').value = pcs;
+      return true;
+    }
+  </script>
+</body>
 </html>

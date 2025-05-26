@@ -46,6 +46,13 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+    #otp-display {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2463eb;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
   </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
@@ -146,7 +153,6 @@
 
         <!-- Step 1: Phone Number -->
         <form th:action="@{/register/step1}" method="post" th:if="${step == null or step == 1}" class="slide-transition active-slide" id="step-1">
-          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
           <h2 class="text-xl font-semibold mb-2">Setup a Profile</h2>
           <p class="text-gray-500 mb-4">Enter your phone number to get started</p>
           <div class="flex items-center mb-4">
@@ -162,9 +168,9 @@
 
         <!-- Step 2: Verification -->
         <form th:action="@{/register/step2}" method="post" th:if="${step == 2}" class="slide-transition active-slide" id="step-2">
-          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
           <h2 class="text-xl font-semibold mb-2">Verify Your Phone Number</h2>
-          <p class="text-gray-500 mb-4">We sent a 6-digit code via SMS. Enter it below.</p>
+          <p class="text-gray-500 mb-4">Your 6-digit code is displayed below for 5 seconds. Enter it below.</p>
+          <div th:if="${otp != null}" id="otp-display" th:text="${otp}"></div>
           <input type="hidden" name="phoneNumber" th:value="${phoneNumber}">
           <div class="flex space-x-2 mb-4 justify-center">
             <input type="text" name="otp1" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
@@ -174,7 +180,7 @@
             <input type="text" name="otp5" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
             <input type="text" name="otp6" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
           </div>
-          <p class="text-center text-sm text-gray-500 mb-4">Didn't receive a code? <a href="#" class="text-blue-500">Resend</a></p>
+          <p class="text-center text-sm text-gray-500 mb-4"><a href="#" id="regenerate-otp" class="text-blue-500">Regenerate OTP</a></p>
           <div class="flex mt-4">
             <a th:href="@{/register}" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg mr-2">Back</a>
             <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex-1">Verify</button>
@@ -183,7 +189,6 @@
 
         <!-- Step 3: Email Address -->
         <form th:action="@{/register/step3}" method="post" th:if="${step == 3}" class="slide-transition active-slide" id="step-3">
-          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
           <h2 class="text-xl font-semibold mb-2">What's Your Email Address</h2>
           <p class="text-gray-500 mb-4">Enter your email address.</p>
           <input type="hidden" name="phoneNumber" th:value="${phoneNumber}">
@@ -195,7 +200,6 @@
 
         <!-- Step 4: Setup Passcode -->
         <form th:action="@{/register/complete}" method="post" th:if="${step == 4}" class="slide-transition active-slide" id="step-4">
-          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
           <h2 class="text-xl font-semibold mb-2">Setup Passcode</h2>
           <p class="text-gray-500 mb-4">Create a secure 4-digit passcode and choose a username.</p>
           <input type="hidden" name="phoneNumber" th:value="${phoneNumber}">
@@ -265,16 +269,41 @@
         });
       }
 
-      // Ensure correct step is displayed
-      const stepForms = document.querySelectorAll('form');
-      stepForms.forEach(form => {
-        form.classList.add('hidden-slide');
-        form.classList.remove('active-slide');
-      });
-      const activeForm = document.querySelector('form:not(.hidden-slide)');
-      if (activeForm) {
-        activeForm.classList.add('active-slide');
+      // OTP display timer
+      const otpDisplay = document.getElementById('otp-display');
+      if (otpDisplay) {
+        setTimeout(() => {
+          otpDisplay.style.display = 'none';
+        }, 8000);
       }
+
+      // Regenerate OTP
+      const regenerateLink = document.getElementById('regenerate-otp');
+      if (regenerateLink) {
+        regenerateLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          fetch('/register/regenerate-otp?phoneNumber=' + encodeURIComponent(document.querySelector('input[name="phoneNumber"]').value))
+            .then(response => response.text())
+            .then(otp => {
+              otpDisplay.textContent = otp;
+              otpDisplay.style.display = 'block';
+              setTimeout(() => {
+                otpDisplay.style.display = 'none';
+              }, 5000);
+            });
+        });
+      }
+
+      // Ensure correct step is displayed
+      // const stepForms = document.querySelectorAll('form');
+      // stepForms.forEach(form => {
+      //   form.classList.add('hidden-slide');
+      //   form.classList.remove('active-slide');
+      // });
+      // const activeForm = document.querySelector('form:not(.hidden-slide)');
+      // if (activeForm) {
+      //   activeForm.classList.add('active-slide');
+      // }
     });
 
     function validateEmail(email) {

@@ -7,7 +7,6 @@ import monypoint.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Random;
 
@@ -20,8 +19,7 @@ public class UserService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-    @Transactional
-    public User registerUser(String username, String passcode, String email, String phoneNumber) {
+    public void registerUser(String username, String passcode, String email, String phoneNumber) {
         if (userRepository.existsByUsername(username)) {
             throw new IllegalArgumentException("Username already exists");
         }
@@ -37,25 +35,35 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(passcode));
         user.setEmail(email);
         user.setPhoneNumber(phoneNumber);
-        user.setPhoneVerified(true); // Set after OTP verification
-        user.setEmailVerified(false); // Pending email verification
-        user = userRepository.save(user);
+        user.setEmailVerified(false);
+        user.setPhoneVerified(true); // Phone verified via OTP in registration
+        userRepository.save(user);
 
         Account account = new Account();
-        account.setAccountNumber(generateAccountNumber());
-        account.setBalance(0.00);
         account.setUser(user);
+        account.setAccountNumber(generateAccountNumber());
+        account.setBalance(0.0);
         accountRepository.save(account);
+    }
 
-        return user;
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username).orElse(null);
     }
 
     public User findByEmail(String email) {
-        return userRepository.findByEmail(email);
+        return userRepository.findByEmail(email).orElse(null);
     }
 
-    public User save(User user) {
-        return userRepository.save(user);
+    public User findByPhoneNumber(String phoneNumber) {
+        return userRepository.findByPhoneNumber(phoneNumber).orElse(null);
+    }
+
+    public void save(User user) {
+        userRepository.save(user);
+    }
+
+    public boolean isUserAuthenticated(User user) {
+        return user != null; // Email verification deferred
     }
 
     private String generateAccountNumber() {
@@ -64,10 +72,6 @@ public class UserService {
         for (int i = 0; i < 10; i++) {
             sb.append(random.nextInt(10));
         }
-        String accountNumber = sb.toString();
-        if (accountRepository.existsByAccountNumber(accountNumber)) {
-            return generateAccountNumber(); // Ensure uniqueness
-        }
-        return accountNumber;
+        return sb.toString();
     }
 }

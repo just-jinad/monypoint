@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monypoint Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <div class="p-8 max-w-4xl mx-auto">
+    <header class="flex justify-between items-center mb-8">
+      <div class="flex items-center">
+        <div class="bg-blue-600 text-white rounded p-2 mr-2">
+          <span class="font-bold text-xl">M</span>
+        </div>
+        <span class="font-bold text-xl">Monypoint</span>
+      </div>
+      <a href="/logout" class="text-blue-600 hover:underline">Log out</a>
+    </header>
+    <h1 class="text-2xl font-bold mb-4">Welcome to Monypoint Dashboard</h1>
+    <div th:if="${!user.isEmailVerified}" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-4">
+      <p>Your email is not verified. Please verify to access all features.</p>
+      <form th:action="@{/dashboard/resend-verification}" method="post" class="mt-2">
+        <input type="hidden" name="email" th:value="${user.email}">
+        <button type="text" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Resend Verification Email</button>
+      </form>
+    </div>
+    <div class="text-gray-600 mb-4">
+      <p>Username: <span th:text="${user.username}">Username</span></p>
+      <p>Phone Number: <span th:text="${user.phoneNumber}">Phone</span></p>
+      <p>Phone Verified: <span th:text="${user.isPhoneVerified ? 'Yes' : 'No'}">No</span></p>
+      <p>Email: <span th:text="${user.email}">Email</span></p>
+      <p>Account Created: <span th:text="${user.createdAt}">Date</span></p>
+      <p>Balance: <span th:text="${account.balance != null ? account.balance : '0.0'}">0.0</span></p>
+    </div>
+  </div>
+</body>
+</html>

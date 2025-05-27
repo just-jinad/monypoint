@@ -12,6 +12,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import jakarta.mail.MessagingException;
 
@@ -23,6 +24,8 @@ public class AllRoutes {
     private UserService userService;
     @Autowired
     private VerificationService verificationService;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @GetMapping("/")
     public String index() {
@@ -44,7 +47,7 @@ public class AllRoutes {
 
     @GetMapping("/login")
     public String login(Model model) {
-        logger.debug("Displaying login form");
+        model.addAttribute("step", 1);
         return "login";
     }
 
@@ -85,9 +88,9 @@ public class AllRoutes {
 
     @PostMapping("/register/step2")
     public String handleStep2(@RequestParam String phoneNumber, @RequestParam String otp1,
-                             @RequestParam String otp2, @RequestParam String otp3,
-                             @RequestParam String otp4, @RequestParam String otp5,
-                             @RequestParam String otp6, Model model) {
+            @RequestParam String otp2, @RequestParam String otp3,
+            @RequestParam String otp4, @RequestParam String otp5,
+            @RequestParam String otp6, Model model) {
         String otp = otp1 + otp2 + otp3 + otp4 + otp5 + otp6;
         logger.debug("Verifying OTP for phone {}: {}", phoneNumber, otp);
         if (verificationService.verifyOtp(phoneNumber, otp)) {
@@ -130,21 +133,21 @@ public class AllRoutes {
 
     @PostMapping("/register/complete")
     public String handleComplete(@RequestParam String phoneNumber, @RequestParam String email,
-                                @RequestParam String username, @RequestParam String passcode1,
-                                @RequestParam String passcode2, @RequestParam String passcode3,
-                                @RequestParam String passcode4, Model model) {
-        String passcode = passcode1 + passcode2 + passcode3 + passcode4;
+            @RequestParam String username, @RequestParam String password1,
+            @RequestParam String password2, @RequestParam String password3,
+            @RequestParam String password4, Model model) {
+        String password = password1 + password2 + password3 + password4;
         logger.debug("Processing registration completion for username: {}", username);
-        if (!passcode.matches("\\d{4}")) {
-            model.addAttribute("error", "Passcode must be 4 digits.");
+        if (!password.matches("\\d{4}")) {
+            model.addAttribute("error", "Password must be 4 digits.");
             model.addAttribute("phoneNumber", phoneNumber);
             model.addAttribute("email", email);
             model.addAttribute("step", 4);
-            logger.warn("Invalid passcode format");
+            logger.warn("Invalid password format");
             return "register";
         }
         try {
-            userService.registerUser(username, passcode, email, phoneNumber);
+            userService.registerUser(username, password, email, phoneNumber);
             logger.info("User registered successfully: {}", username);
             SecurityContextHolder.clearContext();
             return "redirect:/register-success";
@@ -221,9 +224,9 @@ public class AllRoutes {
 
     @PostMapping("/login/phone/verify")
     public String handlePhoneOtpVerify(@RequestParam String phoneNumber, @RequestParam String otp1,
-                                      @RequestParam String otp2, @RequestParam String otp3,
-                                      @RequestParam String otp4, @RequestParam String otp5,
-                                      @RequestParam String otp6, Model model) {
+            @RequestParam String otp2, @RequestParam String otp3,
+            @RequestParam String otp4, @RequestParam String otp5,
+            @RequestParam String otp6, Model model) {
         String otp = otp1 + otp2 + otp3 + otp4 + otp5 + otp6;
         logger.debug("Verifying OTP for phone login {}: {}", phoneNumber, otp);
         if (verificationService.verifyOtp(phoneNumber, otp)) {
@@ -245,47 +248,115 @@ public class AllRoutes {
 
     @GetMapping("/login/phone/regenerate-otp")
     @ResponseBody
-    public String regeneratePhoneOtp(@RequestParam String phoneNumber) {
-        logger.debug("Regenerating OTP for phone login: {}", phoneNumber);
-        String otp = verificationService.sendOtp(phoneNumber);
-        logger.info("New OTP generated for phone login: {}", phoneNumber);
-        return otp;
+    public String regenerateLoginOtp(@RequestParam String username, @RequestParam String phoneNumber) {
+        User user = userService.findByUsername(username);
+        if (user == null || !phoneNumber.equals(user.getPhoneNumber())) {
+            return "";
+        }
+        return verificationService.sendOtp(phoneNumber);
+    }
+
+    @PostMapping("/login/username")
+    public String loginUsername(@RequestParam String username, Model model) {
+        User user = userService.findByUsername(username);
+        if (user == null) {
+            model.addAttribute("error", "Username not found.");
+            model.addAttribute("step", 1);
+            return "login";
+        }
+        model.addAttribute("username", username);
+        model.addAttribute("step", 2);
+        return "login";
+    }
+
+    @PostMapping("/login/phone-number")
+    public String loginPhoneNumber(@RequestParam String username, @RequestParam String phoneNumber, Model model) {
+        User user = userService.findByUsername(username);
+        if (user == null) {
+            model.addAttribute("error", "Username not found.");
+            model.addAttribute("step", 1);
+            return "login";
+        }
+        String normalizedPhone = phoneNumber.replaceAll("[^0-9+]", "");
+        if (!normalizedPhone.matches("^\\+234[0-9]{10}$")) {
+            model.addAttribute("error", "Invalid phone number. Must be +234 followed by 10 digits.");
+            model.addAttribute("username", username);
+            model.addAttribute("step", 2);
+            return "login";
+        }
+        if (!normalizedPhone.equals(user.getPhoneNumber())) {
+            model.addAttribute("error", "Phone number does not match username.");
+            model.addAttribute("username", username);
+            model.addAttribute("step", 2);
+            return "login";
+        }
+        String otp = verificationService.sendOtp(normalizedPhone);
+        model.addAttribute("username", username);
+        model.addAttribute("phoneNumber", normalizedPhone);
+        model.addAttribute("otp", otp);
+        model.addAttribute("step", 3);
+        return "login";
+    }
+
+    @PostMapping("/login/verify-otp")
+    public String loginVerifyOtp(@RequestParam String username, @RequestParam String phoneNumber,
+            @RequestParam String otp1, @RequestParam String otp2, @RequestParam String otp3,
+            @RequestParam String otp4, @RequestParam String otp5, @RequestParam String otp6,
+            Model model) {
+        String otp = otp1 + otp2 + otp3 + otp4 + otp5 + otp6;
+        User user = userService.findByUsername(username);
+        if (user == null || !phoneNumber.equals(user.getPhoneNumber())) {
+            model.addAttribute("error", "Invalid username or phone number.");
+            model.addAttribute("step", 1);
+            return "login";
+        }
+        if (!verificationService.verifyOtp(phoneNumber, otp)) {
+            model.addAttribute("error", "Invalid OTP.");
+            model.addAttribute("username", username);
+            model.addAttribute("phoneNumber", phoneNumber);
+            model.addAttribute("step", 3);
+            return "login";
+        }
+        // Optionally set user as authenticated here
+        return "redirect:/dashboard";
     }
 
     // @GetMapping("/dashboard")
     // public String dashboard(Model model, Authentication authentication) {
-    //     logger.debug("Displaying dashboard");
-    //     String username = authentication != null ? authentication.getName() : null;
-    //     User user = username != null ? userService.findByUsername(username) : null;
-    //     if (user == null) {
-    //         User phoneUser = (User) model.asMap().get("phoneUser");
-    //         user = phoneUser != null ? phoneUser : userService.findByPhoneNumber((String) model.asMap().get("phoneNumber"));
-    //     }
-    //     if (user != null) {
-    //         Account account = AccountRepository.findByUser(user).orElse(new Account());
-    //         model.addAttribute("user", user);
-    //         model.addAttribute("account", account);
-    //     }
-    //     return "dashboard";
+    // logger.debug("Displaying dashboard");
+    // String username = authentication != null ? authentication.getName() : null;
+    // User user = username != null ? userService.findByUsername(username) : null;
+    // if (user == null) {
+    // User phoneUser = (User) model.asMap().get("phoneUser");
+    // user = phoneUser != null ? phoneUser : userService.findByPhoneNumber((String)
+    // model.asMap().get("phoneNumber"));
+    // }
+    // if (user != null) {
+    // Account account = AccountRepository.findByUser(user).orElse(new Account());
+    // model.addAttribute("user", user);
+    // model.addAttribute("account", account);
+    // }
+    // return "dashboard";
     // }
 
     // @PostMapping("/dashboard/resend-verification")
     // public String resendVerification(@RequestParam String email, Model model) {
-    //     logger.debug("Resending verification email to: {}", email);
-    //     try {
-    //         verificationService.sendEmailVerification(email);
-    //         model.addAttribute("message", "Verification email resent successfully.");
-    //         logger.info("Verification email resent to: {}", email);
-    //     } catch (MessagingException e) {
-    //         model.addAttribute("error", "Failed to resend verification email.");
-    //         logger.error("Error resending email verification to {}: {}", email, e.getMessage(), e);
-    //     }
-    //     User user = userService.findByEmail(email);
-    //     if (user != null) {
-    //         Account account = accountRepository.findByUser(user).orElse(new Account());
-    //         model.addAttribute("user", user);
-    //         model.addAttribute("account", account);
-    //     }
-    //     return "dashboard";
+    // logger.debug("Resending verification email to: {}", email);
+    // try {
+    // verificationService.sendEmailVerification(email);
+    // model.addAttribute("message", "Verification email resent successfully.");
+    // logger.info("Verification email resent to: {}", email);
+    // } catch (MessagingException e) {
+    // model.addAttribute("error", "Failed to resend verification email.");
+    // logger.error("Error resending email verification to {}: {}", email,
+    // e.getMessage(), e);
+    // }
+    // User user = userService.findByEmail(email);
+    // if (user != null) {
+    // Account account = accountRepository.findByUser(user).orElse(new Account());
+    // model.addAttribute("user", user);
+    // model.addAttribute("account", account);
+    // }
+    // return "dashboard";
     // }
 }

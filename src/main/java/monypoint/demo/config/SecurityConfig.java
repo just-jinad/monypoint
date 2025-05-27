@@ -14,28 +14,25 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf
-                .ignoringRequestMatchers("/register/**", "/verify-email", "/login/phone/**")
-            )
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers(
-                    "/", "/register", "/register/**", "/verify-email",
-                    "/login", "/login/phone/**", "/css/**", "/js/**", "/images/**"
-                ).permitAll()
-                .anyRequest().authenticated()
-            )
-            .formLogin(form -> form
-                .loginPage("/login")
-                .loginProcessingUrl("/login")
-                .usernameParameter("username")
-                .passwordParameter("passcode")
-                .defaultSuccessUrl("/dashboard", true)
-                .permitAll()
-            )
-            .logout(logout -> logout
-                .logoutSuccessUrl("/login?logout")
-                .permitAll()
-            );
+                .csrf(csrf -> csrf
+                        .ignoringRequestMatchers("/register/**", "/verify-email", "/login/phone/**"))
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(
+                                "/", "/register", "/register/**", "/verify-email",
+                                "/login", "/login/phone/**", "/personal", "/register-success", "/css/**", "/js/**",
+                                "/images/**")
+                        .permitAll()
+                        .anyRequest().authenticated())
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .loginProcessingUrl("/login")
+                        .usernameParameter("username")
+                        .passwordParameter("password")
+                        .defaultSuccessUrl("/dashboard", true)
+                        .permitAll())
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/login?logout")
+                        .permitAll());
         return http.build();
     }
 

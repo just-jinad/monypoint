@@ -34,26 +34,36 @@
     <h1 class="text-center text-2xl font-bold text-gray-800 mb-8">Login to Monypoint</h1>
 
     <!-- Error Message -->
-    <div th:if="${param.error}" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 text-center">Invalid login credentials.</div>
+    <div th:if="${error}" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 text-center" th:text="${error}"></div>
     <div th:if="${message}" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4 text-center" th:text="${message}"></div>
 
-    <!-- Step 1: PHONE NUMBER login -->
-    <form th:if="${step == null or step == 1}" th:action="@{/login/phone}" method="post">
+    <!-- Step 1: USERNAME -->
+    <form th:if="${step == null or step == 1}" th:action="@{/login/username}" method="post">
+      <div class="mb-6">
+        <input type="text" id="username-input" name="username" placeholder="Username" class="w-full py-3 px-4 bg-gray-50 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+      </div>
+      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-md transition duration-200">Next</button>
+    </form>
+
+    <!-- Step 2: PHONE NUMBER -->
+    <form th:if="${step == 2}" th:action="@{/login/phone-number}" method="post">
+      <input type="hidden" name="username" th:value="${username}">
       <div class="flex mb-6">
         <div class="bg-gray-50 border border-gray-300 rounded-l-md px-3 flex items-center">
           <img src="https://flagcdn.com/w20/ng.png" alt="Nigerian Flag" class="mr-2 h-4">
           <span class="text-gray-700">+234</span>
         </div>
-        <input type="text" id="phone-input" name="phoneNumber" placeholder="Phone Number" class="flex-1 py-3 px-4 bg-gray-50 border border-l-0 border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="14" pattern="[0-9]*" required>
+        <input type="text" id="phone-input" name="phoneNumber" placeholder="Phone Number" class="flex-1 py-3 px-4 bg-gray-50 border border-l-0 border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="14" required>
       </div>
       <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-md transition duration-200">Next</button>
       <div class="mt-4 text-center">
-        <a href="#" th:href="@{/login?step=3}" class="text-blue-600 text-sm hover:underline">Login with Username instead</a>
+        <a href="#" th:href="@{/login}" class="text-blue-600 text-sm hover:underline">Back</a>
       </div>
     </form>
 
-    <!-- Step 2: OTP Verification -->
-    <form th:if="${step == 2}" th:action="@{/login/phone/verify}" method="post">
+    <!-- Step 3: OTP Verification -->
+    <form th:if="${step == 3}" th:action="@{/login/verify-otp}" method="post">
+      <input type="hidden" name="username" th:value="${username}">
       <input type="hidden" name="phoneNumber" th:value="${phoneNumber}">
       <p class="text-gray-600 mb-4 text-center">Enter the 6-digit code displayed below for 5 seconds.</p>
       <div th:if="${otp != null}" id="otp-display" th:text="${otp}"></div>
@@ -66,29 +76,9 @@
         <input type="text" name="otp6" class="w-10 h-10 p-2 border border-gray-300 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1" pattern="[0-9]" required>
       </div>
       <p class="text-center text-sm text-gray-500 mb-4"><a href="#" id="regenerate-otp" class="text-blue-500">Regenerate OTP</a></p>
-      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-md transition duration-200">Verify</button>
+      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-md transition duration-200">Verify & Login</button>
       <div class="mt-4 text-center">
-        <a href="#" th:href="@{/login?step=1}" class="text-blue-600 text-sm hover:underline">Back</a>
-      </div>
-    </form>
-
-    <!-- Step 3: USERNAME + PASSCODE login -->
-    <form th:if="${step == 3}" th:action="@{/login}" method="post" onsubmit="return combinePasscode()">
-      <div class="mb-6">
-        <input type="text" id="username-input" name="username" placeholder="Username" class="w-full py-3 px-4 bg-gray-50 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-      </div>
-      <div class="mb-6">
-        <div class="flex space-x-2 justify-center">
-          <input type="password" id="passcode1" name="passcode1" class="w-10 h-10 p-2 border border-gray-300 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1" pattern="[0-9]" required>
-          <input type="password" id="passcode2" name="passcode2" class="w-10 h-10 p-2 border border-gray-300 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1" pattern="[0-9]" required>
-          <input type="password" id="passcode3" name="passcode3" class="w-10 h-10 p-2 border border-gray-300 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1" pattern="[0-9]" required>
-          <input type="password" id="passcode4" name="passcode4" class="w-10 h-10 p-2 border border-gray-300 rounded-md text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1" pattern="[0-9]" required>
-          <input type="hidden" name="passcode" id="passcode">
-        </div>
-      </div>
-      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-md transition duration-200">Login</button>
-      <div class="mt-4 text-center">
-        <a href="#" th:href="@{/login?step=1}" class="text-blue-600 text-sm hover:underline">Login with Phone instead</a>
+        <a href="#" th:href="@{/login}" class="text-blue-600 text-sm hover:underline">Back</a>
       </div>
     </form>
   </div>
@@ -118,7 +108,7 @@
       }
 
       // OTP auto-focus
-      const otpInputs = document.querySelectorAll('form[th\\:if*="step == 2"] input[name^="otp"]');
+      const otpInputs = document.querySelectorAll('form[th\\:if*="step == 3"] input[name^="otp"]');
       otpInputs.forEach((input, index) => {
         input.addEventListener('input', function() {
           this.value = this.value.replace(/[^0-9+]/g, '');
@@ -133,37 +123,14 @@
         });
       });
 
-      // Passcode auto-focus and combine
-      const passcodeInputs = document.querySelectorAll('form[th\\:if*="step == 3"] input[name^="passcode"]:not([name="passcode"])');
-      passcodeInputs.forEach((input, index) => {
-        input.addEventListener('input', function() {
-          this.value = this.value.replace(/[^0-9]/g, '');
-          if (this.value.length === 1 && index < passcodeInputs.length - 1) {
-            passcodeInputs[index + 1].focus();
-          }
-        });
-        input.addEventListener('keydown', function(e) {
-          if (e.key === 'Backspace' && this.value.length === 0 && index > 0) {
-            passcodeInputs[index - 1].focus();
-          }
-        });
-      });
-
-      // OTP display timer
-      const otpDisplay = document.getElementById('otp-display');
-      if (otpDisplay) {
-        setTimeout(() => {
-          otpDisplay.style.display = 'none';
-        }, 5000);
-      }
-
       // Regenerate OTP (AJAX)
       const regenerateLink = document.getElementById('regenerate-otp');
       if (regenerateLink && otpDisplay) {
         regenerateLink.addEventListener('click', function(e) {
           e.preventDefault();
           const phoneNumber = document.querySelector('input[name="phoneNumber"]').value;
-          fetch('/login/phone/regenerate-otp?phoneNumber=' + encodeURIComponent(phoneNumber))
+          const username = document.querySelector('input[name="username"]').value;
+          fetch('/login/phone/regenerate-otp?username=' + encodeURIComponent(username) + '&phoneNumber=' + encodeURIComponent(phoneNumber))
             .then(response => response.text())
             .then(otp => {
               otpDisplay.textContent = otp;
@@ -175,13 +142,6 @@
         });
       }
     });
-
-    function combinePasscode() {
-      // Combine passcode fields into one hidden input
-      const pcs = Array.from(document.querySelectorAll('#passcode1, #passcode2, #passcode3, #passcode4')).map(i => i.value).join('');
-      document.getElementById('passcode').value = pcs;
-      return true;
-    }
   </script>
 </body>
 </html>

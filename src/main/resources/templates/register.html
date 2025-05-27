@@ -156,11 +156,11 @@
           <h2 class="text-xl font-semibold mb-2">Setup a Profile</h2>
           <p class="text-gray-500 mb-4">Enter your phone number to get started</p>
           <div class="flex items-center mb-4">
-            <span class="bg-gray-100 p-2 rounded-l border border-gray-300">+234</span>
+            <!-- <span class="bg-gray-100 p-2 rounded-l border border-gray-300">+234</span> -->
             <input id="phone" name="phoneNumber" type="text" th:value="${phoneNumber}" class="w-full p-2 border-t border-r border-b border-gray-300 rounded-r focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Phone Number">
           </div>
           <div class="flex items-center mb-4">
-            <input type="checkbox" id="terms" name="terms" class="mr-2">
+            <input type="checkbox" id="terms" required name="terms" class="mr-2">
             <label for="terms" class="text-sm text-gray-500">I agree to monypoint's <a href="#" class="text-blue-500">Terms and Conditions</a></label>
           </div>
           <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg w-full">Continue</button>
@@ -274,7 +274,7 @@
       if (otpDisplay) {
         setTimeout(() => {
           otpDisplay.style.display = 'none';
-        }, 8000);
+        }, 9000);
       }
 
       // Regenerate OTP

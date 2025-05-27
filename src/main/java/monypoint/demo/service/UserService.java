@@ -19,7 +19,7 @@ public class UserService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-    public void registerUser(String username, String passcode, String email, String phoneNumber) {
+    public void registerUser(String username, String password, String email, String phoneNumber) {
         if (userRepository.existsByUsername(username)) {
             throw new IllegalArgumentException("Username already exists");
         }
@@ -32,10 +32,10 @@ public class UserService {
 
         User user = new User();
         user.setUsername(username);
-        user.setPassword(passwordEncoder.encode(passcode));
+        user.setPassword(passwordEncoder.encode(password));
         user.setEmail(email);
         user.setPhoneNumber(phoneNumber);
-        user.setEmailVerified(false);
+        user.setEmailVerified(false); // Email verification pending
         user.setPhoneVerified(true); // Phone verified via OTP in registration
         userRepository.save(user);
 

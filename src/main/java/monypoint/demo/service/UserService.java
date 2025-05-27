@@ -20,13 +20,13 @@ public class UserService {
     private BCryptPasswordEncoder passwordEncoder;
 
     public void registerUser(String username, String password, String email, String phoneNumber) {
-        if (userRepository.existsByUsername(username)) {
+        if (userRepository.findByUsername(username).isPresent()) {
             throw new IllegalArgumentException("Username already exists");
         }
-        if (userRepository.existsByEmail(email)) {
+        if (userRepository.findByEmail(email).isPresent()) {
             throw new IllegalArgumentException("Email already exists");
         }
-        if (userRepository.existsByPhoneNumber(phoneNumber)) {
+        if (userRepository.findByPhoneNumber(phoneNumber).isPresent()) {
             throw new IllegalArgumentException("Phone number already exists");
         }
 

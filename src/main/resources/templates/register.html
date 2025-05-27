@@ -133,7 +133,7 @@
           </div>
           <div class="ml-4">
             <p class="text-xs text-gray-500">STEP 4</p>
-            <p class="font-medium">Setup Passcode</p>
+            <p class="font-medium">Setup Password</p>
           </div>
         </div>
       </div>
@@ -198,20 +198,20 @@
           <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg w-full font-medium">Continue</button>
         </form>
 
-        <!-- Step 4: Setup Passcode -->
+        <!-- Step 4: Setup Password -->
         <form th:action="@{/register/complete}" method="post" th:if="${step == 4}" class="slide-transition active-slide" id="step-4">
-          <h2 class="text-xl font-semibold mb-2">Setup Passcode</h2>
-          <p class="text-gray-500 mb-4">Create a secure 4-digit passcode and choose a username.</p>
+          <h2 class="text-xl font-semibold mb-2">Setup Password</h2>
+          <p class="text-gray-500 mb-4">Create a secure 4-digit password and choose a username.</p>
           <input type="hidden" name="phoneNumber" th:value="${phoneNumber}">
           <input type="hidden" name="email" th:value="${email}">
           <div class="mb-4">
             <input name="username" type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter username">
           </div>
           <div class="flex space-x-4 mb-6 justify-center">
-            <input type="password" name="passcode1" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
-            <input type="password" name="passcode2" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
-            <input type="password" name="passcode3" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
-            <input type="password" name="passcode4" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
+            <input type="password" name="password1" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
+            <input type="password" name="password2" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
+            <input type="password" name="password3" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
+            <input type="password" name="password4" class="w-12 h-12 p-2 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500" maxlength="1">
           </div>
           <div class="flex mt-4">
             <a th:href="@{/register(step=3, phoneNumber=${phoneNumber}, email=${email})}" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg mr-2">Back</a>
@@ -239,17 +239,17 @@
         });
       });
 
-      // Initialize passcode inputs for auto-focus
-      const passcodeInputs = document.querySelectorAll('#step-4 input[name^="passcode"]');
-      passcodeInputs.forEach((input, index) => {
+      // Initialize password inputs for auto-focus
+      const passwordInputs = document.querySelectorAll('#step-4 input[name^="password"]');
+      passwordInputs.forEach((input, index) => {
         input.addEventListener('input', function() {
-          if (this.value.length === 1 && index < passcodeInputs.length - 1) {
-            passcodeInputs[index + 1].focus();
+          if (this.value.length === 1 && index < passwordInputs.length - 1) {
+            passwordInputs[index + 1].focus();
           }
         });
         input.addEventListener('keydown', function(e) {
           if (e.key === 'Backspace' && this.value.length === 0 && index > 0) {
-            passcodeInputs[index - 1].focus();
+            passwordInputs[index - 1].focus();
           }
         });
       });

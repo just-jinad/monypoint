@@ -194,42 +194,15 @@ public class AllRoutes {
         return "register-success";
     }
 
-    // @GetMapping("/dashboard")
-    // public String dashboard(Model model, Authentication authentication) {
-    // logger.debug("Displaying dashboard");
-    // String username = authentication != null ? authentication.getName() : null;
-    // User user = username != null ? userService.findByUsername(username) : null;
-    // if (user == null) {
-    // User phoneUser = (User) model.asMap().get("phoneUser");
-    // user = phoneUser != null ? phoneUser : userService.findByPhoneNumber((String)
-    // model.asMap().get("phoneNumber"));
-    // }
-    // if (user != null) {
-    // Account account = AccountRepository.findByUser(user).orElse(new Account());
-    // model.addAttribute("user", user);
-    // model.addAttribute("account", account);
-    // }
-    // return "dashboard";
-    // }
+    @GetMapping("/dashboard")
+    public String dashboard(Model model) {
+    return "dashboard";
+    }
 
-    // @PostMapping("/dashboard/resend-verification")
-    // public String resendVerification(@RequestParam String email, Model model) {
-    // logger.debug("Resending verification email to: {}", email);
-    // try {
-    // verificationService.sendEmailVerification(email);
-    // model.addAttribute("message", "Verification email resent successfully.");
-    // logger.info("Verification email resent to: {}", email);
-    // } catch (MessagingException e) {
-    // model.addAttribute("error", "Failed to resend verification email.");
-    // logger.error("Error resending email verification to {}: {}", email,
-    // e.getMessage(), e);
-    // }
-    // User user = userService.findByEmail(email);
-    // if (user != null) {
-    // Account account = accountRepository.findByUser(user).orElse(new Account());
-    // model.addAttribute("user", user);
-    // model.addAttribute("account", account);
-    // }
-    // return "dashboard";
-    // }
+    
+    @GetMapping("/about")
+    public String about(Model model) {
+    return "about";
+    }
+
 }

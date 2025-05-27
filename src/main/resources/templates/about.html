@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 1 Upgrade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy-blue': '#1e40af',
+                        'dark-navy': '#1e3a8a'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-navy-blue">
+    <!-- Header -->
+    <div class="bg-navy-blue text-white px-6 py-4">
+        <div class="flex items-center">
+            <svg class="w-6 h-6 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            <div>
+                <h1 class="text-xl font-medium">Level 1 Upgrade</h1>
+                <p class="text-sm text-blue-200 mt-1">Upgrade Business Owners Account to Level 1</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="flex min-h-screen bg-navy-blue">
+        <!-- Left Panel - Steps -->
+        <div class="w-80 bg-white p-6 relative">
+            <!-- Steps Container -->
+            <div class="space-y-1">
+                <!-- Step 1 - Active -->
+                <div class="flex items-center py-3">
+                    <div class="flex items-center justify-center w-8 h-8 bg-blue-500 rounded-full mr-4">
+                        <div class="w-3 h-3 bg-white rounded-full"></div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-blue-500 font-medium">Step 1 *</div>
+                        <div class="text-sm font-medium text-blue-500">BVN or NIN</div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex items-center py-3">
+                    <div class="flex items-center justify-center w-8 h-8 border-2 border-gray-300 rounded-full mr-4 bg-white">
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-400">Step 2 *</div>
+                        <div class="text-sm text-gray-600">Face Verification</div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex items-center py-3">
+                    <div class="flex items-center justify-center w-8 h-8 border-2 border-gray-300 rounded-full mr-4 bg-white">
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-400">Step 3 *</div>
+                        <div class="text-sm text-gray-600">Nationality</div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex items-center py-3">
+                    <div class="flex items-center justify-center w-8 h-8 border-2 border-gray-300 rounded-full mr-4 bg-white">
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-400">Step 4 *</div>
+                        <div class="text-sm text-gray-600">Residential Address</div>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex items-center py-3">
+                    <div class="flex items-center justify-center w-8 h-8 border-2 border-gray-300 rounded-full mr-4 bg-white">
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-400">Step 5 *</div>
+                        <div class="text-sm text-gray-600">Business Details</div>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="flex items-center py-3">
+                    <div class="flex items-center justify-center w-8 h-8 border-2 border-gray-300 rounded-full mr-4 bg-white">
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-400">Step 6 *</div>
+                        <div class="text-sm text-gray-600">Business Address</div>
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="flex items-center py-3">
+                    <div class="flex items-center justify-center w-8 h-8 border-2 border-gray-300 rounded-full mr-4 bg-white">
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-400">Step 7 *</div>
+                        <div class="text-sm text-gray-600">PEP Status</div>
+                    </div>
+                </div>
+
+                <!-- Step 8 -->
+                <div class="flex items-center py-3">
+                    <div class="flex items-center justify-center w-8 h-8 border-2 border-gray-300 rounded-full mr-4 bg-white">
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-400">Step 8 *</div>
+                        <div class="text-sm text-gray-600">Source of Revenue</div>
+                    </div>
+                </div>
+
+                <!-- Step 9 -->
+                <div class="flex items-center py-3">
+                    <div class="flex items-center justify-center w-8 h-8 border-2 border-gray-300 rounded-full mr-4 bg-white">
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-400">Step 9 *</div>
+                        <div class="text-sm text-gray-600">Attestation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel - Content -->
+        <div class="flex-1 bg-gray-50 px-8 py-8">
+            <div class="max-w-lg">
+                <!-- Header -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-2">Select an option</h2>
+                    <p class="text-gray-600">Select the type of ID to validate</p>
+                </div>
+
+                <!-- Options -->
+                <div class="space-y-6">
+                    <!-- NIN Option -->
+                    <div class="group cursor-pointer" onclick="selectOption(this)">
+                        <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-300 transition-colors">
+                            <div class="flex items-start justify-between">
+                                <div class="flex items-start space-x-4">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">National Identification Number(NIN)</h3>
+                                        <p class="text-gray-500 text-sm">
+                                            Don't have NIN? <span class="text-blue-600 font-medium">Dial *346# on your registered number.</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <svg class="w-5 h-5 text-gray-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BVN Option -->
+                    <div class="group cursor-pointer" onclick="selectOption(this)">
+                        <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-300 transition-colors">
+                            <div class="flex items-start justify-between">
+                                <div class="flex items-start space-x-4">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Bank Verification Number(BVN)</h3>
+                                        <p class="text-gray-500 text-sm">
+                                            Don't have BVN? <span class="text-blue-600 font-medium">Dial *565*0# on your registered number.</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <svg class="w-5 h-5 text-gray-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Notice -->
+                <div class="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-4">
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0 mt-0.5">
+                            <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <p class="text-blue-800 text-sm leading-relaxed">
+                            You can proceed with either one now, but you will be required to provide the other for an account upgrade
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Back Button -->
+                <div class="flex justify-end mt-12">
+                    <button class="text-blue-600 font-medium hover:text-blue-700 transition-colors">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectOption(element) {
+            // Remove selection from all options
+            document.querySelectorAll('.group .bg-white').forEach(option => {
+                option.classList.remove('border-blue-500', 'bg-blue-50');
+                option.classList.add('border-gray-200');
+            });
+            
+            // Add selection to clicked option
+            const optionDiv = element.querySelector('.bg-white');
+            optionDiv.classList.remove('border-gray-200');
+            optionDiv.classList.add('border-blue-500', 'bg-blue-50');
+        }
+    </script>
+</body>
+</html>

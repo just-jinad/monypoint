@@ -149,7 +149,7 @@ public class AllRoutes {
             userService.registerUser(username, password, email, phoneNumber);
             logger.info("User registered successfully: {}", username);
             SecurityContextHolder.clearContext();
-            return "redirect:/register-success";
+            return "redirect:/user-details";
         } catch (Exception e) {
             model.addAttribute("error", "Registration failed: " + e.getMessage());
             model.addAttribute("phoneNumber", phoneNumber);
@@ -200,9 +200,9 @@ public class AllRoutes {
     }
 
     
-    @GetMapping("/about")
-    public String about(Model model) {
-    return "about";
+    @GetMapping("/user-details")
+    public String details(Model model) {
+    return "user-details";
     }
 
 }

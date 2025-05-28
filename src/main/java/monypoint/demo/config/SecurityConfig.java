@@ -20,7 +20,7 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/", "/register", "/register/**", "/verify-email",
                                 "/login", "/login/phone/**", "/personal", "/register-success", "/css/**", "/js/**",
-                                "/images/**", "/dashboard", "/about")
+                                "/images/**", "/dashboard", "/user-details")
                         .permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form

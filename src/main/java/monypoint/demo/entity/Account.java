@@ -2,7 +2,9 @@ package monypoint.demo.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "Accounts")
@@ -18,9 +20,13 @@ public class Account {
     @Column(nullable = false)
     private double balance = 0.00;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+   @OneToOne
+    @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
+
+    
+    @OneToMany(mappedBy = "account", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Transaction> transactions;
 
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
@@ -40,6 +46,10 @@ public class Account {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
     }
 
     public void setCreatedAt(LocalDateTime createdAt) {

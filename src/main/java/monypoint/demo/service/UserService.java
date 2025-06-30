@@ -42,7 +42,7 @@ public class UserService {
         Account account = new Account();
         account.setUser(user);
         account.setAccountNumber(generateAccountNumber());
-        account.setBalance(0.0);
+        account.setBalance(10000.00);
         accountRepository.save(account);
     }
 

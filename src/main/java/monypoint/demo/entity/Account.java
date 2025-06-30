@@ -18,7 +18,7 @@ public class Account {
     private String accountNumber;
 
     @Column(nullable = false)
-    private double balance = 0.00;
+    private double balance = 10000.00;
 
    @OneToOne
     @JoinColumn(name = "user_id", nullable = false, unique = true)

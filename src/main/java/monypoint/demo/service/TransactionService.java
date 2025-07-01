@@ -5,13 +5,20 @@ import monypoint.demo.entity.User;
 import monypoint.demo.entity.Transaction;
 import monypoint.demo.repository.AccountRepository;
 import monypoint.demo.repository.TransactionRepository;
+
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Service
 public class TransactionService {
+    private static final Logger logger = LoggerFactory.getLogger(TransactionService.class);
 
     @Autowired
     private TransactionRepository transactionRepository;
@@ -22,26 +29,47 @@ public class TransactionService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-    @Transactional
+     @Transactional
     public Transaction createTransfer(Long userId, String recipientAccountNumber, Double amount, String description, String pin) {
-        Account senderAccount = accountRepository.findByUserId(userId)
-                .orElseThrow(() -> new IllegalArgumentException("Account not found"));
+        logger.info("Initiating transfer for userId: {}, amount: {}, recipient: {}", userId, amount, recipientAccountNumber);
 
-        User user = senderAccount.getUser();
-        if (!passwordEncoder.matches(pin, user.getPassword())) {
+        // Validate inputs
+        if (amount == null || amount <= 100) {
+            logger.error("Invalid amount: {}", amount);
+            throw new IllegalArgumentException("Amount must be greater than 100");
+        }
+
+        // Find sender account
+        Account senderAccount = accountRepository.findByUserId(userId)
+                .orElseThrow(() -> {
+                    logger.error("Sender account not found for userId: {}", userId);
+                    return new IllegalArgumentException("Sender account not found");
+                });
+
+        // Verify PIN
+        if (!passwordEncoder.matches(pin, senderAccount.getUser().getPassword())) {
+            logger.error("Invalid PIN for userId: {}", userId);
             throw new SecurityException("Invalid PIN");
         }
 
-        if (amount < 100 || amount > senderAccount.getBalance()) {
-            throw new IllegalArgumentException("Invalid amount: Must be ≥ ₦100 and ≤ balance");
+        // Check balance
+        if (senderAccount.getBalance() < amount) {
+            logger.error("Insufficient funds for userId: {}, balance: {}, amount: {}", userId, senderAccount.getBalance(), amount);
+            throw new IllegalArgumentException("Insufficient funds");
         }
 
+        // Find recipient account
         Account recipientAccount = accountRepository.findByAccountNumber(recipientAccountNumber)
-                .orElseThrow(() -> new IllegalArgumentException("Recipient not found"));
+                .orElseThrow(() -> {
+                    logger.error("Recipient account not found: {}", recipientAccountNumber);
+                    return new IllegalArgumentException("Recipient account not found");
+                });
 
+        // Update balances
         senderAccount.setBalance(senderAccount.getBalance() - amount);
         recipientAccount.setBalance(recipientAccount.getBalance() + amount);
 
+        // Create transaction
         Transaction transaction = new Transaction();
         transaction.setAccount(senderAccount);
         transaction.setType(Transaction.TransactionType.BANK_TRANSFER);
@@ -49,10 +77,14 @@ public class TransactionService {
         transaction.setCounterparty(recipientAccountNumber);
         transaction.setDescription(description);
         transaction.setStatus(Transaction.TransactionStatus.COMPLETED);
-        transactionRepository.save(transaction);
+        transaction.setCreatedAt(LocalDateTime.now());
 
+        // Save changes
         accountRepository.save(senderAccount);
         accountRepository.save(recipientAccount);
+        transactionRepository.save(transaction);
+
+        logger.info("Transfer completed: userId: {}, amount: {}, recipient: {}", userId, amount, recipientAccountNumber);
         return transaction;
     }
 

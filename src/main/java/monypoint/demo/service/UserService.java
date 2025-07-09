@@ -8,10 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Random;
 
 @Service
 public class UserService {
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -20,6 +24,12 @@ public class UserService {
     private BCryptPasswordEncoder passwordEncoder;
 
     public void registerUser(String username, String password, String email, String phoneNumber) {
+        logger.debug("Attempting to register user: username={}, email={}, phoneNumber={}, password=****", username,
+                email, phoneNumber);
+        // Ensure password format matches login expectation (e.g., 4-digit PIN as
+        // string)
+        // If not, login will fail even with correct input.
+
         if (userRepository.findByUsername(username).isPresent()) {
             throw new IllegalArgumentException("Username already exists");
         }

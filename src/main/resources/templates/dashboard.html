@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
     <title>Messagepoint - Dashboard</title>
     <script src="https://cdn.tailwindcss.com/3.4.3"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -194,6 +196,7 @@
             <h2 class="text-xl font-semibold mb-4">Transfer Funds</h2>
             <form id="transfer-form">
                 <input type="hidden" name="userId" value="1">
+                <input type="hidden" name="_csrf" id="_csrf">
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Recipient Account Number</label>
                     <input type="text" name="recipientAccountNumber" placeholder="Enter 10-digit account number" class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500" required pattern="\d{10}">
@@ -253,6 +256,9 @@
         function openModal(type) {
             document.getElementById(`${type}-modal`).style.display = 'flex';
             document.querySelectorAll('.error-message').forEach(el => el.classList.add('hidden'));
+            // Set CSRF token
+            const csrfToken = document.querySelector('meta[name="_csrf"]').content;
+            document.getElementById('_csrf').value = csrfToken;
         }
 
         function closeModal(type) {
@@ -266,6 +272,8 @@
             const recipient = form.recipientAccountNumber.value;
             const amount = parseFloat(form.amount.value);
             const pin = form.pin.value;
+            const csrfToken = form._csrf.value;
+            const csrfHeader = document.querySelector('meta[name="_csrf_header"]').content;
 
             // Client-side validation
             let isValid = true;
@@ -291,6 +299,10 @@
             try {
                 const response = await fetch('/api/transactions/transfer', {
                     method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        [csrfHeader]: csrfToken
+                    },
                     body: new URLSearchParams(new FormData(form))
                 });
                 document.getElementById('loading-overlay').style.display = 'none';
@@ -298,7 +310,7 @@
                     const error = await response.json();
                     let errorMessage = error.error || 'An error occurred';
                     if (response.status === 403) {
-                        errorMessage = 'You do not have permission to perform this action';
+                        errorMessage = 'You do not have permission to perform this action or invalid CSRF token';
                     } else if (response.status === 400) {
                         errorMessage = error.error || 'Invalid input';
                     }

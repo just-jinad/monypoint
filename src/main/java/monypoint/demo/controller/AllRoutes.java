@@ -1,18 +1,18 @@
 package monypoint.demo.controller;
 
 import monypoint.demo.entity.User;
-// import monypoint.demo.entity.Account;
+import monypoint.demo.entity.Account;
+import monypoint.demo.repository.AccountRepository;
 import monypoint.demo.service.UserService;
 import monypoint.demo.service.VerificationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.security.core.Authentication;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import jakarta.mail.MessagingException;
 
@@ -25,7 +25,9 @@ public class AllRoutes {
     @Autowired
     private VerificationService verificationService;
     @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    private org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder passwordEncoder;
+    @Autowired
+    private AccountRepository accountRepository;
 
     @GetMapping("/")
     public String index() {
@@ -46,7 +48,14 @@ public class AllRoutes {
     }
 
     @GetMapping("/login")
-    public String login(Model model) {
+    public String login(Model model, @RequestParam(value = "error", required = false) String error,
+            @RequestParam(value = "logout", required = false) String logout) {
+        if (error != null) {
+            model.addAttribute("error", "Invalid username or password.");
+        }
+        if (logout != null) {
+            model.addAttribute("message", "You have been logged out successfully.");
+        }
         return "login";
     }
 
@@ -196,13 +205,34 @@ public class AllRoutes {
 
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
-    return "dashboard";
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated() || "anonymousUser".equals(authentication.getName())) {
+            logger.warn("Unauthenticated access to /dashboard, redirecting to /login");
+            return "redirect:/login";
+        }
+        String username = authentication.getName();
+        logger.debug("Fetching dashboard for user: {}", username);
+        try {
+            User user = userService.findByUsername(username);
+            if (user == null) {
+                throw new IllegalArgumentException("User not found: " + username);
+            }
+            Account account = accountRepository.findByUserId(user.getId())
+                    .orElseThrow(() -> new IllegalArgumentException("Account not found for user: " + username));
+            model.addAttribute("balance", account.getBalance());
+            model.addAttribute("username", username);
+            model.addAttribute("userId", user.getId());
+            logger.info("Dashboard loaded for user: {}, balance: {}", username, account.getBalance());
+            return "dashboard";
+        } catch (IllegalArgumentException e) {
+            logger.error("Error loading dashboard: {}", e.getMessage());
+            model.addAttribute("error", e.getMessage());
+            return "error";
+        }
     }
 
-    
     @GetMapping("/user-details")
     public String details(Model model) {
-    return "user-details";
+        return "user-details";
     }
-
 }

@@ -5,14 +5,11 @@ import monypoint.demo.entity.User;
 import monypoint.demo.entity.Transaction;
 import monypoint.demo.repository.AccountRepository;
 import monypoint.demo.repository.TransactionRepository;
-
 import java.time.LocalDateTime;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,7 +26,7 @@ public class TransactionService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-     @Transactional
+    @Transactional
     public Transaction createTransfer(Long userId, String recipientAccountNumber, Double amount, String description, String pin) {
         logger.info("Initiating transfer for userId: {}, amount: {}, recipient: {}", userId, amount, recipientAccountNumber);
 
@@ -37,6 +34,14 @@ public class TransactionService {
         if (amount == null || amount <= 100) {
             logger.error("Invalid amount: {}", amount);
             throw new IllegalArgumentException("Amount must be greater than 100");
+        }
+        if (!recipientAccountNumber.matches("\\d{10}")) {
+            logger.error("Invalid recipient account number: {}", recipientAccountNumber);
+            throw new IllegalArgumentException("Recipient account number must be 10 digits");
+        }
+        if (!pin.matches("\\d{4}")) {
+            logger.error("Invalid PIN format");
+            throw new IllegalArgumentException("PIN must be 4 digits");
         }
 
         // Find sender account
@@ -75,7 +80,7 @@ public class TransactionService {
         transaction.setType(Transaction.TransactionType.BANK_TRANSFER);
         transaction.setAmount(amount);
         transaction.setCounterparty(recipientAccountNumber);
-        transaction.setDescription(description);
+        transaction.setDescription(description != null ? description : "Bank transfer");
         transaction.setStatus(Transaction.TransactionStatus.COMPLETED);
         transaction.setCreatedAt(LocalDateTime.now());
 
@@ -90,6 +95,8 @@ public class TransactionService {
 
     @Transactional
     public Transaction createTopUp(Long userId, Double amount, String paymentMethod, String cardDetails, String pin) {
+        logger.info("Initiating top-up for userId: {}, amount: {}", userId, amount);
+
         Account account = accountRepository.findByUserId(userId)
                 .orElseThrow(() -> new IllegalArgumentException("Account not found"));
 
@@ -98,11 +105,10 @@ public class TransactionService {
             throw new SecurityException("Invalid PIN");
         }
 
-        if (amount < 100) {
+        if (amount == null || amount < 100) {
             throw new IllegalArgumentException("Invalid amount: Must be ≥ ₦100");
         }
 
-        // Mock payment processing (e.g., card validation)
         if (!cardDetails.matches("\\d{16};\\d{2}/\\d{4};\\d{3,4}")) {
             throw new IllegalArgumentException("Invalid card details: Format 16-digit;MM/YYYY;CVV");
         }
@@ -115,14 +121,18 @@ public class TransactionService {
         transaction.setCounterparty(paymentMethod);
         transaction.setDescription("Top-up via " + paymentMethod);
         transaction.setStatus(Transaction.TransactionStatus.COMPLETED);
-        transactionRepository.save(transaction);
+        transaction.setCreatedAt(LocalDateTime.now());
 
         accountRepository.save(account);
+        transactionRepository.save(transaction);
+
         return transaction;
     }
 
     @Transactional
     public Transaction createBillPayment(Long userId, String biller, String customerId, Double amount, String pin) {
+        logger.info("Initiating bill payment for userId: {}, biller: {}, amount: {}", userId, biller, amount);
+
         Account account = accountRepository.findByUserId(userId)
                 .orElseThrow(() -> new IllegalArgumentException("Account not found"));
 
@@ -131,11 +141,10 @@ public class TransactionService {
             throw new SecurityException("Invalid PIN");
         }
 
-        if (amount < 100 || amount > account.getBalance()) {
+        if (amount == null || amount < 100 || amount > account.getBalance()) {
             throw new IllegalArgumentException("Invalid amount: Must be ≥ ₦100 and ≤ balance");
         }
 
-        // Mock biller validation
         if (!biller.matches("PHCN|MTN|DSTV")) {
             throw new IllegalArgumentException("Invalid biller");
         }
@@ -148,14 +157,18 @@ public class TransactionService {
         transaction.setCounterparty(customerId);
         transaction.setDescription("Payment to " + biller);
         transaction.setStatus(Transaction.TransactionStatus.COMPLETED);
-        transactionRepository.save(transaction);
+        transaction.setCreatedAt(LocalDateTime.now());
 
         accountRepository.save(account);
+        transactionRepository.save(transaction);
+
         return transaction;
     }
 
     @Transactional
     public Transaction createQRPayment(Long userId, String qrCode, Double amount, String pin) {
+        logger.info("Initiating QR payment for userId: {}, amount: {}", userId, amount);
+
         Account account = accountRepository.findByUserId(userId)
                 .orElseThrow(() -> new IllegalArgumentException("Account not found"));
 
@@ -164,11 +177,10 @@ public class TransactionService {
             throw new SecurityException("Invalid PIN");
         }
 
-        if (amount < 100 || amount > account.getBalance()) {
+        if (amount == null || amount < 100 || amount > account.getBalance()) {
             throw new IllegalArgumentException("Invalid amount: Must be ≥ ₦100 and ≤ balance");
         }
 
-        // Mock QR validation
         if (qrCode.isEmpty()) {
             throw new IllegalArgumentException("Invalid QR code");
         }
@@ -181,9 +193,11 @@ public class TransactionService {
         transaction.setCounterparty(qrCode);
         transaction.setDescription("QR payment");
         transaction.setStatus(Transaction.TransactionStatus.COMPLETED);
-        transactionRepository.save(transaction);
+        transaction.setCreatedAt(LocalDateTime.now());
 
         accountRepository.save(account);
+        transactionRepository.save(transaction);
+
         return transaction;
     }
 }

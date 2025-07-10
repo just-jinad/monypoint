@@ -23,7 +23,7 @@ public class SecurityConfig {
                 .requestMatchers(
                     "/", "/register", "/register/**", "/verify-email",
                     "/login", "/login/phone/**", "/personal", "/register-success",
-                    "/css/**", "/js/**", "/images/**", "*.html", "/user-details"
+                    "/css/**", "/js/**", "/images/**", "/favicon.ico", "/dashboard", "/user-details"
                 ).permitAll()
                 .requestMatchers("/api/transactions/**").hasRole("USER")
                 .anyRequest().authenticated())

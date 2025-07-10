@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="_csrf" content="${_csrf.token}"/>
-    <meta name="_csrf_header" content="${_csrf.headerName}"/>
     <title>Messagepoint - Dashboard</title>
     <script src="https://cdn.tailwindcss.com/3.4.3"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -44,12 +42,25 @@
             font-size: 0.875rem;
             margin-top: 0.25rem;
         }
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-sm">
     <!-- Loading Spinner Overlay -->
     <div id="loading-overlay" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(255,255,255,0.8);z-index:9999;align-items:center;justify-content:center;">
-        <iframe src="/loading.html" style="border:none;width:100vw;height:100vh;"></iframe>
+        <div class="loading-spinner"></div>
     </div>
     <!-- Top Navigation -->
     <nav class="bg-white border-b border-gray-200 px-4 py-2.5 h-14">
@@ -62,7 +73,7 @@
                     <span class="font-medium text-gray-800 text-base">Messagepoint</span>
                 </div>
                 <div class="flex items-center space-x-8 ml-4 text-sm">
-                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Dashboard</a>
+                    <a href="/dashboard" class="text-blue-600 hover:text-blue-800 font-medium">Dashboard</a>
                     <a href="#" class="text-gray-600 hover:text-gray-800">Online Business</a>
                 </div>
             </div>
@@ -79,9 +90,9 @@
                 </button>
                 <div class="flex items-center space-x-2">
                     <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                        <span class="text-white text-xs font-medium">AW</span>
+                        <span class="text-white text-xs font-medium" th:text="${#strings.substring(username, 0, 2).toUpperCase()}"></span>
                     </div>
-                    <span class="text-sm text-gray-700 font-medium">Awolowo Williams</span>
+                    <span class="text-sm text-gray-700 font-medium" th:text="${username}"></span>
                 </div>
             </div>
         </div>
@@ -95,7 +106,7 @@
                     <span class="text-xs text-gray-500 font-medium">Product Center</span>
                 </div>
                 <nav class="space-y-1">
-                    <a href="#" class="flex items-center space-x-3 text-gray-800 bg-blue-50 border-r-2 border-blue-500 rounded-l px-2 py-1.5 text-sm font-medium">
+                    <a href="/transactions" class="flex items-center space-x-3 text-gray-800 bg-blue-50 border-r-2 border-blue-500 rounded-l px-2 py-1.5 text-sm font-medium">
                         <i class="fas fa-receipt text-blue-600 w-4"></i>
                         <span>Transactions</span>
                         <span class="ml-auto w-2 h-2 bg-green-500 rounded-full"></span>
@@ -147,7 +158,7 @@
                     <div class="flex-1">
                         <div class="balance-card px-10 py-8 text-white rounded-2xl shadow-lg flex flex-col md:flex-row md:items-center md:justify-between">
                             <div>
-                                <div id="balance" class="text-4xl font-bold mb-2">₦0.00</div>
+                                <div id="balance" class="text-4xl font-bold mb-2" th:text="'₦' + ${balance != null ? #numbers.formatDecimal(balance, 1, 'COMMA', 2, 'POINT') : '0.00'}">₦0.00</div>
                                 <div class="text-lg font-medium">Current Balance</div>
                             </div>
                             <div class="flex space-x-6 mt-6 md:mt-0">
@@ -171,7 +182,7 @@
                         </div>
                     </div>
                     <div class="flex justify-end md:w-1/4">
-                        <a href="/transactions.html" class="text-blue-600 font-semibold hover:underline text-base">View Transaction History</a>
+                        <a href="/transactions" class="text-blue-600 font-semibold hover:underline text-base">View Transaction History</a>
                     </div>
                 </div>
 
@@ -195,8 +206,7 @@
         <div class="modal-content">
             <h2 class="text-xl font-semibold mb-4">Transfer Funds</h2>
             <form id="transfer-form">
-                <input type="hidden" name="userId" value="1">
-                <input type="hidden" name="_csrf" id="_csrf">
+                <input type="hidden" name="userId" id="userId" th:value="${userId}">
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Recipient Account Number</label>
                     <input type="text" name="recipientAccountNumber" placeholder="Enter 10-digit account number" class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500" required pattern="\d{10}">
@@ -224,15 +234,137 @@
         </div>
     </div>
 
+    <!-- Top-up Modal -->
+    <div id="top-up-modal" class="modal">
+        <div class="modal-content">
+            <h2 class="text-xl font-semibold mb-4">Top-up Account</h2>
+            <form id="top-up-form">
+                <input type="hidden" name="userId" id="top-up-userId" th:value="${userId}">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Amount (₦)</label>
+                    <input type="number" name="amount" placeholder="Enter amount (min ₦100)" class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500" required min="100" step="0.01">
+                    <p id="top-up-amount-error" class="error-message hidden"></p>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Payment Method</label>
+                    <select name="paymentMethod" class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500" required>
+                        <option value="CARD">Card</option>
+                        <option value="BANK">Bank Transfer</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Card Details</label>
+                    <input type="text" name="cardDetails" placeholder="1234567890123456;MM/YYYY;CVV" class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500" required pattern="\d{16};\d{2}/\d{4};\d{3,4}">
+                    <p id="card-details-error" class="error-message hidden"></p>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">PIN</label>
+                    <input type="password" name="pin" placeholder="Enter 4-digit PIN" class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500" required pattern="\d{4}">
+                    <p id="top-up-pin-error" class="error-message hidden"></p>
+                </div>
+                <div class="flex justify-end space-x-2">
+                    <button type="button" onclick="closeModal('top-up')" class="bg-gray-500 text-white p-2 rounded hover:bg-gray-600 transition">Cancel</button>
+                    <button type="submit" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition">Top-up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bills Modal -->
+    <div id="bills-modal" class="modal">
+        <div class="modal-content">
+            <h2 class="text-xl font-semibold mb-4">Pay Bills</h2>
+            <form id="bills-form">
+                <input type="hidden" name="userId" id="bills-userId" th:value="${userId}">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Biller</label>
+                    <select name="biller" class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500" required>
+                        <option value="PHCN">Electricity (PHCN)</option>
+                        <option value="MTN">MTN</option>
+                        <option value="DSTV">DSTV</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Customer ID</label>
+                    <input type="text" name="customerId" placeholder="Enter customer ID" class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500" required>
+                    <p id="customer-id-error" class="error-message hidden"></p>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Amount (₦)</label>
+                    <input type="number" name="amount" placeholder="Enter amount (min ₦100)" class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500" required min="100" step="0.01">
+                    <p id="bills-amount-error" class="error-message hidden"></p>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">PIN</label>
+                    <input type="password" name="pin" placeholder="Enter 4-digit PIN" class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500" required pattern="\d{4}">
+                    <p id="bills-pin-error" class="error-message hidden"></p>
+                </div>
+                <div class="flex justify-end space-x-2">
+                    <button type="button" onclick="closeModal('bills')" class="bg-gray-500 text-white p-2 rounded hover:bg-gray-600 transition">Cancel</button>
+                    <button type="submit" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition">Pay</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- QR Modal -->
+    <div id="qr-modal" class="modal">
+        <div class="modal-content">
+            <h2 class="text-xl font-semibold mb-4">Scan QR Payment</h2>
+            <form id="qr-form">
+                <input type="hidden" name="userId" id="qr-userId" th:value="${userId}">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">QR Code</label>
+                    <input type="text" name="qrCode" placeholder="Enter QR code" class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500" required>
+                    <p id="qr-code-error" class="error-message hidden"></p>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Amount (₦)</label>
+                    <input type="number" name="amount" placeholder="Enter amount (min ₦100)" class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500" required min="100" step="0.01">
+                    <p id="qr-amount-error" class="error-message hidden"></p>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">PIN</label>
+                    <input type="password" name="pin" placeholder="Enter 4-digit PIN" class="border p-2 w-full rounded focus:ring-2 focus:ring-blue-500" required pattern="\d{4}">
+                    <p id="qr-pin-error" class="error-message hidden"></p>
+                </div>
+                <div class="flex justify-end space-x-2">
+                    <button type="button" onclick="closeModal('qr')" class="bg-gray-500 text-white p-2 rounded hover:bg-gray-600 transition">Cancel</button>
+                    <button type="submit" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition">Pay</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
         async function fetchBalance() {
-            // Placeholder: Replace with /api/accounts endpoint
-            document.getElementById('balance').textContent = '₦10000.00';
+            try {
+                const userId = document.getElementById('userId').value;
+                const response = await fetch(`/api/accounts?userId=${userId}`, {
+                    headers: { 'Accept': 'application/json' }
+                });
+                document.getElementById('loading-overlay').style.display = 'none';
+                if (!response.ok) {
+                    const error = await response.json();
+                    alert(`Error: ${error.error || 'Failed to fetch balance'}`);
+                    return;
+                }
+                const account = await response.json();
+                document.getElementById('balance').textContent = `₦${Number(account.balance).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}`;
+            } catch (error) {
+                document.getElementById('loading-overlay').style.display = 'none';
+                alert('Failed to fetch balance. Please try again.');
+                console.error('Fetch balance error:', error);
+            }
         }
 
         async function fetchSummary() {
             try {
-                const response = await fetch(`/api/transactions?userId=1`);
+                const userId = document.getElementById('userId').value;
+                const response = await fetch(`/api/transactions?userId=${userId}`, {
+                    headers: { 'Accept': 'application/json' }
+                });
+                document.getElementById('loading-overlay').style.display = 'none';
                 if (!response.ok) {
                     const error = await response.json();
                     alert(`Error: ${error.error || 'Failed to fetch summary'}`);
@@ -241,96 +373,133 @@
                 const data = await response.json();
                 const transactions = data.content;
                 const moneyIn = transactions
-                    .filter(tx => ['BANK_TRANSFER', 'AIRTIME_DATA'].includes(tx.type) && tx.status === 'COMPLETED')
+                    .filter(tx => tx.status === 'COMPLETED' && ['AIRTIME_DATA'].includes(tx.type))
                     .reduce((sum, tx) => sum + tx.amount, 0);
                 const moneyOut = transactions
-                    .filter(tx => ['BILL_PAYMENT', 'QR_PAYMENT'].includes(tx.type) && tx.status === 'COMPLETED')
+                    .filter(tx => tx.status === 'COMPLETED' && ['BANK_TRANSFER', 'BILL_PAYMENT', 'QR_PAYMENT'].includes(tx.type))
                     .reduce((sum, tx) => sum + tx.amount, 0);
-                document.getElementById('money-in').textContent = `₦${moneyIn.toFixed(2)}`;
-                document.getElementById('money-out').textContent = `₦${moneyOut.toFixed(2)}`;
+                document.getElementById('money-in').textContent = `₦${moneyIn.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}`;
+                document.getElementById('money-out').textContent = `₦${moneyOut.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}`;
             } catch (error) {
+                document.getElementById('loading-overlay').style.display = 'none';
                 alert('Failed to fetch summary. Please try again.');
+                console.error('Fetch summary error:', error);
             }
         }
 
         function openModal(type) {
             document.getElementById(`${type}-modal`).style.display = 'flex';
-            document.querySelectorAll('.error-message').forEach(el => el.classList.add('hidden'));
-            // Set CSRF token
-            const csrfToken = document.querySelector('meta[name="_csrf"]').content;
-            document.getElementById('_csrf').value = csrfToken;
+            document.querySelectorAll(`#${type}-form .error-message`).forEach(el => el.classList.add('hidden'));
         }
 
         function closeModal(type) {
             document.getElementById(`${type}-modal`).style.display = 'none';
-            document.getElementById('transfer-form').reset();
+            document.getElementById(`${type}-form`).reset();
+            document.querySelectorAll(`#${type}-form .error-message`).forEach(el => el.classList.add('hidden'));
         }
 
-        document.getElementById('transfer-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const form = e.target;
-            const recipient = form.recipientAccountNumber.value;
-            const amount = parseFloat(form.amount.value);
-            const pin = form.pin.value;
-            const csrfToken = form._csrf.value;
-            const csrfHeader = document.querySelector('meta[name="_csrf_header"]').content;
+        async function handleFormSubmit(formId, endpoint, modalType) {
+            const form = document.getElementById(formId);
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
 
-            // Client-side validation
-            let isValid = true;
-            document.querySelectorAll('.error-message').forEach(el => el.classList.add('hidden'));
-            if (!/^\d{10}$/.test(recipient)) {
-                document.getElementById('recipient-error').textContent = 'Please enter a valid 10-digit account number';
-                document.getElementById('recipient-error').classList.remove('hidden');
-                isValid = false;
-            }
-            if (amount < 100) {
-                document.getElementById('amount-error').textContent = 'Amount must be at least ₦100';
-                document.getElementById('amount-error').classList.remove('hidden');
-                isValid = false;
-            }
-            if (!/^\d{4}$/.test(pin)) {
-                document.getElementById('pin-error').textContent = 'Please enter a valid 4-digit PIN';
-                document.getElementById('pin-error').classList.remove('hidden');
-                isValid = false;
-            }
-            if (!isValid) return;
+                // Client-side validation
+                let isValid = true;
+                document.querySelectorAll(`#${formId} .error-message`).forEach(el => el.classList.add('hidden'));
 
-            document.getElementById('loading-overlay').style.display = 'flex';
-            try {
-                const response = await fetch('/api/transactions/transfer', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                        [csrfHeader]: csrfToken
-                    },
-                    body: new URLSearchParams(new FormData(form))
-                });
-                document.getElementById('loading-overlay').style.display = 'none';
-                if (!response.ok) {
-                    const error = await response.json();
-                    let errorMessage = error.error || 'An error occurred';
-                    if (response.status === 403) {
-                        errorMessage = 'You do not have permission to perform this action or invalid CSRF token';
-                    } else if (response.status === 400) {
-                        errorMessage = error.error || 'Invalid input';
+                if (formId === 'transfer-form') {
+                    if (!/^\d{10}$/.test(data.recipientAccountNumber)) {
+                        document.getElementById('recipient-error').textContent = 'Please enter a valid 10-digit account number';
+                        document.getElementById('recipient-error').classList.remove('hidden');
+                        isValid = false;
                     }
-                    document.getElementById('pin-error').textContent = errorMessage;
-                    document.getElementById('pin-error').classList.remove('hidden');
-                    return;
                 }
-                alert('Transfer successful!');
-                closeModal('transfer');
-                fetchBalance();
-                fetchSummary();
-            } catch (error) {
-                document.getElementById('loading-overlay').style.display = 'none';
-                document.getElementById('pin-error').textContent = 'Network error. Please try again.';
-                document.getElementById('pin-error').classList.remove('hidden');
-            }
-        });
+                if (formId === 'top-up-form') {
+                    if (!/^\d{16};\d{2}\/\d{4};\d{3,4}$/.test(data.cardDetails)) {
+                        document.getElementById('card-details-error').textContent = 'Please enter valid card details (16-digit;MM/YYYY;CVV)';
+                        document.getElementById('card-details-error').classList.remove('hidden');
+                        isValid = false;
+                    }
+                }
+                if (formId === 'bills-form') {
+                    if (!data.customerId) {
+                        document.getElementById('customer-id-error').textContent = 'Please enter a valid customer ID';
+                        document.getElementById('customer-id-error').classList.remove('hidden');
+                        isValid = false;
+                    }
+                    if (!['PHCN', 'MTN', 'DSTV'].includes(data.biller)) {
+                        document.getElementById('bills-pin-error').textContent = 'Please select a valid biller';
+                        document.getElementById('bills-pin-error').classList.remove('hidden');
+                        isValid = false;
+                    }
+                }
+                if (formId === 'qr-form') {
+                    if (!data.qrCode) {
+                        document.getElementById('qr-code-error').textContent = 'Please enter a valid QR code';
+                        document.getElementById('qr-code-error').classList.remove('hidden');
+                        isValid = false;
+                    }
+                }
+                if (data.amount < 100) {
+                    document.getElementById(`${modalType}-amount-error`).textContent = 'Amount must be at least ₦100';
+                    document.getElementById(`${modalType}-amount-error`).classList.remove('hidden');
+                    isValid = false;
+                }
+                if (!/^\d{4}$/.test(data.pin)) {
+                    document.getElementById(`${modalType}-pin-error`).textContent = 'Please enter a valid 4-digit PIN';
+                    document.getElementById(`${modalType}-pin-error`).classList.remove('hidden');
+                    isValid = false;
+                }
+                if (!isValid) return;
 
-        fetchBalance();
-        fetchSummary();
+                document.getElementById('loading-overlay').style.display = 'flex';
+                try {
+                    const response = await fetch(`/api/transactions/${endpoint}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'Accept': 'application/json'
+                        },
+                        body: new URLSearchParams(formData)
+                    });
+                    document.getElementById('loading-overlay').style.display = 'none';
+                    if (!response.ok) {
+                        const error = await response.json();
+                        let errorMessage = error.error || 'An error occurred';
+                        if (response.status === 400) {
+                            errorMessage = error.error || 'Invalid input';
+                        } else if (response.status === 403) {
+                            errorMessage = 'You do not have permission to perform this action';
+                        }
+                        document.getElementById(`${modalType}-pin-error`).textContent = errorMessage;
+                        document.getElementById(`${modalType}-pin-error`).classList.remove('hidden');
+                        return;
+                    }
+                    const result = await response.json();
+                    alert(result.message || `${modalType.charAt(0).toUpperCase() + modalType.slice(1)} successful!`);
+                    closeModal(modalType);
+                    fetchBalance();
+                    fetchSummary();
+                } catch (error) {
+                    document.getElementById('loading-overlay').style.display = 'none';
+                    document.getElementById(`${modalType}-pin-error`).textContent = 'Network error. Please try again.';
+                    document.getElementById(`${modalType}-pin-error`).classList.remove('hidden');
+                    console.error(`${modalType} error:`, error);
+                }
+            });
+        }
+
+        window.onload = () => {
+            document.getElementById('loading-overlay').style.display = 'flex';
+            fetchBalance();
+            fetchSummary();
+            handleFormSubmit('transfer-form', 'transfer', 'transfer');
+            handleFormSubmit('top-up-form', 'top-up', 'top-up');
+            handleFormSubmit('bills-form', 'bills', 'bills');
+            handleFormSubmit('qr-form', 'qr', 'qr');
+        };
     </script>
 </body>
 </html>

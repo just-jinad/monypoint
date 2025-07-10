@@ -2,7 +2,7 @@ package monypoint.demo.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -20,18 +20,17 @@ public class Account {
     @Column(nullable = false)
     private double balance = 10000.00;
 
-   @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
 
-    
     @OneToMany(mappedBy = "account", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Transaction> transactions;
 
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    // Explicit setters for compilation safety
     public void setId(Long id) {
         this.id = id;
     }

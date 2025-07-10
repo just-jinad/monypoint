@@ -11,7 +11,8 @@ import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Service
+// REMOVE THIS CLASS TO AVOID MULTIPLE UserDetailsService BEANS
+//@Service
 public class CustomUserDetailsService implements UserDetailsService {
     private static final Logger logger = LoggerFactory.getLogger(CustomUserDetailsService.class);
 
